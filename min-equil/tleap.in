@@ -1,0 +1,10 @@
+source leaprc.protein.ff15ipq
+source leaprc.water.spce
+mol = loadpdb gb1-ntaco_leap.pdb
+charge mol
+addions mol Na+ 0
+addions mol Cl- 0
+solvateoct mol SPCBOX 12.0
+saveamberparm mol gb1-ntaco_solv.prmtop gb1-ntaco_solv.inpcrd
+savepdb mol gb1-ntaco_solv.pdb
+quit
