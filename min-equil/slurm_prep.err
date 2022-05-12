@@ -14,7 +14,10 @@ Warning: When compiling code please add the following flags to nvcc:
 + printf '\ndone restrained system heat in\n\n'
 + printf '\nstart restrained equil\n\n'
 + mpirun -np 8 pmemd.MPI -O -i 04_eq2.in -o 04_eq2.out -p gb1-ntaco_solv.prmtop -c 03_eq1.rst -r 04_eq2.rst -ref 03_eq1.rst
+<<<<<<< HEAD
 + printf '\ndone restrained equil\n\n'
 + printf '\nstart unrestrained equil\n\n'
 + mpirun -np 8 pmemd.MPI -O -i 05_eq3.in -o 05_eq3.out -p gb1-ntaco_solv.prmtop -c 04_eq2.rst -r 05_eq3.rst
 + printf '\ndone unrestrained equil\n\n'
+=======
+>>>>>>> 2487c8372e82bce5cc9b20fbe30ec98e6db0c097

@@ -19,6 +19,7 @@ First FFT Slab Distribution Based on Actual Workload:
   Count of FFT xz slabs assigned to each task:
        0   0   0  30   0   0   0  30
 
+<<<<<<< HEAD
 Image Distribution at run step     350:
 
   Count of images assigned to each task:
@@ -872,6 +873,8 @@ PME NonBond Parallel Profiling - NonSetup CPU Seconds:
  avg   526.7    2721.9     474.6    0.2    3723.4
 -------------------------------------------------
 =======
+=======
+>>>>>>> 2487c8372e82bce5cc9b20fbe30ec98e6db0c097
 Image Distribution at run step     354:
 
   Count of images assigned to each task:

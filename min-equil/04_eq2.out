@@ -1111,6 +1111,7 @@ wrapping first mol.:       18.65873       26.38742       45.70436
  Ewald error estimate:   0.9548E-04
  ------------------------------------------------------------------------------
 
+<<<<<<< HEAD
 wrapping first mol.:       18.63655       26.35606       45.65004
 
  NSTEP =    34500   TIME(PS) =      89.000  TEMP(K) =   296.25  PRESS =     0.0
@@ -13343,3 +13344,5 @@ wrapping first mol.:       18.66200       26.39205       45.71237
 |  Master Setup wall time:           0    seconds
 |  Master NonSetup wall time:     4244    seconds
 |  Master Total wall time:        4244    seconds     1.18 hours
+=======
+>>>>>>> 2487c8372e82bce5cc9b20fbe30ec98e6db0c097
