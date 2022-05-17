@@ -3,6 +3,7 @@ Create the &pcshf namelist file that is input into amber.
 In mdin files: PCSHIFT=pcs.in with &pcshf namelist.
 """
 
+import pdb
 import numpy as np
 
 class Create_PCSHF_Input:
@@ -34,9 +35,13 @@ class Create_PCSHF_Input:
         out : filepath str
             Path to and name of the pcshf output file, default 'pcs.in'.
         """
-        # files
-        self.pdb = pdb
-        self.pcsnpc = pcsnpc
+        # save raw file strings as numpy arrays
+        with open(pdb, "r") as pdb_file:
+            pdb_lines = pdb_file.readlines()
+        # only save the backbone NH atom lines
+        self.pdb = np.loadtxt([line for line in pdb_lines if line[13:15] == "H "], dtype=str)
+        with open(pcsnpc, "r") as npc_file:
+            self.pcsnpc = np.loadtxt(npc_file.readlines(), dtype=str)
 
         # unpack tensor parameters
         if angle_units == "radians":
@@ -65,31 +70,65 @@ class Create_PCSHF_Input:
         """
         Builds a string with info about the paramagnetic center(s).
         """
-        newline = "\n "
-        header = "&pcshf" + newline
+        header = "&pcshf" + ",\n"
         # number of pseudocontact shifts from npc file
-        header += f"nprot=" + newline
+        header += f" nprot={len(self.pcsnpc)}" + ",\n"
         # number of paramagnetic centers
-        header += f"nme={self.nme}" + newline
+        header += f" nme={self.nme}" + ",\n"
         # name of paramagnetic atom
-        header += f"nmpmc='{self.nmpmc}'" + newline
-        # phi, theta, omega
-        header += f""
+        header += f" nmpmc='{self.nmpmc}'" + ",\n"
+        # phi, theta, omega of each paramagnetic center (just 1 in this case)
+        header += f" optphi(1)={self.phi},\n opttet(1)={self.theta},\n optomg(1)={self.omega},\n"
+        # ∆chi_ax and ∆chi_rh of each paramagnetic center
+        header += f" opta1(1)={self.a1},\n opta2(1)={self.a2},\n"
+        # force constant
+        header += f" optkon={self.optkon}" + ",\n"
 
         return header
 
 
-    def build_pcs_constraints(self):
+    def build_pcs_constraints(self, wt=1.0, tolpro=1.0, mltpro=1):
         """
         Builds a string with each pcs constraint from npc file.
+
+        Parameters (TODO; put in init?)
+        ----------
+        wt : float
+            Optional weight of each pcs constraint.
+        tolpro : float
+            Relative tolerance x mltpro (multiplicity).
+        mltpro : int
+            Multiplicity, e.g. 3 for methyl groups.
         """
-        pass
+        # multi line string for each pcs constraint
+        pcs = "! beginning writing of each pcs constraint"
+        # pcsnpc format: 
+        # [residue_index | atom_name | pcs | exp_error]
+        # ['55', 'HN', '0.299', '0']
+        # pdb formatting: 
+        # ['ATOM', '839', 'H', 'GLU', '56', '-9.107', '4.313', '3.287', '1.00', '0.00']]
+        for num, line in enumerate(self.pcsnpc):
+            # match the pcs residue with the pdb residue, then get pdb atom number
+            atom_num = self.pdb[line[0]]
+            # proton atom number, observed pcs, relative weight
+            pcs += f" iprot({num})={atom_num}, obs({num})={line[2]}, wt({num})={wt},"
+            pcs += f" tolpro({num})={tolpro}, mltpro({num})={mltpro}, \n"
 
     def write_file(self):
         """
         Main public method, writes the pcshf file.
         """
+        # write file header
+        self.out.write(self.build_pcshf_header())
+
+        # write pcs constraints
+        self.out.write(self.build_pcs_constraints())
 
         # close the file
         self.out.close()
 
+
+# phi=60.42, theta=75.172, omega =107.84 ; delta-chi,ax=-6.342; delta-chi,rh=-1.411
+magtensor = [60.42, 75.172, 107.84, -6.342, -1.411]
+pcs = Create_PCSHF_Input("gb1-ntaco_solv.pdb", "dHis-NTA_Co-PCS_HN_full.npc", magtensor)
+#print(len(pcs.pdb))
