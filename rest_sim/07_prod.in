@@ -6,6 +6,10 @@ PCS Restrainted 200 ns NPT production using Langevin thermostat and MC barostat
   dt        = 0.002,
   nstlim    = 100000000,
   nscm      = 500,
+  ! turn on nmr restraints
+  nmropt    = 2,
+  ! use sum of squares optimization of errors
+  ipnlty    = 2,
   ntr       = 0,
   ntb       = 2,
   ntp       = 1,
@@ -27,3 +31,16 @@ PCS Restrainted 200 ns NPT production using Langevin thermostat and MC barostat
   ntwx      = 500,
   iwrap     = 1,
 &end
+! This essentially starts the nmr restraints after the first step
+&wt
+  type      = "REST",
+  istep1    = 0,
+  istep2    = 1,
+  value1    = 0,
+  value2    = 1.0,
+&end
+&wt
+  type      = "END",
+&end
+PCSHIFT     = pcs.in
+LISTOUT     = POUT
