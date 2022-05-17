@@ -6,6 +6,10 @@ PCS restrained 10000 step minimization, 500 SD
   ntmin     = 1,
   maxcyc    = 10000,
   ncyc      = 500,
+  ! turn on nmr restraints
+  nmropt    = 2,
+  ! use sum of squares optimization of errors
+  ipnlty    = 2,
   ntr       = 0,
   ntb       = 1,
   ntf       = 1,
@@ -18,3 +22,16 @@ PCS restrained 10000 step minimization, 500 SD
   ntwx      = 0,
   iwrap     = 1,
 &end
+! This essentially starts the nmr restraints after the first step
+&wt
+  type      = "REST",
+  istep1    = 0,
+  istep2    = 1,
+  value1    = 0,
+  value2    = 1.0,
+&end
+&wt
+  type      = "END",
+&end
+PCSHIFT     = pcs.in
+LISTOUT     = POUT
