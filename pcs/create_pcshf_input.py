@@ -3,7 +3,6 @@ Create the &pcshf namelist file that is input into amber.
 In mdin files: PCSHIFT=pcs.in with &pcshf namelist.
 """
 
-import pdb
 import numpy as np
 
 class Create_PCSHF_Input:
@@ -65,7 +64,6 @@ class Create_PCSHF_Input:
         # set up the output file to write
         self.out = open(out, "w+")
 
-
     def build_pcshf_header(self):
         """
         Builds a string with info about the paramagnetic center(s).
@@ -104,7 +102,6 @@ class Create_PCSHF_Input:
         pcs = " ! beginning writing of each pcs constraint \n"
         # pcsnpc format: 
         # [residue_index | atom_name | pcs | exp_error]
-        # ['55', 'HN', '0.299', '0']
         # pdb formatting: 
         # ['ATOM', '839', 'H', 'GLU', '56', '-9.107', '4.313', '3.287', '1.00', '0.00']]
         for num, line in enumerate(self.pcsnpc):
@@ -112,6 +109,7 @@ class Create_PCSHF_Input:
             atom_num = int(self.pdb[np.argwhere(self.pdb[:,4]==line[0]), 1])
             # proton atom number, observed pcs, relative weight
             pcs += f" iprot({num+1})={atom_num}, obs({num+1})={line[2]}, wt({num+1})={wt},"
+            # relative tolerance (ppm), multiplicity of the NMR signal
             pcs += f" tolpro({num+1})={tolpro}, mltpro({num+1})={mltpro}, \n"
 
         return pcs
@@ -131,7 +129,8 @@ class Create_PCSHF_Input:
 
 
 if __name__ == "__main__":
-    # phi=60.42, theta=75.172, omega =107.84 ; delta-chi,ax=-6.342; delta-chi,rh=-1.411
+    # for GB1 NTA-Co2+:
+    # phi=60.42, theta=75.172, omega=107.84 ; delta-chi_ax=-6.342; delta-chi_rh=-1.411
     magtensor = [60.42, 75.172, 107.84, -6.342, -1.411]
     pcs = Create_PCSHF_Input("gb1-ntaco_solv.pdb", "dHis-NTA_Co-PCS_HN_full.npc", magtensor)
     pcs.write_file()
