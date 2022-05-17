@@ -101,18 +101,20 @@ class Create_PCSHF_Input:
             Multiplicity, e.g. 3 for methyl groups.
         """
         # multi line string for each pcs constraint
-        pcs = "! beginning writing of each pcs constraint"
+        pcs = " ! beginning writing of each pcs constraint \n"
         # pcsnpc format: 
         # [residue_index | atom_name | pcs | exp_error]
         # ['55', 'HN', '0.299', '0']
         # pdb formatting: 
         # ['ATOM', '839', 'H', 'GLU', '56', '-9.107', '4.313', '3.287', '1.00', '0.00']]
         for num, line in enumerate(self.pcsnpc):
-            # match the pcs residue with the pdb residue, then get pdb atom number
-            atom_num = self.pdb[line[0]]
+            # match the pcs residue with the pdb residue (col4), then get pdb atom number (col2)
+            atom_num = int(self.pdb[np.argwhere(self.pdb[:,4]==line[0]), 1])
             # proton atom number, observed pcs, relative weight
-            pcs += f" iprot({num})={atom_num}, obs({num})={line[2]}, wt({num})={wt},"
-            pcs += f" tolpro({num})={tolpro}, mltpro({num})={mltpro}, \n"
+            pcs += f" iprot({num+1})={atom_num}, obs({num+1})={line[2]}, wt({num+1})={wt},"
+            pcs += f" tolpro({num+1})={tolpro}, mltpro({num+1})={mltpro}, \n"
+
+        return pcs
 
     def write_file(self):
         """
@@ -128,7 +130,8 @@ class Create_PCSHF_Input:
         self.out.close()
 
 
-# phi=60.42, theta=75.172, omega =107.84 ; delta-chi,ax=-6.342; delta-chi,rh=-1.411
-magtensor = [60.42, 75.172, 107.84, -6.342, -1.411]
-pcs = Create_PCSHF_Input("gb1-ntaco_solv.pdb", "dHis-NTA_Co-PCS_HN_full.npc", magtensor)
-#print(len(pcs.pdb))
+if __name__ == "__main__":
+    # phi=60.42, theta=75.172, omega =107.84 ; delta-chi,ax=-6.342; delta-chi,rh=-1.411
+    magtensor = [60.42, 75.172, 107.84, -6.342, -1.411]
+    pcs = Create_PCSHF_Input("gb1-ntaco_solv.pdb", "dHis-NTA_Co-PCS_HN_full.npc", magtensor)
+    pcs.write_file()
