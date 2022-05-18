@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=rest_pcs_gb1_ntaco_PROD_07
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=28
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=24
 #SBATCH --time=144:00:00 
 #SBATCH --mail-user=dty7@pitt.edu
 #SBATCH --mail-type=END,FAIL
@@ -13,7 +13,7 @@ module load nmr/amber/amber20_CUDA
 # echo commands to stdout
 set -x
 
-export DO_PARALLEL="mpirun -np 28"
+export DO_PARALLEL="mpirun -np 48"
 
 # Executable
 SANDER=sander.MPI
@@ -21,6 +21,7 @@ SANDER=sander.MPI
 # Amber input files and output name
 INP=07_prod.in
 TOP=gb1-ntaco_solv.prmtop
+#CRD=06_min.rst
 CRD=06_min.rst
 OUT=07_prod
 
