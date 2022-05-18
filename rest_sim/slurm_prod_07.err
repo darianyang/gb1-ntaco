@@ -1,8 +1,81 @@
-+ export 'DO_PARALLEL=mpirun -np 112'
-+ DO_PARALLEL='mpirun -np 112'
++ export 'DO_PARALLEL=mpirun -np 28'
++ DO_PARALLEL='mpirun -np 28'
 + SANDER=sander.MPI
 + INP=07_prod.in
 + TOP=gb1-ntaco_solv.prmtop
 + CRD=06_min.rst
 + OUT=07_prod
-+ mpirun -np 112 sander.MPI -O -i 07_prod.in -p gb1-ntaco_solv.prmtop -c 06_min.rst -r 07_prod.rst -o 07_prod.out -e 07_prod.ene -v 07_prod.vel -inf 07_prod.nfo -x 07_prod.nc
++ mpirun -np 28 sander.MPI -O -i 07_prod.in -p gb1-ntaco_solv.prmtop -c 06_min.rst -r 07_prod.rst -o 07_prod.out -e 07_prod.ene -v 07_prod.vel -inf 07_prod.nfo -x 07_prod.nc
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+--------------------------------------------------------------------------
+A process has executed an operation involving a call to the
+"fork()" system call to create a child process.  Open MPI is currently
+operating in a condition that could result in memory corruption or
+other system errors; your job may hang, crash, or produce silent
+data corruption.  The use of fork() (or system() or other calls that
+create child processes) is strongly discouraged.
+
+The process that invoked fork was:
+
+  Local host:          [[13940,1],26] (PID 10560)
+
+If you are *absolutely sure* that your application will successfully
+and correctly survive a call to fork(), you may disable this warning
+by setting the mpi_warn_on_fork MCA parameter to 0.
+--------------------------------------------------------------------------
+#0  0x2AAAAD6DE287
+#0  0x2AAAAD6DE287
+#1  0x2AAAAD6DE88E
+#0  0x2AAAAD6DE287
+#1  0x2AAAAD6DE88E
+#2  0x2AAAADE6156F
+#2  0x2AAAADE6156F
+#3  0x6DD869 in nb_adjust_
+#3  0x6DD869 in nb_adjust_
+#4  0x6DF755 in ewald_force_
+#4  0x6DF755 in ewald_force_
+#5  0x5EDD10 in force_
+#5  0x5EDD10 in force_
+#6  0x6A1F9E in runmd_
+#6  0x6A1F9E in runmd_
+#7  0x64E7B2 in sander_
+#7  0x64E7B2 in sander_
+#8  0x64439F in MAIN__ at multisander.F90:0
+#1  0x2AAAAD6DE88E
+#0  0x2AAAAD6DE287
+#1  0x2AAAAD6DE88E
+#2  0x2AAAADE6156F
+#2  0x2AAAADE6156F
+#8  0x64439F in MAIN__ at multisander.F90:0
+#3  0x6DD869 in nb_adjust_
+#3  0x6DD869 in nb_adjust_
+#4  0x6DF755 in ewald_force_
+#4  0x6DF755 in ewald_force_
+#5  0x5EDD10 in force_
+#5  0x5EDD10 in force_
+#6  0x6A1F9E in runmd_
+#6  0x6A1F9E in runmd_
+#7  0x64E7B2 in sander_
+#7  0x64E7B2 in sander_
+#8  0x64439F in MAIN__ at multisander.F90:0
+#8  0x64439F in MAIN__ at multisander.F90:0
+--------------------------------------------------------------------------
+mpirun noticed that process rank 25 with PID 10559 on node node01 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+[node01:10514] 3 more processes have sent help message help-opal-runtime.txt / opal_init:warn-fork
+[node01:10514] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
