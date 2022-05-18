@@ -8,7 +8,7 @@ import numpy as np
 class Create_PCSHF_Input:
 
     def __init__(self, pdb, pcsnpc, magtensor, angle_units="degrees", 
-                 nme=1, nmpmc="CO", optkon=30, out="pcs.in"):
+                 nfe=1, nmpmc="CO", optkon=30, out="pcs.in"):
         """
         Class to create the &pcshf namelist file that is input into amber.
 
@@ -25,7 +25,7 @@ class Create_PCSHF_Input:
         angle_units : str
             Can be 'degrees' (default) or 'radians'. Will convert degrees to radians.
             Radians are used by default in Amber.
-        nme : int (TODO: can only handle 1 for now)
+        nfe : int (TODO: can only handle 1 for now)
             Number of paramagnetic centers, default 1.
         nmpmc : str
             Name of the paramagnetic atom, default 'CO' (Cobalt).
@@ -57,7 +57,7 @@ class Create_PCSHF_Input:
         self.a1 = magtensor[3]
         self.a2 = magtensor[4]
 
-        self.nme = nme
+        self.nfe = nfe
         self.nmpmc = nmpmc
         self.optkon = optkon
 
@@ -72,7 +72,8 @@ class Create_PCSHF_Input:
         # number of pseudocontact shifts from npc file
         header += f" nprot={len(self.pcsnpc)}" + ",\n"
         # number of paramagnetic centers
-        header += f" nme={self.nme}" + ",\n"
+        # Amber manual says nme, but actually should be nfe
+        header += f" nfe={self.nfe}" + ",\n"
         # name of paramagnetic atom
         header += f" nmpmc='{self.nmpmc}'" + ",\n"
         # phi, theta, omega of each paramagnetic center (just 1 in this case)
@@ -111,6 +112,9 @@ class Create_PCSHF_Input:
             pcs += f" iprot({num+1})={atom_num}, obs({num+1})={line[2]}, wt({num+1})={wt},"
             # relative tolerance (ppm), multiplicity of the NMR signal
             pcs += f" tolpro({num+1})={tolpro}, mltpro({num+1})={mltpro}, \n"
+
+        # end of file
+        pcs += "&end"        
 
         return pcs
 

@@ -1,6 +1,6 @@
 &pcshf,
  nprot=42,
- nme=1,
+ nfe=1,
  nmpmc='CO',
  optphi(1)=1.054527934054974,
  opttet(1)=1.3119989053091774,
@@ -8,7 +8,6 @@
  opta1(1)=-6.342,
  opta2(1)=-1.411,
  optkon=30,
- ! beginning writing of each pcs constraint 
  iprot(1)=59, obs(1)=0.186, wt(1)=1.0, tolpro(1)=1.0, mltpro(1)=1, 
  iprot(2)=81, obs(2)=0.37, wt(2)=1.0, tolpro(2)=1.0, mltpro(2)=1, 
  iprot(3)=100, obs(3)=0.322, wt(3)=1.0, tolpro(3)=1.0, mltpro(3)=1, 
@@ -51,3 +50,4 @@
  iprot(40)=809, obs(40)=0.337, wt(40)=1.0, tolpro(40)=1.0, mltpro(40)=1, 
  iprot(41)=825, obs(41)=0.299, wt(41)=1.0, tolpro(41)=1.0, mltpro(41)=1, 
  iprot(42)=839, obs(42)=0.173, wt(42)=1.0, tolpro(42)=1.0, mltpro(42)=1, 
+&end

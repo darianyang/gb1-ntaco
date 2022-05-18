@@ -24,14 +24,14 @@ PCS restrained 10000 step minimization, 500 SD
 &end
 ! This essentially starts the nmr restraints after the first step
 &wt
-  type      = "REST",
+  type      = 'REST',
   istep1    = 0,
   istep2    = 1,
   value1    = 0,
   value2    = 1.0,
 &end
 &wt
-  type      = "END",
+  type      = 'END',
 &end
-PCSHIFT     = pcs.in
+PCSHIFT     = ./pcs.in
 LISTOUT     = POUT
