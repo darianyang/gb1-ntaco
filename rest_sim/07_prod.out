@@ -1,0 +1,2274 @@
+
+          -------------------------------------------------------
+          Amber 20 SANDER                              2020
+          -------------------------------------------------------
+
+| Run on 05/17/2022 at 22:32:23
+
+|   Executable path: sander.MPI
+| Working directory: /home/dyang/gb1-pcs/rest_sim
+|          Hostname: node01
+
+  [-O]verwriting output
+
+File Assignments:
+|  MDIN: 07_prod.in                                                            
+| MDOUT: 07_prod.out                                                           
+|INPCRD: 06_min.rst                                                            
+|  PARM: gb1-ntaco_solv.prmtop                                                 
+|RESTRT: 07_prod.rst                                                           
+|  REFC: refc                                                                  
+| MDVEL: 07_prod.vel                                                           
+| MDFRC: mdfrc                                                                 
+|  MDEN: 07_prod.ene                                                           
+| MDCRD: 07_prod.nc                                                            
+|MDINFO: 07_prod.nfo                                                           
+|  MTMD: mtmd                                                                  
+|INPDIP: inpdip                                                                
+|RSTDIP: rstdip                                                                
+|INPTRA: inptraj                                                               
+
+|    REMLOG: rem.log
+|   REMTYPE: rem.type
+|  REMSTRIP: 
+|   SAVEENE: saveene
+|CLUSTERINF: cluster.info
+| RESERVOIR: reserv/frame
+|   REMDDIM: 
+
+
+ Here is the input file:
+
+PCS Restrainted 20 ns NPT production using Langevin thermostat and MC barostat 
+&cntrl                                                                         
+  !irest     = 1,                                                              
+  ! no velicities from minimization so start new simulation                    
+  irest     = 0,                                                               
+  !ntx       = 5,                                                              
+  ! set to 1 since no velocities read from minimization                        
+  ntx       = 1,                                                               
+  ig        = -1,                                                              
+  dt        = 0.002,                                                           
+  nstlim    = 10000000,                                                        
+  nscm      = 500,                                                             
+  ! turn on nmr restraints                                                     
+  nmropt    = 2,                                                               
+  ! use sum of squares optimization of errors                                  
+  ipnlty    = 2,                                                               
+  ntr       = 0,                                                               
+  ntb       = 2,                                                               
+  ntp       = 1,                                                               
+  barostat  = 2,                                                               
+  pres0     = 1.0,                                                             
+  mcbarint  = 100,                                                             
+  comp      = 44.6,                                                            
+  taup      = 1.0,                                                             
+  ntt       = 3,                                                               
+  temp0     = 298.0,                                                           
+  gamma_ln  = 1.0,                                                             
+  ntf       = 2,                                                               
+  ntc       = 2,                                                               
+  cut       = 10.0,                                                            
+  ntpr      = 500,                                                             
+  ntxo      = 2,                                                               
+  ntwr      = 500000,                                                          
+  ioutfm    = 1,                                                               
+  ntwx      = 500,                                                             
+  iwrap     = 1,                                                               
+&end                                                                           
+! This essentially starts the nmr restraints after the first step              
+&wt                                                                            
+  type      = "REST",                                                          
+  !istep1    = 0,                                                              
+  !istep2    = 1,                                                              
+  !value1    = 0,                                                              
+  !value2    = 1.0,                                                            
+  ! since starting from rest min, use restraints the whole time                
+  value1    = 1.0,                                                             
+&end                                                                           
+&wt                                                                            
+  type      = "END",                                                           
+&end                                                                           
+PCSHIFT     = pcs.in                                                           
+LISTOUT     = POUT                                                             
+
+--------------------------------------------------------------------------------
+   1.  RESOURCE   USE: 
+--------------------------------------------------------------------------------
+
+| Flags: MPI                                                                    
+ getting box info from netcdf restart file
+| NetCDF restart box info found
+|Largest sphere to fit in unit cell has radius =    22.852
+| New format PARM file being parsed.
+| Version =    1.000 Date = 05/11/22 Time = 15:59:17
+ NATOM  =   13701 NTYPES =      24 NBONH =   13210 MBONA  =     461
+ NTHETH =     950 MTHETA =     626 NPHIH =    1872 MPHIA  =    2034
+ NHPARM =       0 NPARM  =       0 NNB   =   21859 NRES   =    4358
+ NBONA  =     461 NTHETA =     626 NPHIA =    2034 NUMBND =      79
+ NUMANG =     173 NPTRA  =     338 NATYP =      47 NPHB   =       0
+ IFBOX  =       2 NMXRS  =      24 IFCAP =       0 NEXTRA =       0
+ NCOPY  =       0
+
+
+|     Memory Use     Allocated
+|     Real             1795025
+|     Hollerith          45463
+|     Integer           620023
+|     Max Pairs          93949
+|     nblistReal        164412
+|     nblist Int        408646
+|       Total            19870 kbytes
+
+| Note: 1-4 EEL scale factors are being read from the topology file.
+
+| Note: 1-4 VDW scale factors are being read from the topology file.
+| Duplicated    0 dihedrals
+| Duplicated    0 dihedrals
+
+     BOX TYPE: TRUNCATED OCTAHEDRON
+Note: ig = -1. Setting random seed to    18630 based on wallclock time in microseconds
+      and disabling the synchronization of random numbers between tasks
+      to improve performance.
+
+--------------------------------------------------------------------------------
+   2.  CONTROL  DATA  FOR  THE  RUN
+--------------------------------------------------------------------------------
+
+default_name                                                                    
+
+General flags:
+     imin    =       0, nmropt  =       2
+
+Nature and format of input:
+     ntx     =       1, irest   =       0, ntrx    =       1
+
+Nature and format of output:
+     ntxo    =       2, ntpr    =     500, ntrx    =       1, ntwr    =  500000
+     iwrap   =       1, ntwx    =     500, ntwv    =       0, ntwe    =       0
+     ioutfm  =       1, ntwprt  =       0, idecomp =       0, rbornstat=      0
+
+Potential function:
+     ntf     =       2, ntb     =       2, igb     =       0, nsnb    =      25
+     ipol    =       0, gbsa    =       0, iesp    =       0
+     dielc   =   1.00000, cut     =  10.00000, intdiel =   1.00000
+
+Frozen or restrained atoms:
+     ibelly  =       0, ntr     =       0
+
+Molecular dynamics:
+     nstlim  =  10000000, nscm    =       500, nrespa  =         1
+     t       =   0.00000, dt      =   0.00200, vlimit  =  20.00000
+
+Langevin dynamics temperature regulation:
+     ig      =   18630
+     temp0   = 298.00000, tempi   =   0.00000, gamma_ln=   1.00000
+
+Pressure regulation:
+     ntp     =       1
+     pres0   =   1.00000, comp    =  44.60000, taup    =   1.00000
+     Monte-Carlo Barostat:
+     mcbarint  =     100
+
+SHAKE:
+     ntc     =       2, jfastw  =       0
+     tol     =   0.00001
+
+NMR refinement options:
+     iscale  =       0, noeskp  =       1, ipnlty  =       2, mxsub   =       1
+     scalm   = 100.00000, pencut  =   0.10000, tausw   =   0.10000
+
+Ewald parameters:
+     verbose =       0, ew_type =       0, nbflag  =       1, use_pme =       1
+     vdwmeth =       1, eedmeth =       1, netfrc  =       1
+     Box X =   55.976   Box Y =   55.976   Box Z =   55.976
+     Alpha =  109.471   Beta  =  109.471   Gamma =  109.471
+     NFFT1 =   60       NFFT2 =   60       NFFT3 =   60
+     Cutoff=   10.000   Tol   =0.100E-04
+     Ewald Coefficient =  0.27511
+     Interpolation order =    4
+
+| MPI Timing options:
+|      profile_mpi =        0
+|  INFO: Old style inpcrd file read
+
+
+--------------------------------------------------------------------------------
+   3.  ATOMIC COORDINATES AND VELOCITIES
+--------------------------------------------------------------------------------
+
+default_name                                                                    
+ begin time read from input coords =     0.000 ps
+
+
+
+           Begin reading energy term weight changes/NMR restraints
+ WEIGHT CHANGES:
+ REST          0      0    1.000000    0.000000      0      0
+
+ RESTRAINTS:
+ Requested file redirections:
+  PCSHIFT   = pcs.in
+  LISTOUT   = POUT
+                          ** No restraint defined **
+
+                  Done reading weight changes/NMR restraints
+
+
+ Number of triangulated 3-point waters found:     4264
+|  Atom division among processors:
+|         0     853     969    1086    1203    1320    1437    1554
+|      1671    1788    1905    2022    2139    2256    2373    2490
+|      2607    2724    2841    2958    3075    3192    3309    3426
+|      3543    3660    3777    3894    4011    4128    4245    4362
+|      4479    4596    4713    4830    4947    5064    5181    5298
+|      5415    5532    5649    5766    5883    5997    6111    6228
+|      6342    6456    6573    6687    6801    6918    7032    7146
+|      7263    7377    7491    7608    7722    7836    7953    8067
+|      8181    8298    8412    8526    8643    8757    8871    8988
+|      9102    9216    9333    9447    9561    9678    9792    9906
+|     10023   10137   10251   10368   10482   10596   10713   10827
+|     10941   11058   11172   11286   11403   11517   11631   11748
+|     11862   11976   12093   12207   12321   12438   12552   12666
+|     12783   12897   13011   13128   13242   13356   13473   13587
+|     13701
+
+     Sum of charges from parm topology file =  -0.00200670
+     Forcing neutrality...
+|  Running AMBER/MPI version on  112 nodes
+
+|  WARNING: The number of processors is not a power of 2
+|           this may be inefficient on some systems.
+
+--------------------------------------------------------------------------------
+   4.  RESULTS
+--------------------------------------------------------------------------------
+
+|  # of SOLUTE  degrees of freedom (RNDFP):   27893.
+|  # of SOLVENT degrees of freedom (RNDFS):       0.
+|  NDFMIN =   27893.     NUM_NOSHAKE =      0     CORRECTED RNDFP =   27893.
+|  TOTAL # of degrees of freedom (RNDF) =   27893.
+ ---------------------------------------------------
+ APPROXIMATING switch and d/dx switch using CUBIC SPLINE INTERPOLATION
+ using   5000.0 points per unit in tabled values
+ TESTING RELATIVE ERROR over r ranging from 0.0 to cutoff
+| CHECK switch(x): max rel err =   0.2738E-14   at   2.422500
+| CHECK d/dx switch(x): max rel err =   0.8314E-11   at   2.736960
+ ---------------------------------------------------
+| Local SIZE OF NONBOND LIST =      44409
+| TOTAL SIZE OF NONBOND LIST =    5011647
+ Pseudocontact shifts will be read from file: pcs.in
+ namelist no reports error 
+ Number of Total protons           42
+ Number of paramagnetic center            1
+ Coord. of paramagnetic center(s) : CO 
+   16.648243182891800       -5.3523969970434040       -13.280964064203427     
+ TENSOR PARAMETERS
+ PHI=  60.420 TETA=  75.172 OMEGA= 107.840
+ A1=    -6.342 A2=    -1.411
+  VIOLATIONS      3  RESIDUALS    0.48369
+                                        Total pcshift constraint:   14.51
+
+                     #  Pearson r           rms error
+                  -----------------------------------
+pcshift correlatio   42  -0.61701  -0.72016   0.45794
+
+ NSTEP =        0   TIME(PS) =       0.000  TEMP(K) =     0.00  PRESS = -7423.7
+ Etot   =    -78660.2317  EKtot   =         0.0000  EPtot      =    -78660.2317
+ BOND   =        37.7173  ANGLE   =       176.6959  DIHED      =      -328.4551
+ 1-4 NB =       178.4497  1-4 EEL =      4714.8276  VDWAALS    =     14727.2090
+ EELEC  =    -98181.1866  EHBOND  =         0.0000  RESTRAINT  =        14.5106
+ EAMBER (non-restraint)  =    -78674.7422
+ EKCMT  =         0.0000  VIRIAL  =     21641.6775  VOLUME     =    135017.5739
+                                                    Density    =         1.0372
+ Ewald error estimate:   0.2479E-03
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.511
+===============================================================================
+                                        Total pcshift constraint:   14.51
+
+                     #  Pearson r           rms error
+                  -----------------------------------
+pcshift correlatio   42  -0.61701  -0.72016   0.45794
+                VIOLATIONS      3  RESIDUALS    0.48365
+                VIOLATIONS      3  RESIDUALS    0.48369
+                VIOLATIONS      3  RESIDUALS    0.48357
+                VIOLATIONS      3  RESIDUALS    0.48387
+                VIOLATIONS      3  RESIDUALS    0.48377
+                VIOLATIONS      3  RESIDUALS    0.48384
+                VIOLATIONS      3  RESIDUALS    0.48354
+                VIOLATIONS      3  RESIDUALS    0.48359
+                VIOLATIONS      3  RESIDUALS    0.48373
+                VIOLATIONS      3  RESIDUALS    0.48357
+                VIOLATIONS      3  RESIDUALS    0.48364
+                VIOLATIONS      3  RESIDUALS    0.48377
+                VIOLATIONS      3  RESIDUALS    0.48371
+                VIOLATIONS      3  RESIDUALS    0.48354
+                VIOLATIONS      3  RESIDUALS    0.48333
+                VIOLATIONS      3  RESIDUALS    0.48337
+                VIOLATIONS      3  RESIDUALS    0.48363
+                VIOLATIONS      3  RESIDUALS    0.48312
+                VIOLATIONS      3  RESIDUALS    0.48327
+                VIOLATIONS      3  RESIDUALS    0.48305
+                VIOLATIONS      3  RESIDUALS    0.48352
+                VIOLATIONS      3  RESIDUALS    0.48343
+                VIOLATIONS      3  RESIDUALS    0.48354
+                VIOLATIONS      3  RESIDUALS    0.48334
+                VIOLATIONS      3  RESIDUALS    0.48341
+                VIOLATIONS      3  RESIDUALS    0.48371
+                VIOLATIONS      3  RESIDUALS    0.48368
+                VIOLATIONS      3  RESIDUALS    0.48398
+                VIOLATIONS      3  RESIDUALS    0.48416
+                VIOLATIONS      3  RESIDUALS    0.48395
+                VIOLATIONS      3  RESIDUALS    0.48416
+                VIOLATIONS      3  RESIDUALS    0.48469
+                VIOLATIONS      3  RESIDUALS    0.48410
+                VIOLATIONS      3  RESIDUALS    0.48432
+                VIOLATIONS      3  RESIDUALS    0.48401
+                VIOLATIONS      3  RESIDUALS    0.48443
+                VIOLATIONS      3  RESIDUALS    0.48346
+                VIOLATIONS      3  RESIDUALS    0.48371
+                VIOLATIONS      3  RESIDUALS    0.48319
+                VIOLATIONS      3  RESIDUALS    0.48353
+                VIOLATIONS      3  RESIDUALS    0.48343
+                VIOLATIONS      3  RESIDUALS    0.48372
+                VIOLATIONS      3  RESIDUALS    0.48320
+                VIOLATIONS      3  RESIDUALS    0.48356
+                VIOLATIONS      3  RESIDUALS    0.48327
+                VIOLATIONS      3  RESIDUALS    0.48364
+                VIOLATIONS      3  RESIDUALS    0.48399
+                VIOLATIONS      3  RESIDUALS    0.48354
+                VIOLATIONS      3  RESIDUALS    0.48335
+                VIOLATIONS      3  RESIDUALS    0.48332
+                VIOLATIONS      3  RESIDUALS    0.48323
+wrapping first mol.:      -37.28623       26.36535       45.66613
+
+ NSTEP =      500   TIME(PS) =       1.000  TEMP(K) =   187.32  PRESS = -1089.2
+ Etot   =    -56334.9462  EKtot   =      5191.4385  EPtot      =    -61526.3847
+ BOND   =       124.6146  ANGLE   =       383.5889  DIHED      =      -270.0221
+ 1-4 NB =       199.8036  1-4 EEL =      4734.3117  VDWAALS    =     11342.0109
+ EELEC  =    -78055.1860  EHBOND  =         0.0000  RESTRAINT  =        14.4938
+ EAMBER (non-restraint)  =    -61540.8785
+ EKCMT  =      2453.4257  VIRIAL  =      5620.7868  VOLUME     =    134678.2606
+                                                    Density    =         1.0398
+ Ewald error estimate:   0.3773E-03
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.494
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48341
+                VIOLATIONS      3  RESIDUALS    0.48426
+                VIOLATIONS      3  RESIDUALS    0.48400
+                VIOLATIONS      3  RESIDUALS    0.48473
+                VIOLATIONS      3  RESIDUALS    0.48368
+                VIOLATIONS      3  RESIDUALS    0.48386
+                VIOLATIONS      3  RESIDUALS    0.48352
+                VIOLATIONS      3  RESIDUALS    0.48363
+                VIOLATIONS      3  RESIDUALS    0.48330
+                VIOLATIONS      3  RESIDUALS    0.48325
+                VIOLATIONS      3  RESIDUALS    0.48288
+                VIOLATIONS      3  RESIDUALS    0.48446
+                VIOLATIONS      3  RESIDUALS    0.48374
+                VIOLATIONS      3  RESIDUALS    0.48406
+                VIOLATIONS      3  RESIDUALS    0.48401
+                VIOLATIONS      3  RESIDUALS    0.48387
+                VIOLATIONS      3  RESIDUALS    0.48388
+                VIOLATIONS      3  RESIDUALS    0.48320
+                VIOLATIONS      3  RESIDUALS    0.48328
+                VIOLATIONS      3  RESIDUALS    0.48292
+                VIOLATIONS      3  RESIDUALS    0.48284
+                VIOLATIONS      3  RESIDUALS    0.48334
+                VIOLATIONS      3  RESIDUALS    0.48351
+                VIOLATIONS      3  RESIDUALS    0.48425
+                VIOLATIONS      3  RESIDUALS    0.48398
+                VIOLATIONS      3  RESIDUALS    0.48357
+                VIOLATIONS      3  RESIDUALS    0.48426
+                VIOLATIONS      3  RESIDUALS    0.48357
+                VIOLATIONS      3  RESIDUALS    0.48390
+                VIOLATIONS      3  RESIDUALS    0.48379
+                VIOLATIONS      3  RESIDUALS    0.48323
+                VIOLATIONS      3  RESIDUALS    0.48360
+                VIOLATIONS      3  RESIDUALS    0.48335
+                VIOLATIONS      3  RESIDUALS    0.48263
+                VIOLATIONS      3  RESIDUALS    0.48384
+                VIOLATIONS      3  RESIDUALS    0.48248
+                VIOLATIONS      3  RESIDUALS    0.48298
+                VIOLATIONS      3  RESIDUALS    0.48225
+                VIOLATIONS      3  RESIDUALS    0.48236
+                VIOLATIONS      3  RESIDUALS    0.48316
+                VIOLATIONS      3  RESIDUALS    0.48331
+                VIOLATIONS      3  RESIDUALS    0.48376
+                VIOLATIONS      3  RESIDUALS    0.48409
+                VIOLATIONS      3  RESIDUALS    0.48336
+                VIOLATIONS      3  RESIDUALS    0.48412
+                VIOLATIONS      3  RESIDUALS    0.48394
+                VIOLATIONS      3  RESIDUALS    0.48292
+                VIOLATIONS      3  RESIDUALS    0.48444
+                VIOLATIONS      3  RESIDUALS    0.48333
+                VIOLATIONS      3  RESIDUALS    0.48348
+                VIOLATIONS      3  RESIDUALS    0.48361
+wrapping first mol.:      -37.27218       26.35542       45.64892
+
+ NSTEP =     1000   TIME(PS) =       2.000  TEMP(K) =   248.85  PRESS =   217.5
+ Etot   =    -52344.4502  EKtot   =      6896.7072  EPtot      =    -59241.1574
+ BOND   =       162.4783  ANGLE   =       442.6949  DIHED      =      -258.4147
+ 1-4 NB =       213.6366  1-4 EEL =      4713.2239  VDWAALS    =     11030.8578
+ EELEC  =    -75560.1397  EHBOND  =         0.0000  RESTRAINT  =        14.5055
+ EAMBER (non-restraint)  =    -59255.6628
+ EKCMT  =      3182.6734  VIRIAL  =      2550.8224  VOLUME     =    134526.0748
+                                                    Density    =         1.0410
+ Ewald error estimate:   0.2627E-03
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.505
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48401
+                VIOLATIONS      3  RESIDUALS    0.48340
+                VIOLATIONS      3  RESIDUALS    0.48335
+                VIOLATIONS      3  RESIDUALS    0.48331
+                VIOLATIONS      3  RESIDUALS    0.48265
+                VIOLATIONS      3  RESIDUALS    0.48282
+                VIOLATIONS      3  RESIDUALS    0.48323
+                VIOLATIONS      3  RESIDUALS    0.48307
+                VIOLATIONS      3  RESIDUALS    0.48260
+                VIOLATIONS      3  RESIDUALS    0.48354
+                VIOLATIONS      3  RESIDUALS    0.48250
+                VIOLATIONS      3  RESIDUALS    0.48357
+                VIOLATIONS      3  RESIDUALS    0.48269
+                VIOLATIONS      3  RESIDUALS    0.48223
+                VIOLATIONS      3  RESIDUALS    0.48386
+                VIOLATIONS      3  RESIDUALS    0.48327
+                VIOLATIONS      3  RESIDUALS    0.48304
+                VIOLATIONS      3  RESIDUALS    0.48423
+                VIOLATIONS      3  RESIDUALS    0.48308
+                VIOLATIONS      3  RESIDUALS    0.48305
+                VIOLATIONS      3  RESIDUALS    0.48352
+                VIOLATIONS      3  RESIDUALS    0.48335
+                VIOLATIONS      3  RESIDUALS    0.48359
+                VIOLATIONS      3  RESIDUALS    0.48278
+                VIOLATIONS      3  RESIDUALS    0.48341
+                VIOLATIONS      3  RESIDUALS    0.48349
+                VIOLATIONS      3  RESIDUALS    0.48284
+                VIOLATIONS      3  RESIDUALS    0.48312
+                VIOLATIONS      3  RESIDUALS    0.48296
+                VIOLATIONS      3  RESIDUALS    0.48275
+                VIOLATIONS      3  RESIDUALS    0.48354
+                VIOLATIONS      3  RESIDUALS    0.48296
+                VIOLATIONS      3  RESIDUALS    0.48359
+                VIOLATIONS      3  RESIDUALS    0.48375
+                VIOLATIONS      3  RESIDUALS    0.48340
+                VIOLATIONS      3  RESIDUALS    0.48425
+                VIOLATIONS      3  RESIDUALS    0.48309
+                VIOLATIONS      3  RESIDUALS    0.48287
+                VIOLATIONS      3  RESIDUALS    0.48327
+                VIOLATIONS      3  RESIDUALS    0.48359
+                VIOLATIONS      3  RESIDUALS    0.48466
+                VIOLATIONS      3  RESIDUALS    0.48368
+                VIOLATIONS      3  RESIDUALS    0.48356
+                VIOLATIONS      3  RESIDUALS    0.48400
+                VIOLATIONS      3  RESIDUALS    0.48321
+                VIOLATIONS      3  RESIDUALS    0.48325
+                VIOLATIONS      3  RESIDUALS    0.48328
+                VIOLATIONS      3  RESIDUALS    0.48176
+                VIOLATIONS      3  RESIDUALS    0.48274
+                VIOLATIONS      3  RESIDUALS    0.48209
+                VIOLATIONS      3  RESIDUALS    0.48290
+wrapping first mol.:      -37.25998       26.34679       45.63397
+
+ NSTEP =     1500   TIME(PS) =       3.000  TEMP(K) =   278.63  PRESS =   188.5
+ Etot   =    -50509.2331  EKtot   =      7721.9919  EPtot      =    -58231.2250
+ BOND   =       188.0065  ANGLE   =       499.8507  DIHED      =      -251.6015
+ 1-4 NB =       204.2607  1-4 EEL =      4741.5655  VDWAALS    =     10598.4962
+ EELEC  =    -74226.2919  EHBOND  =         0.0000  RESTRAINT  =        14.4887
+ EAMBER (non-restraint)  =    -58245.7137
+ EKCMT  =      3599.0678  VIRIAL  =      3052.2200  VOLUME     =    134393.9778
+                                                    Density    =         1.0420
+ Ewald error estimate:   0.6342E-04
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.489
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48298
+                VIOLATIONS      3  RESIDUALS    0.48312
+                VIOLATIONS      3  RESIDUALS    0.48244
+                VIOLATIONS      3  RESIDUALS    0.48305
+                VIOLATIONS      3  RESIDUALS    0.48274
+                VIOLATIONS      3  RESIDUALS    0.48272
+                VIOLATIONS      3  RESIDUALS    0.48216
+                VIOLATIONS      3  RESIDUALS    0.48214
+                VIOLATIONS      3  RESIDUALS    0.48290
+                VIOLATIONS      3  RESIDUALS    0.48363
+                VIOLATIONS      3  RESIDUALS    0.48392
+                VIOLATIONS      3  RESIDUALS    0.48291
+                VIOLATIONS      3  RESIDUALS    0.48335
+                VIOLATIONS      3  RESIDUALS    0.48322
+                VIOLATIONS      3  RESIDUALS    0.48273
+                VIOLATIONS      3  RESIDUALS    0.48362
+                VIOLATIONS      3  RESIDUALS    0.48344
+                VIOLATIONS      3  RESIDUALS    0.48401
+                VIOLATIONS      3  RESIDUALS    0.48398
+                VIOLATIONS      3  RESIDUALS    0.48366
+                VIOLATIONS      3  RESIDUALS    0.48383
+                VIOLATIONS      3  RESIDUALS    0.48393
+                VIOLATIONS      3  RESIDUALS    0.48340
+                VIOLATIONS      3  RESIDUALS    0.48468
+                VIOLATIONS      3  RESIDUALS    0.48329
+                VIOLATIONS      3  RESIDUALS    0.48336
+                VIOLATIONS      3  RESIDUALS    0.48389
+                VIOLATIONS      3  RESIDUALS    0.48172
+                VIOLATIONS      3  RESIDUALS    0.48269
+                VIOLATIONS      3  RESIDUALS    0.48201
+                VIOLATIONS      3  RESIDUALS    0.48196
+                VIOLATIONS      3  RESIDUALS    0.48301
+                VIOLATIONS      3  RESIDUALS    0.48367
+                VIOLATIONS      3  RESIDUALS    0.48351
+                VIOLATIONS      3  RESIDUALS    0.48481
+                VIOLATIONS      3  RESIDUALS    0.48396
+                VIOLATIONS      3  RESIDUALS    0.48380
+                VIOLATIONS      3  RESIDUALS    0.48314
+                VIOLATIONS      3  RESIDUALS    0.48317
+                VIOLATIONS      3  RESIDUALS    0.48410
+                VIOLATIONS      3  RESIDUALS    0.48355
+                VIOLATIONS      3  RESIDUALS    0.48349
+                VIOLATIONS      3  RESIDUALS    0.48312
+                VIOLATIONS      3  RESIDUALS    0.48293
+                VIOLATIONS      3  RESIDUALS    0.48329
+                VIOLATIONS      3  RESIDUALS    0.48309
+                VIOLATIONS      3  RESIDUALS    0.48243
+                VIOLATIONS      3  RESIDUALS    0.48284
+                VIOLATIONS      3  RESIDUALS    0.48267
+                VIOLATIONS      3  RESIDUALS    0.48368
+                VIOLATIONS      3  RESIDUALS    0.48343
+wrapping first mol.:      -37.29001       26.36802       45.67075
+
+ NSTEP =     2000   TIME(PS) =       4.000  TEMP(K) =   286.30  PRESS =  -610.6
+ Etot   =    -49595.4391  EKtot   =      7934.5884  EPtot      =    -57530.0275
+ BOND   =       188.3302  ANGLE   =       467.1429  DIHED      =      -231.6303
+ 1-4 NB =       220.1255  1-4 EEL =      4736.6992  VDWAALS    =      9902.6387
+ EELEC  =    -72827.8366  EHBOND  =         0.0000  RESTRAINT  =        14.5029
+ EAMBER (non-restraint)  =    -57544.5304
+ EKCMT  =      3670.1454  VIRIAL  =      5446.3317  VOLUME     =    134719.1965
+                                                    Density    =         1.0395
+ Ewald error estimate:   0.2166E-05
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.503
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48369
+                VIOLATIONS      3  RESIDUALS    0.48389
+                VIOLATIONS      3  RESIDUALS    0.48321
+                VIOLATIONS      3  RESIDUALS    0.48410
+                VIOLATIONS      3  RESIDUALS    0.48396
+                VIOLATIONS      3  RESIDUALS    0.48414
+                VIOLATIONS      3  RESIDUALS    0.48425
+                VIOLATIONS      3  RESIDUALS    0.48346
+                VIOLATIONS      3  RESIDUALS    0.48452
+                VIOLATIONS      3  RESIDUALS    0.48432
+                VIOLATIONS      3  RESIDUALS    0.48332
+                VIOLATIONS      3  RESIDUALS    0.48357
+                VIOLATIONS      3  RESIDUALS    0.48282
+                VIOLATIONS      3  RESIDUALS    0.48279
+                VIOLATIONS      3  RESIDUALS    0.48295
+                VIOLATIONS      3  RESIDUALS    0.48287
+                VIOLATIONS      3  RESIDUALS    0.48264
+                VIOLATIONS      3  RESIDUALS    0.48271
+                VIOLATIONS      3  RESIDUALS    0.48243
+                VIOLATIONS      3  RESIDUALS    0.48344
+                VIOLATIONS      3  RESIDUALS    0.48358
+                VIOLATIONS      3  RESIDUALS    0.48342
+                VIOLATIONS      3  RESIDUALS    0.48357
+                VIOLATIONS      3  RESIDUALS    0.48297
+                VIOLATIONS      3  RESIDUALS    0.48305
+                VIOLATIONS      3  RESIDUALS    0.48346
+                VIOLATIONS      3  RESIDUALS    0.48348
+                VIOLATIONS      3  RESIDUALS    0.48409
+                VIOLATIONS      3  RESIDUALS    0.48330
+                VIOLATIONS      3  RESIDUALS    0.48330
+                VIOLATIONS      3  RESIDUALS    0.48420
+                VIOLATIONS      3  RESIDUALS    0.48324
+                VIOLATIONS      3  RESIDUALS    0.48339
+                VIOLATIONS      3  RESIDUALS    0.48332
+                VIOLATIONS      3  RESIDUALS    0.48353
+                VIOLATIONS      3  RESIDUALS    0.48403
+                VIOLATIONS      3  RESIDUALS    0.48342
+                VIOLATIONS      3  RESIDUALS    0.48301
+                VIOLATIONS      3  RESIDUALS    0.48397
+                VIOLATIONS      3  RESIDUALS    0.48315
+                VIOLATIONS      3  RESIDUALS    0.48334
+                VIOLATIONS      3  RESIDUALS    0.48349
+                VIOLATIONS      3  RESIDUALS    0.48360
+                VIOLATIONS      3  RESIDUALS    0.48353
+                VIOLATIONS      3  RESIDUALS    0.48330
+                VIOLATIONS      3  RESIDUALS    0.48254
+                VIOLATIONS      3  RESIDUALS    0.48212
+                VIOLATIONS      3  RESIDUALS    0.48221
+                VIOLATIONS      3  RESIDUALS    0.48200
+                VIOLATIONS      3  RESIDUALS    0.48239
+                VIOLATIONS      3  RESIDUALS    0.48271
+wrapping first mol.:      -37.30858       26.38116       45.69350
+
+ NSTEP =     2500   TIME(PS) =       5.000  TEMP(K) =   287.53  PRESS =  -227.0
+ Etot   =    -49228.7745  EKtot   =      7968.5960  EPtot      =    -57197.3704
+ BOND   =       170.6341  ANGLE   =       488.3310  DIHED      =      -260.6866
+ 1-4 NB =       207.3089  1-4 EEL =      4758.5399  VDWAALS    =      9943.8618
+ EELEC  =    -72519.8408  EHBOND  =         0.0000  RESTRAINT  =        14.4812
+ EAMBER (non-restraint)  =    -57211.8517
+ EKCMT  =      3726.6773  VIRIAL  =      4387.9416  VOLUME     =    134920.5818
+                                                    Density    =         1.0380
+ Ewald error estimate:   0.1632E-03
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.481
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48304
+                VIOLATIONS      3  RESIDUALS    0.48262
+                VIOLATIONS      3  RESIDUALS    0.48225
+                VIOLATIONS      3  RESIDUALS    0.48234
+                VIOLATIONS      3  RESIDUALS    0.48275
+                VIOLATIONS      3  RESIDUALS    0.48347
+                VIOLATIONS      3  RESIDUALS    0.48317
+                VIOLATIONS      3  RESIDUALS    0.48358
+                VIOLATIONS      3  RESIDUALS    0.48376
+                VIOLATIONS      3  RESIDUALS    0.48389
+                VIOLATIONS      3  RESIDUALS    0.48386
+                VIOLATIONS      3  RESIDUALS    0.48371
+                VIOLATIONS      3  RESIDUALS    0.48351
+                VIOLATIONS      3  RESIDUALS    0.48335
+                VIOLATIONS      3  RESIDUALS    0.48331
+                VIOLATIONS      3  RESIDUALS    0.48329
+                VIOLATIONS      3  RESIDUALS    0.48239
+                VIOLATIONS      3  RESIDUALS    0.48340
+                VIOLATIONS      3  RESIDUALS    0.48322
+                VIOLATIONS      3  RESIDUALS    0.48366
+                VIOLATIONS      3  RESIDUALS    0.48429
+                VIOLATIONS      3  RESIDUALS    0.48382
+                VIOLATIONS      3  RESIDUALS    0.48358
+                VIOLATIONS      3  RESIDUALS    0.48387
+                VIOLATIONS      3  RESIDUALS    0.48388
+                VIOLATIONS      3  RESIDUALS    0.48374
+                VIOLATIONS      3  RESIDUALS    0.48379
+                VIOLATIONS      3  RESIDUALS    0.48342
+                VIOLATIONS      3  RESIDUALS    0.48359
+                VIOLATIONS      3  RESIDUALS    0.48360
+                VIOLATIONS      3  RESIDUALS    0.48450
+                VIOLATIONS      3  RESIDUALS    0.48373
+                VIOLATIONS      3  RESIDUALS    0.48398
+                VIOLATIONS      3  RESIDUALS    0.48385
+                VIOLATIONS      3  RESIDUALS    0.48434
+                VIOLATIONS      3  RESIDUALS    0.48326
+                VIOLATIONS      3  RESIDUALS    0.48369
+                VIOLATIONS      3  RESIDUALS    0.48318
+                VIOLATIONS      3  RESIDUALS    0.48358
+                VIOLATIONS      3  RESIDUALS    0.48335
+                VIOLATIONS      3  RESIDUALS    0.48276
+                VIOLATIONS      3  RESIDUALS    0.48351
+                VIOLATIONS      3  RESIDUALS    0.48340
+                VIOLATIONS      3  RESIDUALS    0.48333
+                VIOLATIONS      3  RESIDUALS    0.48373
+                VIOLATIONS      3  RESIDUALS    0.48344
+                VIOLATIONS      3  RESIDUALS    0.48376
+                VIOLATIONS      3  RESIDUALS    0.48458
+                VIOLATIONS      3  RESIDUALS    0.48436
+                VIOLATIONS      3  RESIDUALS    0.48441
+                VIOLATIONS      3  RESIDUALS    0.48387
+wrapping first mol.:      -37.30858       26.38116       45.69350
+
+ NSTEP =     3000   TIME(PS) =       6.000  TEMP(K) =   293.02  PRESS =   113.5
+ Etot   =    -48725.5760  EKtot   =      8120.8726  EPtot      =    -56846.4486
+ BOND   =       190.6181  ANGLE   =       462.3403  DIHED      =      -248.5864
+ 1-4 NB =       217.3544  1-4 EEL =      4739.3586  VDWAALS    =      9946.6781
+ EELEC  =    -72168.7261  EHBOND  =         0.0000  RESTRAINT  =        14.5144
+ EAMBER (non-restraint)  =    -56860.9630
+ EKCMT  =      3765.2615  VIRIAL  =      3434.5998  VOLUME     =    134920.5818
+                                                    Density    =         1.0380
+ Ewald error estimate:   0.1768E-04
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.514
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48350
+                VIOLATIONS      3  RESIDUALS    0.48369
+                VIOLATIONS      3  RESIDUALS    0.48361
+                VIOLATIONS      3  RESIDUALS    0.48340
+                VIOLATIONS      3  RESIDUALS    0.48435
+                VIOLATIONS      3  RESIDUALS    0.48363
+                VIOLATIONS      3  RESIDUALS    0.48396
+                VIOLATIONS      3  RESIDUALS    0.48308
+                VIOLATIONS      3  RESIDUALS    0.48389
+                VIOLATIONS      3  RESIDUALS    0.48326
+                VIOLATIONS      3  RESIDUALS    0.48267
+                VIOLATIONS      3  RESIDUALS    0.48338
+                VIOLATIONS      3  RESIDUALS    0.48307
+                VIOLATIONS      3  RESIDUALS    0.48379
+                VIOLATIONS      3  RESIDUALS    0.48334
+                VIOLATIONS      3  RESIDUALS    0.48271
+                VIOLATIONS      3  RESIDUALS    0.48255
+                VIOLATIONS      3  RESIDUALS    0.48313
+                VIOLATIONS      3  RESIDUALS    0.48353
+                VIOLATIONS      3  RESIDUALS    0.48321
+                VIOLATIONS      3  RESIDUALS    0.48339
+                VIOLATIONS      3  RESIDUALS    0.48345
+                VIOLATIONS      3  RESIDUALS    0.48307
+                VIOLATIONS      3  RESIDUALS    0.48295
+                VIOLATIONS      3  RESIDUALS    0.48427
+                VIOLATIONS      3  RESIDUALS    0.48368
+                VIOLATIONS      3  RESIDUALS    0.48326
+                VIOLATIONS      3  RESIDUALS    0.48185
+                VIOLATIONS      3  RESIDUALS    0.48240
+                VIOLATIONS      3  RESIDUALS    0.48313
+                VIOLATIONS      3  RESIDUALS    0.48260
+                VIOLATIONS      3  RESIDUALS    0.48347
+                VIOLATIONS      3  RESIDUALS    0.48318
+                VIOLATIONS      3  RESIDUALS    0.48396
+                VIOLATIONS      3  RESIDUALS    0.48421
+                VIOLATIONS      3  RESIDUALS    0.48417
+                VIOLATIONS      3  RESIDUALS    0.48296
+                VIOLATIONS      3  RESIDUALS    0.48384
+                VIOLATIONS      3  RESIDUALS    0.48276
+                VIOLATIONS      3  RESIDUALS    0.48376
+                VIOLATIONS      3  RESIDUALS    0.48301
+                VIOLATIONS      3  RESIDUALS    0.48287
+                VIOLATIONS      3  RESIDUALS    0.48291
+                VIOLATIONS      3  RESIDUALS    0.48257
+                VIOLATIONS      3  RESIDUALS    0.48427
+                VIOLATIONS      3  RESIDUALS    0.48403
+                VIOLATIONS      3  RESIDUALS    0.48363
+                VIOLATIONS      3  RESIDUALS    0.48394
+                VIOLATIONS      3  RESIDUALS    0.48356
+                VIOLATIONS      3  RESIDUALS    0.48362
+                VIOLATIONS      3  RESIDUALS    0.48357
+wrapping first mol.:      -37.30858       26.38116       45.69350
+
+ NSTEP =     3500   TIME(PS) =       7.000  TEMP(K) =   294.41  PRESS =  -165.5
+ Etot   =    -48846.6926  EKtot   =      8159.4165  EPtot      =    -57006.1091
+ BOND   =       178.7913  ANGLE   =       459.9615  DIHED      =      -246.2162
+ 1-4 NB =       213.4074  1-4 EEL =      4726.1342  VDWAALS    =      9755.2229
+ EELEC  =    -72107.9182  EHBOND  =         0.0000  RESTRAINT  =        14.5081
+ EAMBER (non-restraint)  =    -57020.6172
+ EKCMT  =      3785.0824  VIRIAL  =      4267.0843  VOLUME     =    134920.5818
+                                                    Density    =         1.0380
+ Ewald error estimate:   0.1490E-03
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.508
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48305
+                VIOLATIONS      3  RESIDUALS    0.48363
+                VIOLATIONS      3  RESIDUALS    0.48340
+                VIOLATIONS      3  RESIDUALS    0.48275
+                VIOLATIONS      3  RESIDUALS    0.48264
+                VIOLATIONS      3  RESIDUALS    0.48321
+                VIOLATIONS      3  RESIDUALS    0.48323
+                VIOLATIONS      3  RESIDUALS    0.48467
+                VIOLATIONS      3  RESIDUALS    0.48449
+                VIOLATIONS      3  RESIDUALS    0.48440
+                VIOLATIONS      3  RESIDUALS    0.48393
+                VIOLATIONS      3  RESIDUALS    0.48345
+                VIOLATIONS      3  RESIDUALS    0.48348
+                VIOLATIONS      3  RESIDUALS    0.48376
+                VIOLATIONS      3  RESIDUALS    0.48340
+                VIOLATIONS      3  RESIDUALS    0.48293
+                VIOLATIONS      3  RESIDUALS    0.48405
+                VIOLATIONS      3  RESIDUALS    0.48406
+                VIOLATIONS      3  RESIDUALS    0.48380
+                VIOLATIONS      3  RESIDUALS    0.48272
+                VIOLATIONS      3  RESIDUALS    0.48240
+                VIOLATIONS      3  RESIDUALS    0.48257
+                VIOLATIONS      3  RESIDUALS    0.48169
+                VIOLATIONS      3  RESIDUALS    0.48241
+                VIOLATIONS      3  RESIDUALS    0.48236
+                VIOLATIONS      3  RESIDUALS    0.48237
+                VIOLATIONS      3  RESIDUALS    0.48338
+                VIOLATIONS      3  RESIDUALS    0.48388
+                VIOLATIONS      3  RESIDUALS    0.48273
+                VIOLATIONS      3  RESIDUALS    0.48409
+                VIOLATIONS      3  RESIDUALS    0.48333
+                VIOLATIONS      3  RESIDUALS    0.48302
+                VIOLATIONS      3  RESIDUALS    0.48279
+                VIOLATIONS      3  RESIDUALS    0.48236
+                VIOLATIONS      3  RESIDUALS    0.48267
+                VIOLATIONS      3  RESIDUALS    0.48231
+                VIOLATIONS      3  RESIDUALS    0.48278
+                VIOLATIONS      3  RESIDUALS    0.48321
+                VIOLATIONS      3  RESIDUALS    0.48396
+                VIOLATIONS      3  RESIDUALS    0.48393
+                VIOLATIONS      3  RESIDUALS    0.48402
+                VIOLATIONS      3  RESIDUALS    0.48335
+                VIOLATIONS      3  RESIDUALS    0.48273
+                VIOLATIONS      3  RESIDUALS    0.48360
+                VIOLATIONS      3  RESIDUALS    0.48398
+                VIOLATIONS      3  RESIDUALS    0.48391
+                VIOLATIONS      3  RESIDUALS    0.48393
+                VIOLATIONS      3  RESIDUALS    0.48404
+                VIOLATIONS      3  RESIDUALS    0.48390
+                VIOLATIONS      3  RESIDUALS    0.48405
+                VIOLATIONS      3  RESIDUALS    0.48450
+| MC Barostat: Decreasing size of volume moves
+wrapping first mol.:      -37.30438       26.37818       45.68835
+
+ NSTEP =     4000   TIME(PS) =       8.000  TEMP(K) =   295.13  PRESS =  -102.4
+ Etot   =    -48632.7386  EKtot   =      8179.3154  EPtot      =    -56812.0540
+ BOND   =       175.0431  ANGLE   =       487.2143  DIHED      =      -251.3824
+ 1-4 NB =       216.1355  1-4 EEL =      4708.5758  VDWAALS    =      9773.8965
+ EELEC  =    -71936.0679  EHBOND  =         0.0000  RESTRAINT  =        14.5310
+ EAMBER (non-restraint)  =    -56826.5850
+ EKCMT  =      3839.9742  VIRIAL  =      4138.0796  VOLUME     =    134874.9949
+                                                    Density    =         1.0383
+ Ewald error estimate:   0.1181E-04
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.531
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48385
+                VIOLATIONS      3  RESIDUALS    0.48386
+                VIOLATIONS      3  RESIDUALS    0.48398
+                VIOLATIONS      3  RESIDUALS    0.48410
+                VIOLATIONS      3  RESIDUALS    0.48451
+                VIOLATIONS      3  RESIDUALS    0.48449
+                VIOLATIONS      3  RESIDUALS    0.48489
+                VIOLATIONS      3  RESIDUALS    0.48455
+                VIOLATIONS      3  RESIDUALS    0.48421
+                VIOLATIONS      3  RESIDUALS    0.48392
+                VIOLATIONS      3  RESIDUALS    0.48351
+                VIOLATIONS      3  RESIDUALS    0.48345
+                VIOLATIONS      3  RESIDUALS    0.48408
+                VIOLATIONS      3  RESIDUALS    0.48349
+                VIOLATIONS      3  RESIDUALS    0.48398
+                VIOLATIONS      3  RESIDUALS    0.48461
+                VIOLATIONS      3  RESIDUALS    0.48314
+                VIOLATIONS      3  RESIDUALS    0.48472
+                VIOLATIONS      3  RESIDUALS    0.48344
+                VIOLATIONS      3  RESIDUALS    0.48345
+                VIOLATIONS      3  RESIDUALS    0.48421
+                VIOLATIONS      3  RESIDUALS    0.48357
+                VIOLATIONS      3  RESIDUALS    0.48337
+                VIOLATIONS      3  RESIDUALS    0.48405
+                VIOLATIONS      3  RESIDUALS    0.48341
+                VIOLATIONS      3  RESIDUALS    0.48389
+                VIOLATIONS      3  RESIDUALS    0.48391
+                VIOLATIONS      3  RESIDUALS    0.48370
+                VIOLATIONS      3  RESIDUALS    0.48385
+                VIOLATIONS      3  RESIDUALS    0.48322
+                VIOLATIONS      3  RESIDUALS    0.48410
+                VIOLATIONS      3  RESIDUALS    0.48389
+                VIOLATIONS      3  RESIDUALS    0.48504
+                VIOLATIONS      3  RESIDUALS    0.48499
+                VIOLATIONS      3  RESIDUALS    0.48455
+                VIOLATIONS      3  RESIDUALS    0.48415
+                VIOLATIONS      3  RESIDUALS    0.48359
+                VIOLATIONS      3  RESIDUALS    0.48253
+                VIOLATIONS      3  RESIDUALS    0.48321
+                VIOLATIONS      3  RESIDUALS    0.48295
+                VIOLATIONS      3  RESIDUALS    0.48320
+                VIOLATIONS      3  RESIDUALS    0.48393
+                VIOLATIONS      3  RESIDUALS    0.48343
+                VIOLATIONS      3  RESIDUALS    0.48439
+                VIOLATIONS      3  RESIDUALS    0.48399
+                VIOLATIONS      3  RESIDUALS    0.48435
+                VIOLATIONS      3  RESIDUALS    0.48356
+                VIOLATIONS      3  RESIDUALS    0.48337
+                VIOLATIONS      3  RESIDUALS    0.48314
+                VIOLATIONS      3  RESIDUALS    0.48341
+                VIOLATIONS      3  RESIDUALS    0.48313
+wrapping first mol.:       18.62658       26.34196       45.62560
+
+ NSTEP =     4500   TIME(PS) =       9.000  TEMP(K) =   298.76  PRESS =   338.1
+ Etot   =    -48448.0225  EKtot   =      8279.9300  EPtot      =    -56727.9525
+ BOND   =       195.4580  ANGLE   =       479.1031  DIHED      =      -247.9624
+ 1-4 NB =       201.0403  1-4 EEL =      4694.5787  VDWAALS    =      9971.3250
+ EELEC  =    -72035.9892  EHBOND  =         0.0000  RESTRAINT  =        14.4939
+ EAMBER (non-restraint)  =    -56742.4464
+ EKCMT  =      3826.2998  VIRIAL  =      2845.8633  VOLUME     =    134320.0216
+                                                    Density    =         1.0426
+ Ewald error estimate:   0.1047E-03
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.494
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48356
+                VIOLATIONS      3  RESIDUALS    0.48337
+                VIOLATIONS      3  RESIDUALS    0.48333
+                VIOLATIONS      3  RESIDUALS    0.48294
+                VIOLATIONS      3  RESIDUALS    0.48263
+                VIOLATIONS      3  RESIDUALS    0.48279
+                VIOLATIONS      3  RESIDUALS    0.48403
+                VIOLATIONS      3  RESIDUALS    0.48391
+                VIOLATIONS      3  RESIDUALS    0.48352
+                VIOLATIONS      3  RESIDUALS    0.48363
+                VIOLATIONS      3  RESIDUALS    0.48286
+                VIOLATIONS      3  RESIDUALS    0.48340
+                VIOLATIONS      3  RESIDUALS    0.48342
+                VIOLATIONS      3  RESIDUALS    0.48291
+                VIOLATIONS      3  RESIDUALS    0.48230
+                VIOLATIONS      3  RESIDUALS    0.48247
+                VIOLATIONS      3  RESIDUALS    0.48265
+                VIOLATIONS      3  RESIDUALS    0.48391
+                VIOLATIONS      3  RESIDUALS    0.48302
+                VIOLATIONS      3  RESIDUALS    0.48361
+                VIOLATIONS      3  RESIDUALS    0.48376
+                VIOLATIONS      3  RESIDUALS    0.48326
+                VIOLATIONS      3  RESIDUALS    0.48358
+                VIOLATIONS      3  RESIDUALS    0.48274
+                VIOLATIONS      3  RESIDUALS    0.48264
+                VIOLATIONS      3  RESIDUALS    0.48363
+                VIOLATIONS      3  RESIDUALS    0.48329
+                VIOLATIONS      3  RESIDUALS    0.48371
+                VIOLATIONS      3  RESIDUALS    0.48439
+                VIOLATIONS      3  RESIDUALS    0.48369
+                VIOLATIONS      3  RESIDUALS    0.48542
+                VIOLATIONS      3  RESIDUALS    0.48393
+                VIOLATIONS      3  RESIDUALS    0.48374
+                VIOLATIONS      3  RESIDUALS    0.48435
+                VIOLATIONS      3  RESIDUALS    0.48355
+                VIOLATIONS      3  RESIDUALS    0.48468
+                VIOLATIONS      3  RESIDUALS    0.48399
+                VIOLATIONS      3  RESIDUALS    0.48359
+                VIOLATIONS      3  RESIDUALS    0.48448
+                VIOLATIONS      3  RESIDUALS    0.48391
+                VIOLATIONS      3  RESIDUALS    0.48380
+                VIOLATIONS      3  RESIDUALS    0.48446
+                VIOLATIONS      3  RESIDUALS    0.48358
+                VIOLATIONS      3  RESIDUALS    0.48428
+                VIOLATIONS      3  RESIDUALS    0.48310
+                VIOLATIONS      3  RESIDUALS    0.48300
+                VIOLATIONS      3  RESIDUALS    0.48358
+                VIOLATIONS      3  RESIDUALS    0.48376
+                VIOLATIONS      3  RESIDUALS    0.48334
+                VIOLATIONS      3  RESIDUALS    0.48355
+                VIOLATIONS      3  RESIDUALS    0.48283
+wrapping first mol.:      -37.25157       26.34085       45.62368
+
+ NSTEP =     5000   TIME(PS) =      10.000  TEMP(K) =   299.76  PRESS =  -374.5
+ Etot   =    -48420.6572  EKtot   =      8307.5638  EPtot      =    -56728.2211
+ BOND   =       169.2279  ANGLE   =       520.6750  DIHED      =      -250.9822
+ 1-4 NB =       208.6773  1-4 EEL =      4736.9755  VDWAALS    =      9548.2387
+ EELEC  =    -71675.5181  EHBOND  =         0.0000  RESTRAINT  =        14.4848
+ EAMBER (non-restraint)  =    -56742.7059
+ EKCMT  =      3844.9990  VIRIAL  =      4931.0837  VOLUME     =    134303.0585
+                                                    Density    =         1.0428
+ Ewald error estimate:   0.3709E-04
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.485
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48324
+                VIOLATIONS      3  RESIDUALS    0.48278
+                VIOLATIONS      3  RESIDUALS    0.48199
+                VIOLATIONS      3  RESIDUALS    0.48259
+                VIOLATIONS      3  RESIDUALS    0.48239
+                VIOLATIONS      3  RESIDUALS    0.48397
+                VIOLATIONS      3  RESIDUALS    0.48417
+                VIOLATIONS      3  RESIDUALS    0.48408
+                VIOLATIONS      3  RESIDUALS    0.48383
+                VIOLATIONS      3  RESIDUALS    0.48354
+                VIOLATIONS      3  RESIDUALS    0.48436
+                VIOLATIONS      3  RESIDUALS    0.48460
+                VIOLATIONS      3  RESIDUALS    0.48434
+                VIOLATIONS      3  RESIDUALS    0.48412
+                VIOLATIONS      3  RESIDUALS    0.48423
+                VIOLATIONS      3  RESIDUALS    0.48373
+                VIOLATIONS      3  RESIDUALS    0.48413
+                VIOLATIONS      3  RESIDUALS    0.48455
+                VIOLATIONS      3  RESIDUALS    0.48302
+                VIOLATIONS      3  RESIDUALS    0.48378
+                VIOLATIONS      3  RESIDUALS    0.48458
+                VIOLATIONS      3  RESIDUALS    0.48393
+                VIOLATIONS      3  RESIDUALS    0.48473
+                VIOLATIONS      3  RESIDUALS    0.48470
+                VIOLATIONS      3  RESIDUALS    0.48478
+                VIOLATIONS      3  RESIDUALS    0.48389
+                VIOLATIONS      3  RESIDUALS    0.48491
+                VIOLATIONS      3  RESIDUALS    0.48282
+                VIOLATIONS      3  RESIDUALS    0.48390
+                VIOLATIONS      3  RESIDUALS    0.48225
+                VIOLATIONS      3  RESIDUALS    0.48328
+                VIOLATIONS      3  RESIDUALS    0.48451
+                VIOLATIONS      3  RESIDUALS    0.48315
+                VIOLATIONS      3  RESIDUALS    0.48422
+                VIOLATIONS      3  RESIDUALS    0.48376
+                VIOLATIONS      3  RESIDUALS    0.48360
+                VIOLATIONS      3  RESIDUALS    0.48382
+                VIOLATIONS      3  RESIDUALS    0.48338
+                VIOLATIONS      3  RESIDUALS    0.48359
+                VIOLATIONS      3  RESIDUALS    0.48300
+                VIOLATIONS      3  RESIDUALS    0.48287
+                VIOLATIONS      3  RESIDUALS    0.48405
+                VIOLATIONS      3  RESIDUALS    0.48339
+                VIOLATIONS      3  RESIDUALS    0.48437
+                VIOLATIONS      3  RESIDUALS    0.48418
+                VIOLATIONS      3  RESIDUALS    0.48428
+                VIOLATIONS      3  RESIDUALS    0.48499
+                VIOLATIONS      3  RESIDUALS    0.48499
+                VIOLATIONS      3  RESIDUALS    0.48388
+                VIOLATIONS      3  RESIDUALS    0.48373
+                VIOLATIONS      3  RESIDUALS    0.48328
+wrapping first mol.:       18.63650       26.35599       45.64991
+
+ NSTEP =     5500   TIME(PS) =      11.000  TEMP(K) =   295.53  PRESS =   201.7
+ Etot   =    -48495.9443  EKtot   =      8190.4664  EPtot      =    -56686.4107
+ BOND   =       186.1578  ANGLE   =       513.7452  DIHED      =      -230.9628
+ 1-4 NB =       204.6197  1-4 EEL =      4684.9592  VDWAALS    =      9814.6636
+ EELEC  =    -71874.0931  EHBOND  =         0.0000  RESTRAINT  =        14.4996
+ EAMBER (non-restraint)  =    -56700.9103
+ EKCMT  =      3787.0728  VIRIAL  =      3201.0934  VOLUME     =    134534.8597
+                                                    Density    =         1.0410
+ Ewald error estimate:   0.1248E-03
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.500
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48400
+                VIOLATIONS      3  RESIDUALS    0.48309
+                VIOLATIONS      3  RESIDUALS    0.48407
+                VIOLATIONS      3  RESIDUALS    0.48363
+                VIOLATIONS      3  RESIDUALS    0.48320
+                VIOLATIONS      3  RESIDUALS    0.48400
+                VIOLATIONS      3  RESIDUALS    0.48282
+                VIOLATIONS      3  RESIDUALS    0.48288
+                VIOLATIONS      3  RESIDUALS    0.48250
+                VIOLATIONS      3  RESIDUALS    0.48220
+                VIOLATIONS      3  RESIDUALS    0.48317
+                VIOLATIONS      3  RESIDUALS    0.48345
+                VIOLATIONS      3  RESIDUALS    0.48318
+                VIOLATIONS      3  RESIDUALS    0.48473
+                VIOLATIONS      3  RESIDUALS    0.48282
+                VIOLATIONS      3  RESIDUALS    0.48330
+                VIOLATIONS      3  RESIDUALS    0.48256
+                VIOLATIONS      3  RESIDUALS    0.48243
+                VIOLATIONS      3  RESIDUALS    0.48283
+                VIOLATIONS      3  RESIDUALS    0.48267
+                VIOLATIONS      3  RESIDUALS    0.48373
+                VIOLATIONS      3  RESIDUALS    0.48380
+                VIOLATIONS      3  RESIDUALS    0.48340
+                VIOLATIONS      3  RESIDUALS    0.48429
+                VIOLATIONS      3  RESIDUALS    0.48395
+                VIOLATIONS      3  RESIDUALS    0.48373
+                VIOLATIONS      3  RESIDUALS    0.48374
+                VIOLATIONS      3  RESIDUALS    0.48221
+                VIOLATIONS      3  RESIDUALS    0.48315
+                VIOLATIONS      3  RESIDUALS    0.48198
+                VIOLATIONS      3  RESIDUALS    0.48233
+                VIOLATIONS      3  RESIDUALS    0.48284
+                VIOLATIONS      3  RESIDUALS    0.48322
+                VIOLATIONS      3  RESIDUALS    0.48326
+                VIOLATIONS      3  RESIDUALS    0.48304
+                VIOLATIONS      3  RESIDUALS    0.48258
+                VIOLATIONS      3  RESIDUALS    0.48311
+                VIOLATIONS      3  RESIDUALS    0.48260
+                VIOLATIONS      3  RESIDUALS    0.48328
+                VIOLATIONS      3  RESIDUALS    0.48302
+                VIOLATIONS      3  RESIDUALS    0.48251
+                VIOLATIONS      3  RESIDUALS    0.48376
+                VIOLATIONS      3  RESIDUALS    0.48267
+                VIOLATIONS      3  RESIDUALS    0.48343
+                VIOLATIONS      3  RESIDUALS    0.48245
+                VIOLATIONS      3  RESIDUALS    0.48290
+                VIOLATIONS      3  RESIDUALS    0.48321
+                VIOLATIONS      3  RESIDUALS    0.48365
+                VIOLATIONS      3  RESIDUALS    0.48461
+                VIOLATIONS      3  RESIDUALS    0.48408
+                VIOLATIONS      3  RESIDUALS    0.48367
+wrapping first mol.:      -37.24276       26.33462       45.61289
+
+ NSTEP =     6000   TIME(PS) =      12.000  TEMP(K) =   298.33  PRESS =  -107.9
+ Etot   =    -48259.1825  EKtot   =      8268.1283  EPtot      =    -56527.3107
+ BOND   =       158.8587  ANGLE   =       517.7310  DIHED      =      -240.0043
+ 1-4 NB =       218.4543  1-4 EEL =      4735.9258  VDWAALS    =      9626.9685
+ EELEC  =    -71559.7534  EHBOND  =         0.0000  RESTRAINT  =        14.5086
+ EAMBER (non-restraint)  =    -56541.8193
+ EKCMT  =      3850.1076  VIRIAL  =      4162.8271  VOLUME     =    134207.7771
+                                                    Density    =         1.0435
+ Ewald error estimate:   0.2615E-03
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.509
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48350
+                VIOLATIONS      3  RESIDUALS    0.48293
+                VIOLATIONS      3  RESIDUALS    0.48251
+                VIOLATIONS      3  RESIDUALS    0.48219
+                VIOLATIONS      3  RESIDUALS    0.48250
+                VIOLATIONS      3  RESIDUALS    0.48391
+                VIOLATIONS      3  RESIDUALS    0.48350
+                VIOLATIONS      3  RESIDUALS    0.48342
+                VIOLATIONS      3  RESIDUALS    0.48311
+                VIOLATIONS      3  RESIDUALS    0.48305
+                VIOLATIONS      3  RESIDUALS    0.48208
+                VIOLATIONS      3  RESIDUALS    0.48227
+                VIOLATIONS      3  RESIDUALS    0.48207
+                VIOLATIONS      3  RESIDUALS    0.48237
+                VIOLATIONS      3  RESIDUALS    0.48298
+                VIOLATIONS      3  RESIDUALS    0.48312
+                VIOLATIONS      3  RESIDUALS    0.48381
+                VIOLATIONS      3  RESIDUALS    0.48354
+                VIOLATIONS      3  RESIDUALS    0.48328
+                VIOLATIONS      3  RESIDUALS    0.48340
+                VIOLATIONS      3  RESIDUALS    0.48289
+                VIOLATIONS      3  RESIDUALS    0.48200
+                VIOLATIONS      3  RESIDUALS    0.48330
+                VIOLATIONS      3  RESIDUALS    0.48290
+                VIOLATIONS      3  RESIDUALS    0.48375
+                VIOLATIONS      3  RESIDUALS    0.48371
+                VIOLATIONS      3  RESIDUALS    0.48331
+                VIOLATIONS      3  RESIDUALS    0.48334
+                VIOLATIONS      3  RESIDUALS    0.48311
+                VIOLATIONS      3  RESIDUALS    0.48332
+                VIOLATIONS      3  RESIDUALS    0.48328
+                VIOLATIONS      3  RESIDUALS    0.48365
+                VIOLATIONS      3  RESIDUALS    0.48338
+                VIOLATIONS      3  RESIDUALS    0.48393
+                VIOLATIONS      3  RESIDUALS    0.48402
+                VIOLATIONS      3  RESIDUALS    0.48370
+                VIOLATIONS      3  RESIDUALS    0.48346
+                VIOLATIONS      3  RESIDUALS    0.48268
+                VIOLATIONS      3  RESIDUALS    0.48310
+                VIOLATIONS      3  RESIDUALS    0.48285
+                VIOLATIONS      3  RESIDUALS    0.48284
+                VIOLATIONS      3  RESIDUALS    0.48349
+                VIOLATIONS      3  RESIDUALS    0.48286
+                VIOLATIONS      3  RESIDUALS    0.48343
+                VIOLATIONS      3  RESIDUALS    0.48393
+                VIOLATIONS      3  RESIDUALS    0.48292
+                VIOLATIONS      3  RESIDUALS    0.48299
+                VIOLATIONS      3  RESIDUALS    0.48251
+                VIOLATIONS      3  RESIDUALS    0.48203
+                VIOLATIONS      3  RESIDUALS    0.48278
+                VIOLATIONS      3  RESIDUALS    0.48160
+wrapping first mol.:      -37.24276       26.33462       45.61289
+
+ NSTEP =     6500   TIME(PS) =      13.000  TEMP(K) =   297.47  PRESS =    95.5
+ Etot   =    -48503.1941  EKtot   =      8244.0940  EPtot      =    -56747.2882
+ BOND   =       185.3364  ANGLE   =       482.2953  DIHED      =      -226.5943
+ 1-4 NB =       198.9275  1-4 EEL =      4696.0274  VDWAALS    =      9877.0356
+ EELEC  =    -71974.7653  EHBOND  =         0.0000  RESTRAINT  =        14.4492
+ EAMBER (non-restraint)  =    -56761.7373
+ EKCMT  =      3850.9096  VIRIAL  =      3574.2416  VOLUME     =    134207.7771
+                                                    Density    =         1.0435
+ Ewald error estimate:   0.8994E-05
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.449
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48194
+                VIOLATIONS      3  RESIDUALS    0.48197
+                VIOLATIONS      3  RESIDUALS    0.48189
+                VIOLATIONS      3  RESIDUALS    0.48321
+                VIOLATIONS      3  RESIDUALS    0.48235
+                VIOLATIONS      3  RESIDUALS    0.48248
+                VIOLATIONS      3  RESIDUALS    0.48287
+                VIOLATIONS      3  RESIDUALS    0.48131
+                VIOLATIONS      3  RESIDUALS    0.48186
+                VIOLATIONS      3  RESIDUALS    0.48206
+                VIOLATIONS      3  RESIDUALS    0.48163
+                VIOLATIONS      3  RESIDUALS    0.48354
+                VIOLATIONS      3  RESIDUALS    0.48320
+                VIOLATIONS      3  RESIDUALS    0.48359
+                VIOLATIONS      3  RESIDUALS    0.48553
+                VIOLATIONS      3  RESIDUALS    0.48294
+                VIOLATIONS      3  RESIDUALS    0.48391
+                VIOLATIONS      3  RESIDUALS    0.48284
+                VIOLATIONS      3  RESIDUALS    0.48224
+                VIOLATIONS      3  RESIDUALS    0.48312
+                VIOLATIONS      3  RESIDUALS    0.48317
+                VIOLATIONS      3  RESIDUALS    0.48370
+                VIOLATIONS      3  RESIDUALS    0.48467
+                VIOLATIONS      3  RESIDUALS    0.48402
+                VIOLATIONS      3  RESIDUALS    0.48396
+                VIOLATIONS      3  RESIDUALS    0.48367
+                VIOLATIONS      3  RESIDUALS    0.48299
+                VIOLATIONS      3  RESIDUALS    0.48302
+                VIOLATIONS      3  RESIDUALS    0.48230
+                VIOLATIONS      3  RESIDUALS    0.48330
+                VIOLATIONS      3  RESIDUALS    0.48304
+                VIOLATIONS      3  RESIDUALS    0.48277
+                VIOLATIONS      3  RESIDUALS    0.48333
+                VIOLATIONS      3  RESIDUALS    0.48303
+                VIOLATIONS      3  RESIDUALS    0.48329
+                VIOLATIONS      3  RESIDUALS    0.48282
+                VIOLATIONS      3  RESIDUALS    0.48217
+                VIOLATIONS      3  RESIDUALS    0.48287
+                VIOLATIONS      3  RESIDUALS    0.48256
+                VIOLATIONS      3  RESIDUALS    0.48417
+                VIOLATIONS      3  RESIDUALS    0.48405
+                VIOLATIONS      3  RESIDUALS    0.48290
+                VIOLATIONS      3  RESIDUALS    0.48316
+                VIOLATIONS      3  RESIDUALS    0.48257
+                VIOLATIONS      3  RESIDUALS    0.48267
+                VIOLATIONS      3  RESIDUALS    0.48289
+                VIOLATIONS      3  RESIDUALS    0.48304
+                VIOLATIONS      3  RESIDUALS    0.48421
+                VIOLATIONS      3  RESIDUALS    0.48391
+                VIOLATIONS      3  RESIDUALS    0.48453
+                VIOLATIONS      3  RESIDUALS    0.48454
+wrapping first mol.:      -37.22555       26.32244       45.59181
+
+ NSTEP =     7000   TIME(PS) =      14.000  TEMP(K) =   296.53  PRESS =   152.2
+ Etot   =    -48426.3688  EKtot   =      8218.2223  EPtot      =    -56644.5911
+ BOND   =       168.9005  ANGLE   =       474.4695  DIHED      =      -221.6682
+ 1-4 NB =       209.3669  1-4 EEL =      4733.9844  VDWAALS    =      9654.6090
+ EELEC  =    -71678.7854  EHBOND  =         0.0000  RESTRAINT  =        14.5321
+ EAMBER (non-restraint)  =    -56659.1232
+ EKCMT  =      3833.9771  VIRIAL  =      3393.6189  VOLUME     =    134021.7834
+                                                    Density    =         1.0449
+ Ewald error estimate:   0.6125E-04
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.532
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48339
+                VIOLATIONS      3  RESIDUALS    0.48330
+                VIOLATIONS      3  RESIDUALS    0.48254
+                VIOLATIONS      3  RESIDUALS    0.48299
+                VIOLATIONS      3  RESIDUALS    0.48351
+                VIOLATIONS      3  RESIDUALS    0.48327
+                VIOLATIONS      3  RESIDUALS    0.48360
+                VIOLATIONS      3  RESIDUALS    0.48325
+                VIOLATIONS      3  RESIDUALS    0.48340
+                VIOLATIONS      3  RESIDUALS    0.48389
+                VIOLATIONS      3  RESIDUALS    0.48289
+                VIOLATIONS      3  RESIDUALS    0.48251
+                VIOLATIONS      3  RESIDUALS    0.48286
+                VIOLATIONS      3  RESIDUALS    0.48230
+                VIOLATIONS      3  RESIDUALS    0.48348
+                VIOLATIONS      3  RESIDUALS    0.48317
+                VIOLATIONS      3  RESIDUALS    0.48388
+                VIOLATIONS      3  RESIDUALS    0.48427
+                VIOLATIONS      3  RESIDUALS    0.48462
+                VIOLATIONS      3  RESIDUALS    0.48382
+                VIOLATIONS      3  RESIDUALS    0.48415
+                VIOLATIONS      3  RESIDUALS    0.48339
+                VIOLATIONS      3  RESIDUALS    0.48280
+                VIOLATIONS      3  RESIDUALS    0.48319
+                VIOLATIONS      3  RESIDUALS    0.48403
+                VIOLATIONS      3  RESIDUALS    0.48430
+                VIOLATIONS      3  RESIDUALS    0.48460
+                VIOLATIONS      3  RESIDUALS    0.48420
+                VIOLATIONS      3  RESIDUALS    0.48509
+                VIOLATIONS      3  RESIDUALS    0.48465
+                VIOLATIONS      3  RESIDUALS    0.48330
+                VIOLATIONS      3  RESIDUALS    0.48478
+                VIOLATIONS      3  RESIDUALS    0.48337
+                VIOLATIONS      3  RESIDUALS    0.48275
+                VIOLATIONS      3  RESIDUALS    0.48289
+                VIOLATIONS      3  RESIDUALS    0.48333
+                VIOLATIONS      3  RESIDUALS    0.48354
+                VIOLATIONS      3  RESIDUALS    0.48454
+                VIOLATIONS      3  RESIDUALS    0.48340
+                VIOLATIONS      3  RESIDUALS    0.48415
+                VIOLATIONS      3  RESIDUALS    0.48438
+                VIOLATIONS      3  RESIDUALS    0.48304
+                VIOLATIONS      3  RESIDUALS    0.48365
+                VIOLATIONS      3  RESIDUALS    0.48301
+                VIOLATIONS      3  RESIDUALS    0.48322
+                VIOLATIONS      3  RESIDUALS    0.48407
+                VIOLATIONS      3  RESIDUALS    0.48309
+                VIOLATIONS      3  RESIDUALS    0.48373
+                VIOLATIONS      3  RESIDUALS    0.48365
+                VIOLATIONS      3  RESIDUALS    0.48374
+                VIOLATIONS      3  RESIDUALS    0.48402
+wrapping first mol.:      -37.22320       26.32078       45.58892
+
+ NSTEP =     7500   TIME(PS) =      15.000  TEMP(K) =   298.27  PRESS =   153.5
+ Etot   =    -48330.6077  EKtot   =      8266.2958  EPtot      =    -56596.9034
+ BOND   =       184.0257  ANGLE   =       516.4359  DIHED      =      -218.2196
+ 1-4 NB =       189.2371  1-4 EEL =      4715.3494  VDWAALS    =      9807.3170
+ EELEC  =    -71805.5656  EHBOND  =         0.0000  RESTRAINT  =        14.5166
+ EAMBER (non-restraint)  =    -56611.4200
+ EKCMT  =      3882.2444  VIRIAL  =      3438.1534  VOLUME     =    133996.3618
+                                                    Density    =         1.0451
+ Ewald error estimate:   0.5171E-04
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.517
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48407
+                VIOLATIONS      3  RESIDUALS    0.48398
+                VIOLATIONS      3  RESIDUALS    0.48337
+                VIOLATIONS      3  RESIDUALS    0.48373
+                VIOLATIONS      3  RESIDUALS    0.48291
+                VIOLATIONS      3  RESIDUALS    0.48333
+                VIOLATIONS      3  RESIDUALS    0.48274
+                VIOLATIONS      3  RESIDUALS    0.48332
+                VIOLATIONS      3  RESIDUALS    0.48282
+                VIOLATIONS      3  RESIDUALS    0.48348
+                VIOLATIONS      3  RESIDUALS    0.48407
+                VIOLATIONS      3  RESIDUALS    0.48313
+                VIOLATIONS      3  RESIDUALS    0.48351
+                VIOLATIONS      3  RESIDUALS    0.48321
+                VIOLATIONS      3  RESIDUALS    0.48306
+                VIOLATIONS      3  RESIDUALS    0.48257
+                VIOLATIONS      3  RESIDUALS    0.48255
+                VIOLATIONS      3  RESIDUALS    0.48219
+                VIOLATIONS      3  RESIDUALS    0.48375
+                VIOLATIONS      3  RESIDUALS    0.48333
+                VIOLATIONS      3  RESIDUALS    0.48393
+                VIOLATIONS      3  RESIDUALS    0.48411
+                VIOLATIONS      3  RESIDUALS    0.48397
+                VIOLATIONS      3  RESIDUALS    0.48347
+                VIOLATIONS      3  RESIDUALS    0.48344
+                VIOLATIONS      3  RESIDUALS    0.48307
+                VIOLATIONS      3  RESIDUALS    0.48362
+                VIOLATIONS      3  RESIDUALS    0.48295
+                VIOLATIONS      3  RESIDUALS    0.48311
+                VIOLATIONS      3  RESIDUALS    0.48329
+                VIOLATIONS      3  RESIDUALS    0.48323
+                VIOLATIONS      3  RESIDUALS    0.48425
+                VIOLATIONS      3  RESIDUALS    0.48389
+                VIOLATIONS      3  RESIDUALS    0.48369
+                VIOLATIONS      3  RESIDUALS    0.48404
+                VIOLATIONS      3  RESIDUALS    0.48403
+                VIOLATIONS      3  RESIDUALS    0.48372
+                VIOLATIONS      3  RESIDUALS    0.48383
+                VIOLATIONS      3  RESIDUALS    0.48370
+                VIOLATIONS      3  RESIDUALS    0.48423
+                VIOLATIONS      3  RESIDUALS    0.48388
+                VIOLATIONS      3  RESIDUALS    0.48413
+                VIOLATIONS      3  RESIDUALS    0.48415
+                VIOLATIONS      3  RESIDUALS    0.48386
+                VIOLATIONS      3  RESIDUALS    0.48418
+                VIOLATIONS      3  RESIDUALS    0.48442
+                VIOLATIONS      3  RESIDUALS    0.48411
+                VIOLATIONS      3  RESIDUALS    0.48428
+                VIOLATIONS      3  RESIDUALS    0.48393
+                VIOLATIONS      3  RESIDUALS    0.48367
+                VIOLATIONS      3  RESIDUALS    0.48439
+| MC Barostat: Decreasing size of volume moves
+wrapping first mol.:      -37.22082       26.31910       45.58602
+
+ NSTEP =     8000   TIME(PS) =      16.000  TEMP(K) =   295.97  PRESS =   277.1
+ Etot   =    -48171.8243  EKtot   =      8202.6796  EPtot      =    -56374.5039
+ BOND   =       179.3130  ANGLE   =       532.8055  DIHED      =      -234.3998
+ 1-4 NB =       207.1574  1-4 EEL =      4710.8343  VDWAALS    =      9616.8137
+ EELEC  =    -71401.5597  EHBOND  =         0.0000  RESTRAINT  =        14.5317
+ EAMBER (non-restraint)  =    -56389.0356
+ EKCMT  =      3817.8431  VIRIAL  =      3016.4473  VOLUME     =    133970.7543
+                                                    Density    =         1.0453
+ Ewald error estimate:   0.5218E-04
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.532
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48333
+                VIOLATIONS      3  RESIDUALS    0.48451
+                VIOLATIONS      3  RESIDUALS    0.48373
+                VIOLATIONS      3  RESIDUALS    0.48352
+                VIOLATIONS      3  RESIDUALS    0.48480
+                VIOLATIONS      3  RESIDUALS    0.48409
+                VIOLATIONS      3  RESIDUALS    0.48465
+                VIOLATIONS      3  RESIDUALS    0.48431
+                VIOLATIONS      3  RESIDUALS    0.48384
+                VIOLATIONS      3  RESIDUALS    0.48512
+                VIOLATIONS      3  RESIDUALS    0.48438
+                VIOLATIONS      3  RESIDUALS    0.48320
+                VIOLATIONS      3  RESIDUALS    0.48412
+                VIOLATIONS      3  RESIDUALS    0.48337
+                VIOLATIONS      3  RESIDUALS    0.48304
+                VIOLATIONS      3  RESIDUALS    0.48395
+                VIOLATIONS      3  RESIDUALS    0.48270
+                VIOLATIONS      3  RESIDUALS    0.48315
+                VIOLATIONS      3  RESIDUALS    0.48383
+                VIOLATIONS      3  RESIDUALS    0.48278
+                VIOLATIONS      3  RESIDUALS    0.48371
+                VIOLATIONS      3  RESIDUALS    0.48309
+                VIOLATIONS      3  RESIDUALS    0.48326
+                VIOLATIONS      3  RESIDUALS    0.48361
+                VIOLATIONS      3  RESIDUALS    0.48312
+                VIOLATIONS      3  RESIDUALS    0.48349
+                VIOLATIONS      3  RESIDUALS    0.48413
+                VIOLATIONS      3  RESIDUALS    0.48368
+                VIOLATIONS      3  RESIDUALS    0.48420
+                VIOLATIONS      3  RESIDUALS    0.48343
+                VIOLATIONS      3  RESIDUALS    0.48282
+                VIOLATIONS      3  RESIDUALS    0.48267
+                VIOLATIONS      3  RESIDUALS    0.48241
+                VIOLATIONS      3  RESIDUALS    0.48238
+                VIOLATIONS      3  RESIDUALS    0.48329
+                VIOLATIONS      3  RESIDUALS    0.48328
+                VIOLATIONS      3  RESIDUALS    0.48312
+                VIOLATIONS      3  RESIDUALS    0.48296
+                VIOLATIONS      3  RESIDUALS    0.48256
+                VIOLATIONS      3  RESIDUALS    0.48315
+                VIOLATIONS      3  RESIDUALS    0.48294
+                VIOLATIONS      3  RESIDUALS    0.48248
+                VIOLATIONS      3  RESIDUALS    0.48319
+                VIOLATIONS      3  RESIDUALS    0.48272
+                VIOLATIONS      3  RESIDUALS    0.48276
+                VIOLATIONS      3  RESIDUALS    0.48320
+                VIOLATIONS      3  RESIDUALS    0.48261
+                VIOLATIONS      3  RESIDUALS    0.48336
+                VIOLATIONS      3  RESIDUALS    0.48301
+                VIOLATIONS      3  RESIDUALS    0.48310
+                VIOLATIONS      3  RESIDUALS    0.48311
+wrapping first mol.:      -37.26989       26.35380       45.64611
+
+ NSTEP =     8500   TIME(PS) =      17.000  TEMP(K) =   299.67  PRESS =  -131.6
+ Etot   =    -48071.9275  EKtot   =      8305.2761  EPtot      =    -56377.2035
+ BOND   =       189.2450  ANGLE   =       531.0717  DIHED      =      -232.0362
+ 1-4 NB =       199.2588  1-4 EEL =      4720.0786  VDWAALS    =      9480.2960
+ EELEC  =    -71279.6107  EHBOND  =         0.0000  RESTRAINT  =        14.4933
+ EAMBER (non-restraint)  =    -56391.6969
+ EKCMT  =      3879.2341  VIRIAL  =      4261.3469  VOLUME     =    134501.2488
+                                                    Density    =         1.0412
+ Ewald error estimate:   0.3970E-04
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.493
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48322
+                VIOLATIONS      3  RESIDUALS    0.48319
+                VIOLATIONS      3  RESIDUALS    0.48366
+                VIOLATIONS      3  RESIDUALS    0.48363
+                VIOLATIONS      3  RESIDUALS    0.48510
+                VIOLATIONS      3  RESIDUALS    0.48506
+                VIOLATIONS      3  RESIDUALS    0.48488
+                VIOLATIONS      3  RESIDUALS    0.48471
+                VIOLATIONS      3  RESIDUALS    0.48434
+                VIOLATIONS      3  RESIDUALS    0.48478
+                VIOLATIONS      3  RESIDUALS    0.48424
+                VIOLATIONS      3  RESIDUALS    0.48492
+                VIOLATIONS      3  RESIDUALS    0.48430
+                VIOLATIONS      3  RESIDUALS    0.48464
+                VIOLATIONS      3  RESIDUALS    0.48427
+                VIOLATIONS      3  RESIDUALS    0.48382
+                VIOLATIONS      3  RESIDUALS    0.48358
+                VIOLATIONS      3  RESIDUALS    0.48354
+                VIOLATIONS      3  RESIDUALS    0.48397
+                VIOLATIONS      3  RESIDUALS    0.48383
+                VIOLATIONS      3  RESIDUALS    0.48373
+                VIOLATIONS      3  RESIDUALS    0.48466
+                VIOLATIONS      3  RESIDUALS    0.48450
+                VIOLATIONS      3  RESIDUALS    0.48430
+                VIOLATIONS      3  RESIDUALS    0.48481
+                VIOLATIONS      3  RESIDUALS    0.48412
+                VIOLATIONS      3  RESIDUALS    0.48397
+                VIOLATIONS      3  RESIDUALS    0.48340
+                VIOLATIONS      3  RESIDUALS    0.48349
+                VIOLATIONS      3  RESIDUALS    0.48387
+                VIOLATIONS      3  RESIDUALS    0.48518
+                VIOLATIONS      3  RESIDUALS    0.48427
+                VIOLATIONS      3  RESIDUALS    0.48456
+                VIOLATIONS      3  RESIDUALS    0.48470
+                VIOLATIONS      3  RESIDUALS    0.48363
+                VIOLATIONS      3  RESIDUALS    0.48462
+                VIOLATIONS      3  RESIDUALS    0.48343
+                VIOLATIONS      3  RESIDUALS    0.48398
+                VIOLATIONS      3  RESIDUALS    0.48453
+                VIOLATIONS      3  RESIDUALS    0.48393
+                VIOLATIONS      3  RESIDUALS    0.48378
+                VIOLATIONS      3  RESIDUALS    0.48479
+                VIOLATIONS      3  RESIDUALS    0.48353
+                VIOLATIONS      3  RESIDUALS    0.48435
+                VIOLATIONS      3  RESIDUALS    0.48271
+                VIOLATIONS      3  RESIDUALS    0.48355
+                VIOLATIONS      3  RESIDUALS    0.48323
+                VIOLATIONS      3  RESIDUALS    0.48240
+                VIOLATIONS      3  RESIDUALS    0.48401
+                VIOLATIONS      3  RESIDUALS    0.48291
+                VIOLATIONS      3  RESIDUALS    0.48366
+wrapping first mol.:      -37.25564       26.34372       45.62866
+
+ NSTEP =     9000   TIME(PS) =      18.000  TEMP(K) =   301.98  PRESS =   -33.2
+ Etot   =    -48131.2507  EKtot   =      8369.1897  EPtot      =    -56500.4404
+ BOND   =       188.3716  ANGLE   =       502.5115  DIHED      =      -233.8031
+ 1-4 NB =       192.3889  1-4 EEL =      4707.6098  VDWAALS    =      9655.9153
+ EELEC  =    -71527.9408  EHBOND  =         0.0000  RESTRAINT  =        14.5065
+ EAMBER (non-restraint)  =    -56514.9468
+ EKCMT  =      3823.2497  VIRIAL  =      3919.6461  VOLUME     =    134347.0369
+                                                    Density    =         1.0424
+ Ewald error estimate:   0.4247E-04
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.506
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48424
+                VIOLATIONS      3  RESIDUALS    0.48292
+                VIOLATIONS      3  RESIDUALS    0.48201
+                VIOLATIONS      3  RESIDUALS    0.48309
+                VIOLATIONS      3  RESIDUALS    0.48251
+                VIOLATIONS      3  RESIDUALS    0.48332
+                VIOLATIONS      3  RESIDUALS    0.48300
+                VIOLATIONS      3  RESIDUALS    0.48255
+                VIOLATIONS      3  RESIDUALS    0.48373
+                VIOLATIONS      3  RESIDUALS    0.48355
+                VIOLATIONS      3  RESIDUALS    0.48357
+                VIOLATIONS      3  RESIDUALS    0.48378
+                VIOLATIONS      3  RESIDUALS    0.48400
+                VIOLATIONS      3  RESIDUALS    0.48398
+                VIOLATIONS      3  RESIDUALS    0.48486
+                VIOLATIONS      3  RESIDUALS    0.48368
+                VIOLATIONS      3  RESIDUALS    0.48420
+                VIOLATIONS      3  RESIDUALS    0.48393
+                VIOLATIONS      3  RESIDUALS    0.48359
+                VIOLATIONS      3  RESIDUALS    0.48411
+                VIOLATIONS      3  RESIDUALS    0.48414
+                VIOLATIONS      3  RESIDUALS    0.48375
+                VIOLATIONS      3  RESIDUALS    0.48474
+                VIOLATIONS      3  RESIDUALS    0.48424
+                VIOLATIONS      3  RESIDUALS    0.48459
+                VIOLATIONS      3  RESIDUALS    0.48478
+                VIOLATIONS      3  RESIDUALS    0.48406
+                VIOLATIONS      3  RESIDUALS    0.48400
+                VIOLATIONS      3  RESIDUALS    0.48392
+                VIOLATIONS      3  RESIDUALS    0.48322
+                VIOLATIONS      3  RESIDUALS    0.48389
+                VIOLATIONS      3  RESIDUALS    0.48347
+                VIOLATIONS      3  RESIDUALS    0.48313
+                VIOLATIONS      3  RESIDUALS    0.48370
+                VIOLATIONS      3  RESIDUALS    0.48336
+                VIOLATIONS      3  RESIDUALS    0.48333
+                VIOLATIONS      3  RESIDUALS    0.48263
+                VIOLATIONS      3  RESIDUALS    0.48264
+                VIOLATIONS      3  RESIDUALS    0.48296
+                VIOLATIONS      3  RESIDUALS    0.48325
+                VIOLATIONS      3  RESIDUALS    0.48310
+                VIOLATIONS      3  RESIDUALS    0.48298
+                VIOLATIONS      3  RESIDUALS    0.48325
+                VIOLATIONS      3  RESIDUALS    0.48348
+                VIOLATIONS      3  RESIDUALS    0.48327
+                VIOLATIONS      3  RESIDUALS    0.48364
+                VIOLATIONS      3  RESIDUALS    0.48364
+                VIOLATIONS      3  RESIDUALS    0.48434
+                VIOLATIONS      3  RESIDUALS    0.48362
+                VIOLATIONS      3  RESIDUALS    0.48322
+                VIOLATIONS      3  RESIDUALS    0.48429
+wrapping first mol.:      -37.25564       26.34372       45.62866
+
+ NSTEP =     9500   TIME(PS) =      19.000  TEMP(K) =   302.55  PRESS =   -10.6
+ Etot   =    -48152.6360  EKtot   =      8385.0223  EPtot      =    -56537.6582
+ BOND   =       178.7960  ANGLE   =       515.0179  DIHED      =      -240.3187
+ 1-4 NB =       204.0728  1-4 EEL =      4743.3727  VDWAALS    =      9614.0082
+ EELEC  =    -71567.1373  EHBOND  =         0.0000  RESTRAINT  =        14.5301
+ EAMBER (non-restraint)  =    -56552.1884
+ EKCMT  =      3952.9406  VIRIAL  =      3983.5579  VOLUME     =    134347.0369
+                                                    Density    =         1.0424
+ Ewald error estimate:   0.2571E-05
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.530
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48362
+                VIOLATIONS      3  RESIDUALS    0.48293
+                VIOLATIONS      3  RESIDUALS    0.48342
+                VIOLATIONS      3  RESIDUALS    0.48278
+                VIOLATIONS      3  RESIDUALS    0.48416
+                VIOLATIONS      3  RESIDUALS    0.48362
+                VIOLATIONS      3  RESIDUALS    0.48275
+                VIOLATIONS      3  RESIDUALS    0.48444
+                VIOLATIONS      3  RESIDUALS    0.48293
+                VIOLATIONS      3  RESIDUALS    0.48290
+                VIOLATIONS      3  RESIDUALS    0.48377
+                VIOLATIONS      3  RESIDUALS    0.48247
+                VIOLATIONS      3  RESIDUALS    0.48255
+                VIOLATIONS      3  RESIDUALS    0.48326
+                VIOLATIONS      3  RESIDUALS    0.48260
+                VIOLATIONS      3  RESIDUALS    0.48433
+                VIOLATIONS      3  RESIDUALS    0.48365
+                VIOLATIONS      3  RESIDUALS    0.48274
+                VIOLATIONS      3  RESIDUALS    0.48333
+                VIOLATIONS      3  RESIDUALS    0.48203
+                VIOLATIONS      3  RESIDUALS    0.48279
+                VIOLATIONS      3  RESIDUALS    0.48267
+                VIOLATIONS      3  RESIDUALS    0.48289
+                VIOLATIONS      3  RESIDUALS    0.48361
+                VIOLATIONS      3  RESIDUALS    0.48342
+                VIOLATIONS      3  RESIDUALS    0.48362
+                VIOLATIONS      3  RESIDUALS    0.48406
+                VIOLATIONS      3  RESIDUALS    0.48312
+                VIOLATIONS      3  RESIDUALS    0.48359
+                VIOLATIONS      3  RESIDUALS    0.48244
+                VIOLATIONS      3  RESIDUALS    0.48293
+                VIOLATIONS      3  RESIDUALS    0.48375
+                VIOLATIONS      3  RESIDUALS    0.48295
+                VIOLATIONS      3  RESIDUALS    0.48399
+                VIOLATIONS      3  RESIDUALS    0.48317
+                VIOLATIONS      3  RESIDUALS    0.48278
+                VIOLATIONS      3  RESIDUALS    0.48273
+                VIOLATIONS      3  RESIDUALS    0.48226
+                VIOLATIONS      3  RESIDUALS    0.48286
+                VIOLATIONS      3  RESIDUALS    0.48291
+                VIOLATIONS      3  RESIDUALS    0.48219
+                VIOLATIONS      3  RESIDUALS    0.48362
+                VIOLATIONS      3  RESIDUALS    0.48343
+                VIOLATIONS      3  RESIDUALS    0.48346
+                VIOLATIONS      3  RESIDUALS    0.48468
+                VIOLATIONS      3  RESIDUALS    0.48356
+                VIOLATIONS      3  RESIDUALS    0.48405
+                VIOLATIONS      3  RESIDUALS    0.48406
+                VIOLATIONS      3  RESIDUALS    0.48281
+                VIOLATIONS      3  RESIDUALS    0.48404
+                VIOLATIONS      3  RESIDUALS    0.48379
+wrapping first mol.:      -37.21139       26.31243       45.57447
+
+ NSTEP =    10000   TIME(PS) =      20.000  TEMP(K) =   303.10  PRESS =   302.7
+ Etot   =    -48201.9280  EKtot   =      8400.3441  EPtot      =    -56602.2722
+ BOND   =       152.8981  ANGLE   =       521.4802  DIHED      =      -235.1531
+ 1-4 NB =       205.2050  1-4 EEL =      4710.2598  VDWAALS    =      9778.4702
+ EELEC  =    -71749.9428  EHBOND  =         0.0000  RESTRAINT  =        14.5103
+ EAMBER (non-restraint)  =    -56616.7825
+ EKCMT  =      3915.3045  VIRIAL  =      3040.4126  VOLUME     =    133868.9071
+                                                    Density    =         1.0461
+ Ewald error estimate:   0.1102E-03
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.510
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48245
+                VIOLATIONS      3  RESIDUALS    0.48397
+                VIOLATIONS      3  RESIDUALS    0.48336
+                VIOLATIONS      3  RESIDUALS    0.48324
+                VIOLATIONS      3  RESIDUALS    0.48448
+                VIOLATIONS      3  RESIDUALS    0.48307
+                VIOLATIONS      3  RESIDUALS    0.48382
+                VIOLATIONS      3  RESIDUALS    0.48316
+                VIOLATIONS      3  RESIDUALS    0.48278
+                VIOLATIONS      3  RESIDUALS    0.48318
+                VIOLATIONS      3  RESIDUALS    0.48252
+                VIOLATIONS      3  RESIDUALS    0.48293
+                VIOLATIONS      3  RESIDUALS    0.48356
+                VIOLATIONS      3  RESIDUALS    0.48343
+                VIOLATIONS      3  RESIDUALS    0.48290
+                VIOLATIONS      3  RESIDUALS    0.48291
+                VIOLATIONS      3  RESIDUALS    0.48216
+                VIOLATIONS      3  RESIDUALS    0.48338
+                VIOLATIONS      3  RESIDUALS    0.48299
+                VIOLATIONS      3  RESIDUALS    0.48280
+                VIOLATIONS      3  RESIDUALS    0.48313
+                VIOLATIONS      3  RESIDUALS    0.48309
+                VIOLATIONS      3  RESIDUALS    0.48409
+                VIOLATIONS      3  RESIDUALS    0.48436
+                VIOLATIONS      3  RESIDUALS    0.48410
+                VIOLATIONS      3  RESIDUALS    0.48412
+                VIOLATIONS      3  RESIDUALS    0.48275
+                VIOLATIONS      3  RESIDUALS    0.48300
+                VIOLATIONS      3  RESIDUALS    0.48335
+                VIOLATIONS      3  RESIDUALS    0.48297
+                VIOLATIONS      3  RESIDUALS    0.48388
+                VIOLATIONS      3  RESIDUALS    0.48359
+                VIOLATIONS      3  RESIDUALS    0.48328
+                VIOLATIONS      3  RESIDUALS    0.48356
+                VIOLATIONS      3  RESIDUALS    0.48339
+                VIOLATIONS      3  RESIDUALS    0.48312
+                VIOLATIONS      3  RESIDUALS    0.48352
+                VIOLATIONS      3  RESIDUALS    0.48252
+                VIOLATIONS      3  RESIDUALS    0.48433
+                VIOLATIONS      3  RESIDUALS    0.48401
+                VIOLATIONS      3  RESIDUALS    0.48362
+                VIOLATIONS      3  RESIDUALS    0.48413
+                VIOLATIONS      3  RESIDUALS    0.48295
+                VIOLATIONS      3  RESIDUALS    0.48341
+                VIOLATIONS      3  RESIDUALS    0.48252
+                VIOLATIONS      3  RESIDUALS    0.48255
+                VIOLATIONS      3  RESIDUALS    0.48326
+                VIOLATIONS      3  RESIDUALS    0.48292
+                VIOLATIONS      3  RESIDUALS    0.48324
+                VIOLATIONS      3  RESIDUALS    0.48384
+                VIOLATIONS      3  RESIDUALS    0.48269
+wrapping first mol.:      -37.16846       26.28207       45.52189
+
+ NSTEP =    10500   TIME(PS) =      21.000  TEMP(K) =   296.92  PRESS =   264.9
+ Etot   =    -48302.5815  EKtot   =      8228.9069  EPtot      =    -56531.4883
+ BOND   =       181.0089  ANGLE   =       483.9149  DIHED      =      -220.3733
+ 1-4 NB =       205.2347  1-4 EEL =      4751.2076  VDWAALS    =      9827.6609
+ EELEC  =    -71774.6227  EHBOND  =         0.0000  RESTRAINT  =        14.4807
+ EAMBER (non-restraint)  =    -56545.9690
+ EKCMT  =      3811.2790  VIRIAL  =      3048.1979  VOLUME     =    133406.0987
+                                                    Density    =         1.0498
+ Ewald error estimate:   0.1129E-03
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.481
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48387
+                VIOLATIONS      3  RESIDUALS    0.48332
+                VIOLATIONS      3  RESIDUALS    0.48295
+                VIOLATIONS      3  RESIDUALS    0.48427
+                VIOLATIONS      3  RESIDUALS    0.48331
+                VIOLATIONS      3  RESIDUALS    0.48489
+                VIOLATIONS      3  RESIDUALS    0.48423
+                VIOLATIONS      3  RESIDUALS    0.48405
+                VIOLATIONS      3  RESIDUALS    0.48430
+                VIOLATIONS      3  RESIDUALS    0.48383
+                VIOLATIONS      3  RESIDUALS    0.48248
+                VIOLATIONS      3  RESIDUALS    0.48406
+                VIOLATIONS      3  RESIDUALS    0.48342
+                VIOLATIONS      3  RESIDUALS    0.48405
+                VIOLATIONS      3  RESIDUALS    0.48591
+                VIOLATIONS      3  RESIDUALS    0.48337
+                VIOLATIONS      3  RESIDUALS    0.48495
+                VIOLATIONS      3  RESIDUALS    0.48439
+                VIOLATIONS      3  RESIDUALS    0.48325
+                VIOLATIONS      3  RESIDUALS    0.48398
+                VIOLATIONS      3  RESIDUALS    0.48285
+                VIOLATIONS      3  RESIDUALS    0.48247
+                VIOLATIONS      3  RESIDUALS    0.48435
+                VIOLATIONS      3  RESIDUALS    0.48298
+                VIOLATIONS      3  RESIDUALS    0.48381
+                VIOLATIONS      3  RESIDUALS    0.48445
+                VIOLATIONS      3  RESIDUALS    0.48380
+                VIOLATIONS      3  RESIDUALS    0.48444
+                VIOLATIONS      3  RESIDUALS    0.48456
+                VIOLATIONS      3  RESIDUALS    0.48351
+                VIOLATIONS      3  RESIDUALS    0.48447
+                VIOLATIONS      3  RESIDUALS    0.48381
+                VIOLATIONS      3  RESIDUALS    0.48384
+                VIOLATIONS      3  RESIDUALS    0.48449
+                VIOLATIONS      3  RESIDUALS    0.48403
+                VIOLATIONS      3  RESIDUALS    0.48447
+                VIOLATIONS      3  RESIDUALS    0.48391
+                VIOLATIONS      3  RESIDUALS    0.48364
+                VIOLATIONS      3  RESIDUALS    0.48298
+                VIOLATIONS      3  RESIDUALS    0.48300
+                VIOLATIONS      3  RESIDUALS    0.48270
+                VIOLATIONS      3  RESIDUALS    0.48278
+                VIOLATIONS      3  RESIDUALS    0.48244
+                VIOLATIONS      3  RESIDUALS    0.48354
+                VIOLATIONS      3  RESIDUALS    0.48319
+                VIOLATIONS      3  RESIDUALS    0.48420
+                VIOLATIONS      3  RESIDUALS    0.48397
+                VIOLATIONS      3  RESIDUALS    0.48403
+                VIOLATIONS      3  RESIDUALS    0.48362
+                VIOLATIONS      3  RESIDUALS    0.48395
+                VIOLATIONS      3  RESIDUALS    0.48444
+wrapping first mol.:      -37.17194       26.28454       45.52615
+
+ NSTEP =    11000   TIME(PS) =      22.000  TEMP(K) =   301.04  PRESS =   346.4
+ Etot   =    -48108.6852  EKtot   =      8343.1414  EPtot      =    -56451.8266
+ BOND   =       179.5855  ANGLE   =       495.3671  DIHED      =      -235.3902
+ 1-4 NB =       212.6217  1-4 EEL =      4733.8471  VDWAALS    =      9756.0455
+ EELEC  =    -71608.4365  EHBOND  =         0.0000  RESTRAINT  =        14.5332
+ EAMBER (non-restraint)  =    -56466.3598
+ EKCMT  =      3799.0369  VIRIAL  =      2800.9964  VOLUME     =    133443.5858
+                                                    Density    =         1.0495
+ Ewald error estimate:   0.1823E-04
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.533
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48367
+                VIOLATIONS      3  RESIDUALS    0.48408
+                VIOLATIONS      3  RESIDUALS    0.48361
+                VIOLATIONS      3  RESIDUALS    0.48354
+                VIOLATIONS      3  RESIDUALS    0.48310
+                VIOLATIONS      3  RESIDUALS    0.48480
+                VIOLATIONS      3  RESIDUALS    0.48324
+                VIOLATIONS      3  RESIDUALS    0.48485
+                VIOLATIONS      3  RESIDUALS    0.48365
+                VIOLATIONS      3  RESIDUALS    0.48458
+                VIOLATIONS      3  RESIDUALS    0.48477
+                VIOLATIONS      3  RESIDUALS    0.48399
+                VIOLATIONS      3  RESIDUALS    0.48422
+                VIOLATIONS      3  RESIDUALS    0.48472
+                VIOLATIONS      3  RESIDUALS    0.48337
+                VIOLATIONS      3  RESIDUALS    0.48320
+                VIOLATIONS      3  RESIDUALS    0.48323
+                VIOLATIONS      3  RESIDUALS    0.48235
+                VIOLATIONS      3  RESIDUALS    0.48447
+                VIOLATIONS      3  RESIDUALS    0.48281
+                VIOLATIONS      3  RESIDUALS    0.48382
+                VIOLATIONS      3  RESIDUALS    0.48470
+                VIOLATIONS      3  RESIDUALS    0.48399
+                VIOLATIONS      3  RESIDUALS    0.48460
+                VIOLATIONS      3  RESIDUALS    0.48503
+                VIOLATIONS      3  RESIDUALS    0.48291
+                VIOLATIONS      3  RESIDUALS    0.48506
+                VIOLATIONS      3  RESIDUALS    0.48431
+                VIOLATIONS      3  RESIDUALS    0.48474
+                VIOLATIONS      3  RESIDUALS    0.48548
+                VIOLATIONS      3  RESIDUALS    0.48364
+                VIOLATIONS      3  RESIDUALS    0.48390
+                VIOLATIONS      3  RESIDUALS    0.48355
+                VIOLATIONS      3  RESIDUALS    0.48351
+                VIOLATIONS      3  RESIDUALS    0.48375
+                VIOLATIONS      3  RESIDUALS    0.48391
+                VIOLATIONS      3  RESIDUALS    0.48308
+                VIOLATIONS      3  RESIDUALS    0.48452
+                VIOLATIONS      3  RESIDUALS    0.48448
+                VIOLATIONS      3  RESIDUALS    0.48483
+                VIOLATIONS      3  RESIDUALS    0.48454
+                VIOLATIONS      3  RESIDUALS    0.48452
+                VIOLATIONS      3  RESIDUALS    0.48380
+                VIOLATIONS      3  RESIDUALS    0.48396
+                VIOLATIONS      3  RESIDUALS    0.48362
+                VIOLATIONS      3  RESIDUALS    0.48362
+                VIOLATIONS      3  RESIDUALS    0.48415
+                VIOLATIONS      3  RESIDUALS    0.48332
+                VIOLATIONS      3  RESIDUALS    0.48409
+                VIOLATIONS      3  RESIDUALS    0.48446
+                VIOLATIONS      3  RESIDUALS    0.48461
+wrapping first mol.:      -37.17194       26.28454       45.52615
+
+ NSTEP =    11500   TIME(PS) =      23.000  TEMP(K) =   301.82  PRESS =   215.7
+ Etot   =    -48251.1295  EKtot   =      8364.7799  EPtot      =    -56615.9094
+ BOND   =       170.8199  ANGLE   =       522.1708  DIHED      =      -243.1992
+ 1-4 NB =       215.5105  1-4 EEL =      4725.0384  VDWAALS    =      9764.5385
+ EELEC  =    -71785.3297  EHBOND  =         0.0000  RESTRAINT  =        14.5412
+ EAMBER (non-restraint)  =    -56630.4506
+ EKCMT  =      3902.7539  VIRIAL  =      3281.2591  VOLUME     =    133443.5858
+                                                    Density    =         1.0495
+ Ewald error estimate:   0.1193E-03
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.541
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48440
+                VIOLATIONS      3  RESIDUALS    0.48436
+                VIOLATIONS      3  RESIDUALS    0.48397
+                VIOLATIONS      3  RESIDUALS    0.48489
+                VIOLATIONS      3  RESIDUALS    0.48450
+                VIOLATIONS      3  RESIDUALS    0.48530
+                VIOLATIONS      3  RESIDUALS    0.48501
+                VIOLATIONS      3  RESIDUALS    0.48395
+                VIOLATIONS      3  RESIDUALS    0.48461
+                VIOLATIONS      3  RESIDUALS    0.48420
+                VIOLATIONS      3  RESIDUALS    0.48364
+                VIOLATIONS      3  RESIDUALS    0.48259
+                VIOLATIONS      3  RESIDUALS    0.48198
+                VIOLATIONS      3  RESIDUALS    0.48185
+                VIOLATIONS      3  RESIDUALS    0.48189
+                VIOLATIONS      3  RESIDUALS    0.48183
+                VIOLATIONS      3  RESIDUALS    0.48251
+                VIOLATIONS      3  RESIDUALS    0.48291
+                VIOLATIONS      3  RESIDUALS    0.48289
+                VIOLATIONS      3  RESIDUALS    0.48313
+                VIOLATIONS      3  RESIDUALS    0.48392
+                VIOLATIONS      3  RESIDUALS    0.48395
+                VIOLATIONS      3  RESIDUALS    0.48337
+                VIOLATIONS      3  RESIDUALS    0.48335
+                VIOLATIONS      3  RESIDUALS    0.48329
+                VIOLATIONS      3  RESIDUALS    0.48341
+                VIOLATIONS      3  RESIDUALS    0.48371
+                VIOLATIONS      3  RESIDUALS    0.48332
+                VIOLATIONS      3  RESIDUALS    0.48389
+                VIOLATIONS      3  RESIDUALS    0.48404
+                VIOLATIONS      3  RESIDUALS    0.48431
+                VIOLATIONS      3  RESIDUALS    0.48391
+                VIOLATIONS      3  RESIDUALS    0.48340
+                VIOLATIONS      3  RESIDUALS    0.48330
+                VIOLATIONS      3  RESIDUALS    0.48415
+                VIOLATIONS      3  RESIDUALS    0.48492
+                VIOLATIONS      3  RESIDUALS    0.48431
+                VIOLATIONS      3  RESIDUALS    0.48433
+                VIOLATIONS      3  RESIDUALS    0.48370
+                VIOLATIONS      3  RESIDUALS    0.48410
+                VIOLATIONS      3  RESIDUALS    0.48372
+                VIOLATIONS      3  RESIDUALS    0.48343
+                VIOLATIONS      3  RESIDUALS    0.48353
+                VIOLATIONS      3  RESIDUALS    0.48429
+                VIOLATIONS      3  RESIDUALS    0.48406
+                VIOLATIONS      3  RESIDUALS    0.48432
+                VIOLATIONS      3  RESIDUALS    0.48407
+                VIOLATIONS      3  RESIDUALS    0.48364
+                VIOLATIONS      3  RESIDUALS    0.48401
+                VIOLATIONS      3  RESIDUALS    0.48372
+                VIOLATIONS      3  RESIDUALS    0.48394
+wrapping first mol.:      -37.20545       26.30823       45.56719
+
+ NSTEP =    12000   TIME(PS) =      24.000  TEMP(K) =   304.18  PRESS =   103.1
+ Etot   =    -48280.3165  EKtot   =      8430.1726  EPtot      =    -56710.4891
+ BOND   =       173.8377  ANGLE   =       513.1211  DIHED      =      -230.6980
+ 1-4 NB =       199.8861  1-4 EEL =      4720.7717  VDWAALS    =      9642.1080
+ EELEC  =    -71744.0377  EHBOND  =         0.0000  RESTRAINT  =        14.5220
+ EAMBER (non-restraint)  =    -56725.0111
+ EKCMT  =      3921.9148  VIRIAL  =      3623.9582  VOLUME     =    133804.7885
+                                                    Density    =         1.0466
+ Ewald error estimate:   0.2122E-05
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.522
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48486
+                VIOLATIONS      3  RESIDUALS    0.48434
+                VIOLATIONS      3  RESIDUALS    0.48519
+                VIOLATIONS      3  RESIDUALS    0.48499
+                VIOLATIONS      3  RESIDUALS    0.48458
+                VIOLATIONS      3  RESIDUALS    0.48487
+                VIOLATIONS      3  RESIDUALS    0.48404
+                VIOLATIONS      3  RESIDUALS    0.48492
+                VIOLATIONS      3  RESIDUALS    0.48441
+                VIOLATIONS      3  RESIDUALS    0.48478
+                VIOLATIONS      3  RESIDUALS    0.48535
+                VIOLATIONS      3  RESIDUALS    0.48378
+                VIOLATIONS      3  RESIDUALS    0.48390
+                VIOLATIONS      3  RESIDUALS    0.48402
+                VIOLATIONS      3  RESIDUALS    0.48321
+                VIOLATIONS      3  RESIDUALS    0.48428
+                VIOLATIONS      3  RESIDUALS    0.48315
+                VIOLATIONS      3  RESIDUALS    0.48378
+                VIOLATIONS      3  RESIDUALS    0.48438
+                VIOLATIONS      3  RESIDUALS    0.48387
+                VIOLATIONS      3  RESIDUALS    0.48446
+                VIOLATIONS      3  RESIDUALS    0.48433
+                VIOLATIONS      3  RESIDUALS    0.48377
+                VIOLATIONS      3  RESIDUALS    0.48439
+                VIOLATIONS      3  RESIDUALS    0.48435
+                VIOLATIONS      3  RESIDUALS    0.48348
+                VIOLATIONS      3  RESIDUALS    0.48435
+                VIOLATIONS      3  RESIDUALS    0.48333
+                VIOLATIONS      3  RESIDUALS    0.48419
+                VIOLATIONS      3  RESIDUALS    0.48412
+                VIOLATIONS      3  RESIDUALS    0.48402
+                VIOLATIONS      3  RESIDUALS    0.48434
+                VIOLATIONS      3  RESIDUALS    0.48405
+                VIOLATIONS      3  RESIDUALS    0.48368
+                VIOLATIONS      3  RESIDUALS    0.48340
+                VIOLATIONS      3  RESIDUALS    0.48306
+                VIOLATIONS      3  RESIDUALS    0.48398
+                VIOLATIONS      3  RESIDUALS    0.48341
+                VIOLATIONS      3  RESIDUALS    0.48413
+                VIOLATIONS      3  RESIDUALS    0.48332
+                VIOLATIONS      3  RESIDUALS    0.48259
+                VIOLATIONS      3  RESIDUALS    0.48387
+                VIOLATIONS      3  RESIDUALS    0.48366
+                VIOLATIONS      3  RESIDUALS    0.48429
+                VIOLATIONS      3  RESIDUALS    0.48448
+                VIOLATIONS      3  RESIDUALS    0.48383
+                VIOLATIONS      3  RESIDUALS    0.48374
+                VIOLATIONS      3  RESIDUALS    0.48389
+                VIOLATIONS      3  RESIDUALS    0.48389
+                VIOLATIONS      3  RESIDUALS    0.48449
+                VIOLATIONS      3  RESIDUALS    0.48397
+wrapping first mol.:      -37.18479       26.29363       45.54189
+
+ NSTEP =    12500   TIME(PS) =      25.000  TEMP(K) =   301.81  PRESS =   -55.0
+ Etot   =    -48213.5021  EKtot   =      8364.5557  EPtot      =    -56578.0578
+ BOND   =       173.9748  ANGLE   =       514.7475  DIHED      =      -239.9242
+ 1-4 NB =       206.7991  1-4 EEL =      4733.8616  VDWAALS    =      9728.3783
+ EELEC  =    -71710.4140  EHBOND  =         0.0000  RESTRAINT  =        14.5191
+ EAMBER (non-restraint)  =    -56592.5769
+ EKCMT  =      3935.3810  VIRIAL  =      4093.9473  VOLUME     =    133582.0682
+                                                    Density    =         1.0484
+ Ewald error estimate:   0.6536E-04
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.519
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48419
+                VIOLATIONS      3  RESIDUALS    0.48447
+                VIOLATIONS      3  RESIDUALS    0.48437
+                VIOLATIONS      3  RESIDUALS    0.48473
+                VIOLATIONS      3  RESIDUALS    0.48405
+                VIOLATIONS      3  RESIDUALS    0.48409
+                VIOLATIONS      3  RESIDUALS    0.48390
+                VIOLATIONS      3  RESIDUALS    0.48451
+                VIOLATIONS      3  RESIDUALS    0.48409
+                VIOLATIONS      3  RESIDUALS    0.48443
+                VIOLATIONS      3  RESIDUALS    0.48439
+                VIOLATIONS      3  RESIDUALS    0.48478
+                VIOLATIONS      3  RESIDUALS    0.48427
+                VIOLATIONS      3  RESIDUALS    0.48476
+                VIOLATIONS      3  RESIDUALS    0.48442
+                VIOLATIONS      3  RESIDUALS    0.48443
+                VIOLATIONS      3  RESIDUALS    0.48460
+                VIOLATIONS      3  RESIDUALS    0.48458
+                VIOLATIONS      3  RESIDUALS    0.48568
+                VIOLATIONS      3  RESIDUALS    0.48502
+                VIOLATIONS      3  RESIDUALS    0.48442
+                VIOLATIONS      3  RESIDUALS    0.48466
+                VIOLATIONS      3  RESIDUALS    0.48425
+                VIOLATIONS      3  RESIDUALS    0.48350
+                VIOLATIONS      3  RESIDUALS    0.48397
+                VIOLATIONS      3  RESIDUALS    0.48302
+                VIOLATIONS      3  RESIDUALS    0.48460
+                VIOLATIONS      3  RESIDUALS    0.48449
+                VIOLATIONS      3  RESIDUALS    0.48386
+                VIOLATIONS      3  RESIDUALS    0.48448
+                VIOLATIONS      3  RESIDUALS    0.48380
+                VIOLATIONS      3  RESIDUALS    0.48378
+                VIOLATIONS      3  RESIDUALS    0.48510
+                VIOLATIONS      3  RESIDUALS    0.48423
+                VIOLATIONS      3  RESIDUALS    0.48474
+                VIOLATIONS      3  RESIDUALS    0.48444
+                VIOLATIONS      3  RESIDUALS    0.48438
+                VIOLATIONS      3  RESIDUALS    0.48463
+                VIOLATIONS      3  RESIDUALS    0.48363
+                VIOLATIONS      3  RESIDUALS    0.48391
+                VIOLATIONS      3  RESIDUALS    0.48322
+                VIOLATIONS      3  RESIDUALS    0.48312
+                VIOLATIONS      3  RESIDUALS    0.48331
+                VIOLATIONS      3  RESIDUALS    0.48343
+                VIOLATIONS      3  RESIDUALS    0.48310
+                VIOLATIONS      3  RESIDUALS    0.48366
+                VIOLATIONS      3  RESIDUALS    0.48334
+                VIOLATIONS      3  RESIDUALS    0.48369
+                VIOLATIONS      3  RESIDUALS    0.48298
+                VIOLATIONS      3  RESIDUALS    0.48364
+                VIOLATIONS      3  RESIDUALS    0.48398
+wrapping first mol.:      -37.19216       26.29883       45.55091
+
+ NSTEP =    13000   TIME(PS) =      26.000  TEMP(K) =   300.26  PRESS =    91.4
+ Etot   =    -48206.8413  EKtot   =      8321.4684  EPtot      =    -56528.3097
+ BOND   =       165.8973  ANGLE   =       517.7000  DIHED      =      -238.3148
+ 1-4 NB =       208.8752  1-4 EEL =      4711.2979  VDWAALS    =      9650.5463
+ EELEC  =    -71558.8307  EHBOND  =         0.0000  RESTRAINT  =        14.5192
+ EAMBER (non-restraint)  =    -56542.8289
+ EKCMT  =      3869.3340  VIRIAL  =      3605.5154  VOLUME     =    133661.4586
+                                                    Density    =         1.0478
+ Ewald error estimate:   0.1605E-03
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.519
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48296
+                VIOLATIONS      3  RESIDUALS    0.48394
+                VIOLATIONS      3  RESIDUALS    0.48389
+                VIOLATIONS      3  RESIDUALS    0.48469
+                VIOLATIONS      3  RESIDUALS    0.48452
+                VIOLATIONS      3  RESIDUALS    0.48459
+                VIOLATIONS      3  RESIDUALS    0.48422
+                VIOLATIONS      3  RESIDUALS    0.48438
+                VIOLATIONS      3  RESIDUALS    0.48434
+                VIOLATIONS      3  RESIDUALS    0.48500
+                VIOLATIONS      3  RESIDUALS    0.48465
+                VIOLATIONS      3  RESIDUALS    0.48456
+                VIOLATIONS      3  RESIDUALS    0.48490
+                VIOLATIONS      3  RESIDUALS    0.48327
+                VIOLATIONS      3  RESIDUALS    0.48390
+                VIOLATIONS      3  RESIDUALS    0.48400
+                VIOLATIONS      3  RESIDUALS    0.48348
+                VIOLATIONS      3  RESIDUALS    0.48406
+                VIOLATIONS      3  RESIDUALS    0.48401
+                VIOLATIONS      3  RESIDUALS    0.48487
+                VIOLATIONS      3  RESIDUALS    0.48471
+                VIOLATIONS      3  RESIDUALS    0.48428
+                VIOLATIONS      3  RESIDUALS    0.48546
+                VIOLATIONS      3  RESIDUALS    0.48471
+                VIOLATIONS      3  RESIDUALS    0.48398
+                VIOLATIONS      3  RESIDUALS    0.48411
+                VIOLATIONS      3  RESIDUALS    0.48438
+                VIOLATIONS      3  RESIDUALS    0.48437
+                VIOLATIONS      3  RESIDUALS    0.48406
+                VIOLATIONS      3  RESIDUALS    0.48455
+                VIOLATIONS      3  RESIDUALS    0.48431
+                VIOLATIONS      3  RESIDUALS    0.48296
+                VIOLATIONS      3  RESIDUALS    0.48346
+                VIOLATIONS      3  RESIDUALS    0.48321
+                VIOLATIONS      3  RESIDUALS    0.48332
+                VIOLATIONS      3  RESIDUALS    0.48412
+                VIOLATIONS      3  RESIDUALS    0.48353
+                VIOLATIONS      3  RESIDUALS    0.48492
+                VIOLATIONS      3  RESIDUALS    0.48389
+                VIOLATIONS      3  RESIDUALS    0.48368
+                VIOLATIONS      3  RESIDUALS    0.48490
+                VIOLATIONS      3  RESIDUALS    0.48401
+                VIOLATIONS      3  RESIDUALS    0.48330
+                VIOLATIONS      3  RESIDUALS    0.48389
+                VIOLATIONS      3  RESIDUALS    0.48289
+                VIOLATIONS      3  RESIDUALS    0.48419
+                VIOLATIONS      3  RESIDUALS    0.48516
+                VIOLATIONS      3  RESIDUALS    0.48423
+                VIOLATIONS      3  RESIDUALS    0.48428
+                VIOLATIONS      3  RESIDUALS    0.48374
+                VIOLATIONS      3  RESIDUALS    0.48361
+wrapping first mol.:      -37.24142       26.33366       45.61124
+
+ NSTEP =    13500   TIME(PS) =      27.000  TEMP(K) =   296.54  PRESS =  -352.7
+ Etot   =    -48255.5884  EKtot   =      8218.4423  EPtot      =    -56474.0307
+ BOND   =       188.9548  ANGLE   =       515.5533  DIHED      =      -245.5245
+ 1-4 NB =       202.8030  1-4 EEL =      4714.7559  VDWAALS    =      9375.4163
+ EELEC  =    -71240.4979  EHBOND  =         0.0000  RESTRAINT  =        14.5084
+ EAMBER (non-restraint)  =    -56488.5391
+ EKCMT  =      3873.4596  VIRIAL  =      4895.4052  VOLUME     =    134193.2348
+                                                    Density    =         1.0436
+ Ewald error estimate:   0.1155E-04
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.508
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48481
+                VIOLATIONS      3  RESIDUALS    0.48362
+                VIOLATIONS      3  RESIDUALS    0.48389
+                VIOLATIONS      3  RESIDUALS    0.48390
+                VIOLATIONS      3  RESIDUALS    0.48353
+                VIOLATIONS      3  RESIDUALS    0.48466
+                VIOLATIONS      3  RESIDUALS    0.48351
+                VIOLATIONS      3  RESIDUALS    0.48411
+                VIOLATIONS      3  RESIDUALS    0.48383
+                VIOLATIONS      3  RESIDUALS    0.48338
+                VIOLATIONS      3  RESIDUALS    0.48466
+                VIOLATIONS      3  RESIDUALS    0.48400
+                VIOLATIONS      3  RESIDUALS    0.48449
+                VIOLATIONS      3  RESIDUALS    0.48535
+                VIOLATIONS      3  RESIDUALS    0.48438
+                VIOLATIONS      3  RESIDUALS    0.48565
+                VIOLATIONS      3  RESIDUALS    0.48539
+                VIOLATIONS      3  RESIDUALS    0.48541
+                VIOLATIONS      3  RESIDUALS    0.48505
+                VIOLATIONS      3  RESIDUALS    0.48432
+                VIOLATIONS      3  RESIDUALS    0.48508
+                VIOLATIONS      3  RESIDUALS    0.48466
+                VIOLATIONS      3  RESIDUALS    0.48385
+                VIOLATIONS      3  RESIDUALS    0.48414
+                VIOLATIONS      3  RESIDUALS    0.48336
+                VIOLATIONS      3  RESIDUALS    0.48396
+                VIOLATIONS      3  RESIDUALS    0.48399
+                VIOLATIONS      3  RESIDUALS    0.48347
+                VIOLATIONS      3  RESIDUALS    0.48430
+                VIOLATIONS      3  RESIDUALS    0.48410
+                VIOLATIONS      3  RESIDUALS    0.48396
+                VIOLATIONS      3  RESIDUALS    0.48491
+                VIOLATIONS      3  RESIDUALS    0.48364
+                VIOLATIONS      3  RESIDUALS    0.48394
+                VIOLATIONS      3  RESIDUALS    0.48474
+                VIOLATIONS      3  RESIDUALS    0.48386
+                VIOLATIONS      3  RESIDUALS    0.48449
+                VIOLATIONS      3  RESIDUALS    0.48389
+                VIOLATIONS      3  RESIDUALS    0.48417
+                VIOLATIONS      3  RESIDUALS    0.48493
+                VIOLATIONS      3  RESIDUALS    0.48477
+                VIOLATIONS      3  RESIDUALS    0.48516
+                VIOLATIONS      3  RESIDUALS    0.48522
+                VIOLATIONS      3  RESIDUALS    0.48477
+                VIOLATIONS      3  RESIDUALS    0.48532
+                VIOLATIONS      3  RESIDUALS    0.48456
+                VIOLATIONS      3  RESIDUALS    0.48381
+                VIOLATIONS      3  RESIDUALS    0.48376
+                VIOLATIONS      3  RESIDUALS    0.48384
+                VIOLATIONS      3  RESIDUALS    0.48531
+                VIOLATIONS      3  RESIDUALS    0.48485
+wrapping first mol.:      -37.23730       26.33075       45.60620
+
+ NSTEP =    14000   TIME(PS) =      28.000  TEMP(K) =   298.98  PRESS =  -207.2
+ Etot   =    -48362.4048  EKtot   =      8286.0750  EPtot      =    -56648.4798
+ BOND   =       190.6094  ANGLE   =       492.7157  DIHED      =      -241.9430
+ 1-4 NB =       202.8987  1-4 EEL =      4720.3868  VDWAALS    =      9661.7921
+ EELEC  =    -71689.4882  EHBOND  =         0.0000  RESTRAINT  =        14.5485
+ EAMBER (non-restraint)  =    -56663.0283
+ EKCMT  =      3854.9682  VIRIAL  =      4455.1943  VOLUME     =    134148.7326
+                                                    Density    =         1.0440
+ Ewald error estimate:   0.3724E-04
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.549
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48514
+                VIOLATIONS      3  RESIDUALS    0.48452
+                VIOLATIONS      3  RESIDUALS    0.48334
+                VIOLATIONS      3  RESIDUALS    0.48373
+                VIOLATIONS      3  RESIDUALS    0.48395
+                VIOLATIONS      3  RESIDUALS    0.48368
+                VIOLATIONS      3  RESIDUALS    0.48383
+                VIOLATIONS      3  RESIDUALS    0.48381
+                VIOLATIONS      3  RESIDUALS    0.48397
+                VIOLATIONS      3  RESIDUALS    0.48391
+                VIOLATIONS      3  RESIDUALS    0.48401
+                VIOLATIONS      3  RESIDUALS    0.48456
+                VIOLATIONS      3  RESIDUALS    0.48384
+                VIOLATIONS      3  RESIDUALS    0.48452
+                VIOLATIONS      3  RESIDUALS    0.48435
+                VIOLATIONS      3  RESIDUALS    0.48400
+                VIOLATIONS      3  RESIDUALS    0.48476
+                VIOLATIONS      3  RESIDUALS    0.48388
+                VIOLATIONS      3  RESIDUALS    0.48375
+                VIOLATIONS      3  RESIDUALS    0.48401
+                VIOLATIONS      3  RESIDUALS    0.48247
+                VIOLATIONS      3  RESIDUALS    0.48339
+                VIOLATIONS      3  RESIDUALS    0.48351
+                VIOLATIONS      3  RESIDUALS    0.48374
+                VIOLATIONS      3  RESIDUALS    0.48409
+                VIOLATIONS      3  RESIDUALS    0.48319
+                VIOLATIONS      3  RESIDUALS    0.48346
+                VIOLATIONS      3  RESIDUALS    0.48263
+                VIOLATIONS      3  RESIDUALS    0.48352
+                VIOLATIONS      3  RESIDUALS    0.48403
+                VIOLATIONS      3  RESIDUALS    0.48398
+                VIOLATIONS      3  RESIDUALS    0.48422
+                VIOLATIONS      3  RESIDUALS    0.48502
+                VIOLATIONS      3  RESIDUALS    0.48376
+                VIOLATIONS      3  RESIDUALS    0.48501
+                VIOLATIONS      3  RESIDUALS    0.48385
+                VIOLATIONS      3  RESIDUALS    0.48396
+                VIOLATIONS      3  RESIDUALS    0.48440
+                VIOLATIONS      3  RESIDUALS    0.48367
+                VIOLATIONS      3  RESIDUALS    0.48411
+                VIOLATIONS      3  RESIDUALS    0.48420
+                VIOLATIONS      3  RESIDUALS    0.48348
+                VIOLATIONS      3  RESIDUALS    0.48374
+                VIOLATIONS      3  RESIDUALS    0.48371
+                VIOLATIONS      3  RESIDUALS    0.48327
+                VIOLATIONS      3  RESIDUALS    0.48479
+                VIOLATIONS      3  RESIDUALS    0.48342
+                VIOLATIONS      3  RESIDUALS    0.48356
+                VIOLATIONS      3  RESIDUALS    0.48330
+                VIOLATIONS      3  RESIDUALS    0.48389
+                VIOLATIONS      3  RESIDUALS    0.48342
+wrapping first mol.:      -37.26319       26.34906       45.63791
+
+ NSTEP =    14500   TIME(PS) =      29.000  TEMP(K) =   298.98  PRESS =  -380.0
+ Etot   =    -48172.6859  EKtot   =      8286.1322  EPtot      =    -56458.8180
+ BOND   =       190.6565  ANGLE   =       497.6493  DIHED      =      -227.9486
+ 1-4 NB =       213.1883  1-4 EEL =      4698.6494  VDWAALS    =      9481.4115
+ EELEC  =    -71326.9270  EHBOND  =         0.0000  RESTRAINT  =        14.5026
+ EAMBER (non-restraint)  =    -56473.3206
+ EKCMT  =      3903.4890  VIRIAL  =      5006.2950  VOLUME     =    134428.7277
+                                                    Density    =         1.0418
+ Ewald error estimate:   0.2310E-04
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.503
+===============================================================================
+                VIOLATIONS      3  RESIDUALS    0.48383
+                VIOLATIONS      3  RESIDUALS    0.48358
+                VIOLATIONS      3  RESIDUALS    0.48379
+                VIOLATIONS      3  RESIDUALS    0.48316
+                VIOLATIONS      3  RESIDUALS    0.48353
+                VIOLATIONS      3  RESIDUALS    0.48344
+                VIOLATIONS      3  RESIDUALS    0.48350
+                VIOLATIONS      3  RESIDUALS    0.48470
+                VIOLATIONS      3  RESIDUALS    0.48372
+                VIOLATIONS      3  RESIDUALS    0.48477
+                VIOLATIONS      3  RESIDUALS    0.48402
+                VIOLATIONS      3  RESIDUALS    0.48419
+                VIOLATIONS      3  RESIDUALS    0.48366
+                VIOLATIONS      3  RESIDUALS    0.48378
+                VIOLATIONS      3  RESIDUALS    0.48318
+                VIOLATIONS      3  RESIDUALS    0.48379
+                VIOLATIONS      3  RESIDUALS    0.48359
+                VIOLATIONS      3  RESIDUALS    0.48429
+                VIOLATIONS      3  RESIDUALS    0.48464
+                VIOLATIONS      3  RESIDUALS    0.48385
+                VIOLATIONS      3  RESIDUALS    0.48412
+                VIOLATIONS      3  RESIDUALS    0.48395
+                VIOLATIONS      3  RESIDUALS    0.48421
+                VIOLATIONS      3  RESIDUALS    0.48392
+                VIOLATIONS      3  RESIDUALS    0.48435
+                VIOLATIONS      3  RESIDUALS    0.48350
+                VIOLATIONS      3  RESIDUALS    0.48408
+                VIOLATIONS      3  RESIDUALS    0.48407
+                VIOLATIONS      3  RESIDUALS    0.48477
+                VIOLATIONS      3  RESIDUALS    0.48452
+                VIOLATIONS      3  RESIDUALS    0.48474
+                VIOLATIONS      3  RESIDUALS    0.48425
+                VIOLATIONS      3  RESIDUALS    0.48386
+                VIOLATIONS      3  RESIDUALS    0.48386
+                VIOLATIONS      3  RESIDUALS    0.48402

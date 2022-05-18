@@ -1,0 +1,8 @@
++ export 'DO_PARALLEL=mpirun -np 112'
++ DO_PARALLEL='mpirun -np 112'
++ SANDER=sander.MPI
++ INP=07_prod.in
++ TOP=gb1-ntaco_solv.prmtop
++ CRD=06_min.rst
++ OUT=07_prod
++ mpirun -np 112 sander.MPI -O -i 07_prod.in -p gb1-ntaco_solv.prmtop -c 06_min.rst -r 07_prod.rst -o 07_prod.out -e 07_prod.ene -v 07_prod.vel -inf 07_prod.nfo -x 07_prod.nc

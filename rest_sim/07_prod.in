@@ -1,10 +1,14 @@
-PCS Restrainted 200 ns NPT production using Langevin thermostat and MC barostat
+PCS Restrainted 20 ns NPT production using Langevin thermostat and MC barostat
 &cntrl
-  irest     = 1,
-  ntx       = 5,
+  !irest     = 1,
+  ! no velicities from minimization so start new simulation
+  irest     = 0,
+  !ntx       = 5,
+  ! set to 1 since no velocities read from minimization
+  ntx       = 1,
   ig        = -1,
   dt        = 0.002,
-  nstlim    = 100000000,
+  nstlim    = 10000000,
   nscm      = 500,
   ! turn on nmr restraints
   nmropt    = 2,
@@ -34,10 +38,12 @@ PCS Restrainted 200 ns NPT production using Langevin thermostat and MC barostat
 ! This essentially starts the nmr restraints after the first step
 &wt
   type      = "REST",
-  istep1    = 0,
-  istep2    = 1,
-  value1    = 0,
-  value2    = 1.0,
+  !istep1    = 0,
+  !istep2    = 1,
+  !value1    = 0,
+  !value2    = 1.0,
+  ! since starting from rest min, use restraints the whole time
+  value1    = 1.0,
 &end
 &wt
   type      = "END",
