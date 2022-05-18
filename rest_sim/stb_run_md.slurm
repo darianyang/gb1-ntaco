@@ -22,7 +22,7 @@ SANDER=sander.MPI
 INP=07_prod.in
 TOP=gb1-ntaco_solv.prmtop
 #CRD=06_min.rst
-CRD=06_min.rst
+CRD=05_eq3.rst
 OUT=07_prod
 
 $DO_PARALLEL \

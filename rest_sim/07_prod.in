@@ -1,11 +1,11 @@
 PCS Restrainted 20 ns NPT production using Langevin thermostat and MC barostat
 &cntrl
-  !irest     = 1,
+  irest     = 1,
   ! no velicities from minimization so start new simulation
-  irest     = 0,
-  !ntx       = 5,
+  !irest     = 0,
+  ntx       = 5,
   ! set to 1 since no velocities read from minimization
-  ntx       = 1,
+  !ntx       = 1,
   ig        = -1,
   dt        = 0.002,
   nstlim    = 10000000,
