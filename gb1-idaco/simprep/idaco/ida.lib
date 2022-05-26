@@ -1,0 +1,117 @@
+!!index array str
+ "IDA"
+!entry.IDA.unit.atoms table  str name  str type  int typex  int resx  int flags  int seq  int elmnt  dbl chg
+ "C1B" "c" 0 1 131072 1 6 0.907600
+ "O1" "o" 0 1 131072 2 8 -0.870800
+ "C1A" "c" 0 1 131072 3 6 0.907600
+ "N1" "n7" 0 1 131072 4 7 -0.811200
+ "H1" "hn" 0 1 131072 5 1 0.383800
+ "C2B" "c3" 0 1 131072 6 6 0.062800
+ "H2BA" "h1" 0 1 131072 7 1 -0.007300
+ "H2BB" "h1" 0 1 131072 8 1 -0.007300
+ "O2" "o" 0 1 131072 9 8 -0.870800
+ "C2A" "c3" 0 1 131072 10 6 0.062800
+ "H2AA" "h1" 0 1 131072 11 1 -0.007300
+ "H2AB" "h1" 0 1 131072 12 1 -0.007300
+ "O3" "o" 0 1 131072 13 8 -0.870800
+ "O4" "o" 0 1 131072 14 8 -0.870800
+!entry.IDA.unit.atomspertinfo table  str pname  str ptype  int ptypex  int pelmnt  dbl pchg
+ "C1B" "c" 0 -1 0.0
+ "O1" "o" 0 -1 0.0
+ "C1A" "c" 0 -1 0.0
+ "N1" "n7" 0 -1 0.0
+ "H1" "hn" 0 -1 0.0
+ "C2B" "c3" 0 -1 0.0
+ "H2BA" "h1" 0 -1 0.0
+ "H2BB" "h1" 0 -1 0.0
+ "O2" "o" 0 -1 0.0
+ "C2A" "c3" 0 -1 0.0
+ "H2AA" "h1" 0 -1 0.0
+ "H2AB" "h1" 0 -1 0.0
+ "O3" "o" 0 -1 0.0
+ "O4" "o" 0 -1 0.0
+!entry.IDA.unit.boundbox array dbl
+ -1.000000
+ 0.0
+ 0.0
+ 0.0
+ 0.0
+!entry.IDA.unit.childsequence single int
+ 2
+!entry.IDA.unit.connect array int
+ 0
+ 0
+!entry.IDA.unit.connectivity table  int atom1x  int atom2x  int flags
+ 1 6 1
+ 1 9 1
+ 1 14 1
+ 2 3 1
+ 3 10 1
+ 3 13 1
+ 4 5 1
+ 4 6 1
+ 4 10 1
+ 6 7 1
+ 6 8 1
+ 10 11 1
+ 10 12 1
+!entry.IDA.unit.hierarchy table  str abovetype  int abovex  str belowtype  int belowx
+ "U" 0 "R" 1
+ "R" 1 "A" 1
+ "R" 1 "A" 2
+ "R" 1 "A" 3
+ "R" 1 "A" 4
+ "R" 1 "A" 5
+ "R" 1 "A" 6
+ "R" 1 "A" 7
+ "R" 1 "A" 8
+ "R" 1 "A" 9
+ "R" 1 "A" 10
+ "R" 1 "A" 11
+ "R" 1 "A" 12
+ "R" 1 "A" 13
+ "R" 1 "A" 14
+!entry.IDA.unit.name single str
+ "IDA"
+!entry.IDA.unit.positions table  dbl x  dbl y  dbl z
+ -1.914000 -6.889000 -23.450000
+ -2.621000 -4.532000 -20.505000
+ -1.412000 -4.773000 -20.251000
+ -1.878000 -7.114000 -21.003000
+ -1.923000 -7.688000 -20.444000
+ -1.521000 -7.762000 -22.269000
+ -1.973000 -8.618000 -22.334000
+ -0.565000 -7.925000 -22.291000
+ -2.665000 -5.910000 -23.254000
+ -0.860000 -6.156000 -20.522000
+ -0.155000 -6.089000 -21.186000
+ -0.465000 -6.502000 -19.707000
+ -0.621000 -3.925000 -19.826000
+ -1.450000 -7.240000 -24.565000
+!entry.IDA.unit.residueconnect table  int c1x  int c2x  int c3x  int c4x  int c5x  int c6x
+ 0 0 0 0 0 0
+!entry.IDA.unit.residues table  str name  int seq  int childseq  int startatomx  str restype  int imagingx
+ "IDA" 1 15 1 "?" 0
+!entry.IDA.unit.residuesPdbSequenceNumber array int
+ 0
+!entry.IDA.unit.solventcap array dbl
+ -1.000000
+ 0.0
+ 0.0
+ 0.0
+ 0.0
+!entry.IDA.unit.velocities table  dbl x  dbl y  dbl z
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
+ 0.0 0.0 0.0
