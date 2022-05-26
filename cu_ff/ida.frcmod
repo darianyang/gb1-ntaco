@@ -1,0 +1,138 @@
+Remark line goes here
+
+MASS
+Cu 63.010 0.000
+NZ 14.010 0.530
+OX 16.000 0.434
+OZ 16.000 0.434
+NX 14.010 0.530
+
+BOND
+Cu-NZ 47.84 2.004 calculated for Cu-NZ
+Cu-N3 44.89 2.029 calculated for Cu-N3
+Cu-OX 40.02 2.012 calculated for Cu-OX
+Cu-OZ 40.43 2.008 calculated for Cu-OZ
+Cu-NX 23.10 2.309 calculated for Cu-NX
+CR-NZ 488.00 1.335
+CA-NZ 410.00 1.394
+CA-CC 427.00 1.433
+C -OX 656.00 1.250
+C -OZ 656.00 1.250
+CR-NX 488.00 1.335
+CA-NX 410.00 1.394
+
+ANGLE
+CR-NZ-Cu 19.012 125.901 Calculated using ca-nb-Cu, penalty score=2.0
+CA-NZ-Cu 18.900 127.386 Calculated with empirical approach for CA-NZCu
+CT-N3-Cu 20.164 107.333 Calculated with empirical approach for CT-N3-Cu
+Cu-N3-H 23.792 104.354 Calculated using Cu-n4-hn, penalty score=0.0
+C -OX-Cu 19.509 114.745 Calculated with empirical approach for C-OXCu
+C -OZ-Cu 19.554 114.708 Calculated with empirical approach for C-OZCu
+CR-NX-Cu 16.368 125.934 Calculated using ca-nb-Cu, penalty score=2.0
+CA-NX-Cu 16.237 127.970 Calculated with empirical approach for CA-NXCu
+N3-Cu-NZ 32.826 157.691 Calculated with empirical approach for N3-CuNZ
+NZ-Cu-OX 42.257 95.978 Calculated with empirical approach for NZ-CuOX
+NZ-Cu-OZ 42.087 96.949 Calculated with empirical approach for NZ-CuOZ
+NX-Cu-NZ 37.956 101.098 Calculated with empirical approach for NX-CuNZ
+NA-CR-NZ 70.000 120.000
+H5-CR-NZ 50.000 120.000
+CC-CA-NZ 86.700 117.750 same as cc-ca-nb, penalty score= 0.0
+H4-CA-NZ 64.100 116.030 same as h4-ca-nb, penalty score= 0.0
+CA-NZ-CR 70.000 117.000
+CA-CC-NA 69.604 120.000
+CC-CA-H4 50.000 120.000
+CA-CC-CT 63.300 126.520 same as c3-cc-ca, penalty score= 0.0
+N3-Cu-OX 45.412 82.073 Calculated with empirical approach for N3-CuOX
+N3-Cu-OZ 45.453 82.084 Calculated with empirical approach for N3-CuOZ
+N3-Cu-NX 37.782 101.200 Calculated with empirical approach for N3-CuNX
+CT-C -OX 70.000 117.000
+OX-Cu-OZ 32.342 163.520 Calculated with empirical approach for OX-CuOZ
+NX-Cu-OX 39.459 93.303 Calculated with empirical approach for NX-CuOX
+O2-C -OX 80.000 126.000
+CT-C -OZ 70.000 117.000
+O2-C -OZ 80.000 126.000
+NX-Cu-OZ 39.297 94.193 Calculated with empirical approach for NX-CuOZ
+NA-CR-NX 70.000 120.000
+H5-CR-NX 50.000 120.000
+CC-CA-NX 86.700 117.750 same as cc-ca-nb, penalty score= 0.0
+H4-CA-NX 64.100 116.030 same as h4-ca-nb, penalty score= 0.0
+CA-NX-CR 70.000 117.000
+
+DIHE
+NA-CR-NZ-Cu 2 10.000 180.000 2.000
+H5-CR-NZ-Cu 2 10.000 180.000 2.000
+CC-CA-NZ-Cu 2 4.800 180.000 2.000
+H4-CA-NZ-Cu 2 4.800 180.000 2.000
+NA-CR-NX-Cu 2 10.000 180.000 2.000
+H5-CR-NX-Cu 2 10.000 180.000 2.000
+CC-CA-NX-Cu 2 4.800 180.000 2.000
+H4-CA-NX-Cu 2 4.800 180.000 2.000
+NZ-Cu-N3-CT 1 0.000 0.000 2.000
+NZ-Cu-N3-H 1 0.000 0.000 2.000
+NZ-Cu-OX-C 1 0.000 0.000 2.000
+NZ-Cu-OZ-C 1 0.000 0.000 2.000
+NZ-Cu-NX-CR 1 0.000 0.000 2.000
+NZ-Cu-NX-CA 1 0.000 0.000 2.000
+CC-CA-NZ-CR 2 4.800 180.000 2.000
+H4-CA-NZ-CR 2 4.800 180.000 2.000
+NZ-CA-CC-NA 4 14.500 180.000 2.000
+H4-CA-CC-NA 4 14.500 180.000 2.000
+NA-CR-NZ-CA 2 10.000 180.000 2.000
+H5-CR-NZ-CA 2 10.000 180.000 2.000
+NZ-CA-CC-CT 4 14.500 180.000 2.000
+H4-CA-CC-CT 4 14.500 180.000 2.000
+N3-Cu-NZ-CR 1 0.000 0.000 2.000
+N3-Cu-NZ-CA 1 0.000 0.000 2.000
+N3-Cu-OX-C 1 0.000 0.000 2.000
+N3-Cu-OZ-C 1 0.000 0.000 2.000
+N3-Cu-NX-CR 1 0.000 0.000 2.000
+N3-Cu-NX-CA 1 0.000 0.000 2.000
+CT-C -OX-Cu 1 0.000 0.000 2.000
+OX-Cu-NZ-CR 1 0.000 0.000 2.000
+OX-Cu-NZ-CA 1 0.000 0.000 2.000
+OX-Cu-N3-CT 1 0.000 0.000 2.000
+OX-Cu-N3-H 1 0.000 0.000 2.000
+OX-Cu-OZ-C 1 0.000 0.000 2.000
+OX-Cu-NX-CR 1 0.000 0.000 2.000
+OX-Cu-NX-CA 1 0.000 0.000 2.000
+O2-C -OX-Cu 1 0.000 0.000 2.000
+CT-C -OZ-Cu 1 0.000 0.000 2.000
+O2-C -OZ-Cu 1 0.000 0.000 2.000
+OZ-Cu-NZ-CR 1 0.000 0.000 2.000
+OZ-Cu-NZ-CA 1 0.000 0.000 2.000
+OZ-Cu-N3-CT 1 0.000 0.000 2.000
+OZ-Cu-N3-H 1 0.000 0.000 2.000
+OZ-Cu-OX-C 1 0.000 0.000 2.000
+OZ-Cu-NX-CR 1 0.000 0.000 2.000
+OZ-Cu-NX-CA 1 0.000 0.000 2.000
+NX-Cu-NZ-CR 1 0.000 0.000 2.000
+NX-Cu-NZ-CA 1 0.000 0.000 2.000
+NX-Cu-N3-CT 1 0.000 0.000 2.000
+NX-Cu-N3-H 1 0.000 0.000 2.000
+NX-Cu-OX-C 1 0.000 0.000 2.000
+NX-Cu-OZ-C 1 0.000 0.000 2.000
+CC-CA-NX-CR 2 4.800 180.000 2.000
+H4-CA-NX-CR 2 4.800 180.000 2.000
+NX-CA-CC-NA 4 14.500 180.000 2.000
+NA-CR-NX-CA 2 10.000 180.000 2.000
+H5-CR-NX-CA 2 10.000 180.000 2.000
+NX-CA-CC-CT 4 14.500 180.000 2.000
+
+IMPROPER
+CA-CR-NZ-Cu 1.1 180.0 2.0
+H5-NA-CR-NZ 1.1 180.0 2.0
+CC-CR-NA-H 1.0 180.0 2.0
+CA-CT-CC-NA 1.1 180.0 2.0
+CC-HP-CA-NZ 1.1 180.0 2.0
+CT-O2-C -OX 10.5 180.0 2.0
+CT-O2-C -OZ 10.5 180.0 2.0
+CA-CR-NX-Cu 1.1 180.0 2.0
+H5-NA-CR-NX 1.1 180.0 2.0
+CC-H4-CA-NX 1.1 180.0 2.0
+
+NONBON
+ Cu 1.8000 0.1700
+ NZ 1.8240 0.1700
+ OX 1.6612 0.2100
+ OZ 1.6612 0.2100
+ NX 1.8240 0.1700

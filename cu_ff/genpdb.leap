@@ -1,0 +1,6 @@
+source leaprc.protein.ff15ipq
+source leaprc.fluorine.ff15ipq
+source leaprc.water.spceb
+loadamberparams nta.frcmod
+loadamberprep nta.prepi
+savepdb
