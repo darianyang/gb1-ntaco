@@ -1,0 +1,5 @@
+source leaprc.gaff2
+#loadamberparams ida.frcmod
+ida = loadmol2 ida.mol2
+saveoff ida ida.lib
+quit
