@@ -3,9 +3,9 @@
 + SANDER=sander.MPI
 + INP=07_prod.in
 + TOP=gb1-ntaco_solv.prmtop
-+ CRD=06_min.rst
++ CRD=05_eq3.rst
 + OUT=07_prod
-+ mpirun -np 48 sander.MPI -O -i 07_prod.in -p gb1-ntaco_solv.prmtop -c 06_min.rst -r 07_prod.rst -o 07_prod.out -e 07_prod.ene -v 07_prod.vel -inf 07_prod.nfo -x 07_prod.nc
++ mpirun -np 48 sander.MPI -O -i 07_prod.in -p gb1-ntaco_solv.prmtop -c 05_eq3.rst -r 07_prod.rst -o 07_prod.out -e 07_prod.ene -v 07_prod.vel -inf 07_prod.nfo -x 07_prod.nc
 
 Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
 
@@ -208,447 +208,446 @@ create child processes) is strongly discouraged.
 
 The process that invoked fork was:
 
-  Local host:          [[7641,1],15] (PID 733)
+  Local host:          [[1208,1],9] (PID 7182)
 
 If you are *absolutely sure* that your application will successfully
 and correctly survive a call to fork(), you may disable this warning
 by setting the mpi_warn_on_fork MCA parameter to 0.
 --------------------------------------------------------------------------
-[node01:00703] [[7641,0],0] ORTE_ERROR_LOG: Data unpack would read past end of buffer in file util/show_help.c at line 512
 #0  0x2AAAAD6DE287
 #1  0x2AAAAD6DE88E
 #2  0x2AAAADE6156F
-#0  0x2AAAAD6DE287
-#1  0x2AAAAD6DE88E
-#2  0x2AAAADE6156F
-#0  0x2AAAAD6DE287
-#0  0x2AAAAD6DE287
-#1  0x2AAAAD6DE88E
-#0  0x2AAAAD6DE287
-#0  0x2AAAAD6DE287
-#1  0x2AAAAD6DE88E
-#0  0x2AAAAD6DE287
-#1  0x2AAAAD6DE88E
-#0  0x2AAAAD6DE287
-#0  0x2AAAAD6DE287
-#1  0x2AAAAD6DE88E
-#1  0x2AAAAD6DE88E
-#1  0x2AAAAD6DE88E
-#2  0x2AAAADE6156F
-#0  0x2AAAAD6DE287
-#1  #2  0x2AAAADE6156F
-#2  0x2AAAADE6156F
-#0  0x2AAAAD6DE287
-#1  #2  0x2AAAADE6156F
-#0  0x2AAAAD6DE287
-#1  0x2AAAAD6DE88E
-#1  0x2AAAAD6DE88E
-#0  0x2AAAAD6DE287
-#0  0x2AAAAD6DE287
-0x2AAAAD6DE88E
-0x2AAAAD6DE88E
-#2  0x2AAAADE6156F
-#2  0x2AAAADE6156F
-#0  0x2AAAAD6DE287
-#1  0x2AAAAD6DE88E
-#2  0x2AAAADE6156F
-#0  0x2AAAAD6DE287
-#1  0x2AAAAD6DE88E
-#2  0x2AAAADE6156F
-#2  0x2AAAADE6156F
-#1  0x2AAAAD6DE88E
-#1  0x2AAAAD6DE88E
-#2  0x2AAAADE6156F
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#2  0x2AAAADE6156F
-#0  0x2AAAAD6DE287
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#0  0x2AAAAD6DE287
-#1  0x2AAAAD6DE88E
-#2  0x2AAAADE6156F
-#0  0x2AAAAD6DE287
-#1  0x2AAAAD6DE88E
-#2  0x2AAAADE6156F
-#1  0x2AAAAD6DE88E
-#2  0x2AAAADE6156F
-#2  0x2AAAADE6156F
-#2  0x2AAAADE6156F
-#2  0x2AAAADE6156F
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
 #3  0x4B0FAD in __nblist_MOD_grid_ucell
 #4  0x4B4923 in __nblist_MOD_nonbond_list
+#0  0x2AAAAD6DE287
+#1  0x2AAAAD6DE88E
+#0  0x2AAAAD6DE287
+#1  0x2AAAAD6DE88E
+#0  0x2AAAAD6DE287
+#1  0x2AAAAD6DE88E
+#2  0x2AAAADE6156F
+#2  0x2AAAADE6156F
+#2  0x2AAAADE6156F
+#5  0x5E95FF in force_
 #3  0x4B0FAD in __nblist_MOD_grid_ucell
 #3  0x4B0FAD in __nblist_MOD_grid_ucell
+#6  0x6A1F9E in runmd_
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#0  0x2AAAAD6DE287
+#1  0x#4  0x4B4923 in __nblist_MOD_nonbond_list
+2AAAAD6DE88E
 #0  0x2AAAAD6DE287
 #1  #4  0x4B4923 in __nblist_MOD_nonbond_list
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#4  0x4B4923 in __nblist_MOD_nonbond_list
 0x2AAAAD6DE88E
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#2  0x2AAAADE6156F
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#7  0x64E7B2 in sander_
 #0  0x2AAAAD6DE287
+#2  0x2AAAADE6156F
 #1  0x2AAAAD6DE88E
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#2  0x2AAAADE6156F
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#5  0x5E95FF in force_
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#5  0x5E95FF in force_
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#5  0x5E95FF in force_
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#5  0x5E95FF in force_
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#5  0x5E95FF in force_
-#5  0x5E95FF in force_
-#0  0x2AAAAD6DE287
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#5  0x5E95FF in force_
-#6  0x6A1F9E in runmd_
-#6  0x6A1F9E in runmd_
-#5  0x5E95FF in force_
-#1  0x2AAAAD6DE88E
-#5  0x5E95FF in force_
-#5  0x5E95FF in force_
-#5  0x5E95FF in force_
-#2  0x2AAAADE6156F
-#5  0x5E95FF in force_
-#6  0x6A1F9E in runmd_
-#6  0x6A1F9E in runmd_
-#5  0x5E95FF in force_
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#5  0x5E95FF in force_
-#5  0x5E95FF in force_
-#6  0x6A1F9E in runmd_
-#6  0x6A1F9E in runmd_
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#7  0x64E7B2 in sander_
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#6  0x6A1F9E in runmd_
-#6  0x6A1F9E in runmd_
-#5  0x5E95FF in force_
-#7  0x64E7B2 in sander_
-#6  0x6A1F9E in runmd_
-#6  0x6A1F9E in runmd_
-#0  0x2AAAAD6DE287
-#5  0x5E95FF in force_
-#7  0x64E7B2 in sander_
-#6  0x6A1F9E in runmd_
-#7  0x64E7B2 in sander_
-#6  0x6A1F9E in runmd_
-#6  0x6A1F9E in runmd_
-#7  0x64E7B2 in sander_
-#6  0x6A1F9E in runmd_
-#7  0x64E7B2 in sander_
 #0  0x2AAAAD6DE287
 #1  0x2AAAAD6DE88E
 #8  0x64439F in MAIN__ at multisander.F90:0
 #5  0x5E95FF in force_
+#0  0x2AAAAD6DE287
+#1  0x#2  0x2AAAADE6156F
+2AAAAD6DE88E
+#2  0x2AAAADE6156F
+#5  0x5E95FF in force_
+#2  0x2AAAADE6156F
+#0  0x2AAAAD6DE287
+#6  0x6A1F9E in runmd_
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#1  0x2AAAAD6DE88E
+#6  0x6A1F9E in runmd_
+#0  0x2AAAAD6DE287
+#1  0x2AAAAD6DE88E
+#2  0x2AAAADE6156F
+#2  0x2AAAADE6156F
+#5  0x5E95FF in force_
+#7  0x64E7B2 in sander_
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#2  0x2AAAADE6156F
+#7  0x64E7B2 in sander_
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#8  0x64439F in MAIN__ at multisander.F90:0
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#6  0x6A1F9E in runmd_
+#8  0x64439F in MAIN__ at multisander.F90:0
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#7  0x64E7B2 in sander_
+#5  0x5E95FF in force_
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#5  0x5E95FF in force_
+#5  0x5E95FF in force_
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#5  0x5E95FF in force_
+#5  0x5E95FF in force_
+#6  0x6A1F9E in runmd_
+#6  0x6A1F9E in runmd_
+#6  0x6A1F9E in runmd_#5  0x5E95FF in force_
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+
+#8  0x64439F in MAIN__ at multisander.F90:0
+#6  0x6A1F9E in runmd_
+#6  0x6A1F9E in runmd_
 #7  0x64E7B2 in sander_
 #7  0x64E7B2 in sander_
 #5  0x5E95FF in force_
 #6  0x6A1F9E in runmd_
-#2  0x2AAAADE6156F
+#7  0x64E7B2 in sander_
+#8  0x64439F in MAIN__ at multisander.F90:0
 #8  0x64439F in MAIN__ at multisander.F90:0
 #7  0x64E7B2 in sander_
 #7  0x64E7B2 in sander_
 #6  0x6A1F9E in runmd_
 #7  0x64E7B2 in sander_
+#8  0x64439F in MAIN__ at multisander.F90:0
+#8  0x64439F in MAIN__ at multisander.F90:0
+#8  0x64439F in MAIN__ at multisander.F90:0
 #7  0x64E7B2 in sander_
+#8  0x64439F in MAIN__ at multisander.F90:0
+#8  0x64439F in MAIN__ at multisander.F90:0
+#0  0x2AAAAD6DE287
+#1  0x2AAAAD6DE88E
+#2  0x2AAAADE6156F
+#0  0x2AAAAD6DE287
+#1  0x2AAAAD6DE88E
+#2  0x2AAAADE6156F#0  0x2AAAAD6DE287
+
+#1  0x2AAAAD6DE88E
+#0  0x2AAAAD6DE287
+#1  0x2AAAAD6DE88E#2  0x2AAAADE6156F
+
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#2  0x2AAAADE6156F
 #4  0x4B4923 in __nblist_MOD_nonbond_list
-#8  0x64439F in MAIN__ at multisander.F90:0
-#8  0x64439F in MAIN__ at multisander.F90:0
-#8  0x64439F in MAIN__ at multisander.F90:0
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#0  0x2AAAAD6DE287
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
 #0  0x2AAAAD6DE287
 #1  0x2AAAAD6DE88E#1  0x2AAAAD6DE88E
-#8  0x64439F in MAIN__ at multisander.F90:0
-#8  0x64439F in MAIN__ at multisander.F90:0
-#6  0x6A1F9E in runmd_
+#2  0x2AAAADE6156F
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#0  0x2AAAAD6DE287
+#5  0x5E95FF in force_
+#1  0x2AAAAD6DE88E
+#4  0x4B4923 in __nblist_MOD_nonbond_list
 
-#0  0x2AAAAD6DE287
-#6  0x6A1F9E in runmd_
-#7  0x64E7B2 in sander_
-#8  0x64439F in MAIN__ at multisander.F90:0
-#7  0x64E7B2 in sander_
-#0  0x2AAAAD6DE287
 #2  0x2AAAADE6156F
-#8  0x64439F in MAIN__ at multisander.F90:0
-#7  0x64E7B2 in sander_
-#8  0x64439F in MAIN__ at multisander.F90:0
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#8  0x64439F in MAIN__ at multisander.F90:0
-#7  0x64E7B2 in sander_
-#7  0x64E7B2 in sander_
-#8  0x64439F in MAIN__ at multisander.F90:0
-#8  0x64439F in MAIN__ at multisander.F90:0
-#8  0x64439F in MAIN__ at multisander.F90:0
-#7  0x64E7B2 in sander_
-#8  0x64439F in MAIN__ at multisander.F90:0
-#0  0x2AAAAD6DE287
-#1  0x2AAAAD6DE88E
 #2  0x2AAAADE6156F
 #4  0x4B4923 in __nblist_MOD_nonbond_list
-#6  0x6A1F9E in runmd_
-#8  0x64439F in MAIN__ at multisander.F90:0
+#0  0x2AAAAD6DE287
+#1  0x2AAAAD6DE88E
 #0  0x2AAAAD6DE287
 #1  0x2AAAAD6DE88E
 #2  0x2AAAADE6156F
-#0  0x2AAAAD6DE287
-#1  0x2AAAAD6DE88E
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
 #2  0x2AAAADE6156F
-#1  0x2AAAAD6DE88E
-#8  0x64439F in MAIN__ at multisander.F90:0
-#8  0x64439F in MAIN__ at multisander.F90:0
 #0  0x2AAAAD6DE287
 #1  0x2AAAAD6DE88E
 #5  0x5E95FF in force_
-#1  0x2AAAAD6DE88E
-#2  0x2AAAADE6156F
-#2  0x2AAAADE6156F
-#5  0x5E95FF in force_
-#6  0x6A1F9E in runmd_
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#2  0x2AAAADE6156F
-#2  0x2AAAADE6156F
-#5  0x5E95FF in force_
-#6  0x6A1F9E in runmd_
-#7  0x64E7B2 in sander_
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#7  0x64E7B2 in sander_
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#8  0x64439F in MAIN__ at multisander.F90:0
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#6  0x6A1F9E in runmd_
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#8  0x64439F in MAIN__ at multisander.F90:0
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#5  0x5E95FF in force_
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#7  0x64E7B2 in sander_
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#7  0x64E7B2 in sander_
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#5  0x5E95FF in force_
-#5  0x5E95FF in force_
-#6  0x6A1F9E in runmd_
-#8  0x64439F in MAIN__ at multisander.F90:0
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#5  0x5E95FF in force_
-#5  0x5E95FF in force_
-#5  0x5E95FF in force_
-#5  0x5E95FF in force_
-#5  0x5E95FF in force_
-#8  0x64439F in MAIN__ at multisander.F90:0
-#7  0x64E7B2 in sander_
-#6  0x6A1F9E in runmd_
-#0  0x2AAAAD6DE287
-#6  0x6A1F9E in runmd_
-#6  0x6A1F9E in runmd_
-#1  0x2AAAAD6DE88E
-#5  0x5E95FF in force_
-#6  0x6A1F9E in runmd_
-#6  0x6A1F9E in runmd_
-#6  0x6A1F9E in runmd_
-#6  0x6A1F9E in runmd_
-#2  0x2AAAADE6156F
-#7  0x64E7B2 in sander_
-#7  0x64E7B2 in sander_
-#8  0x64439F in MAIN__ at multisander.F90:0
-#7  0x64E7B2 in sander_
-#7  0x64E7B2 in sander_
-#7  0x64E7B2 in sander_
-#0  0x2AAAAD6DE287
-#6  0x6A1F9E in runmd_
-#7  0x64E7B2 in sander_
-#7  0x64E7B2 in sander_
-#8  0x64439F in MAIN__ at multisander.F90:0
-#1  0x2AAAAD6DE88E
-#8  0x64439F in MAIN__ at multisander.F90:0
-#8  0x64439F in MAIN__ at multisander.F90:0
-#7  0x64E7B2 in sander_
-#2  0x2AAAADE6156F
-#8  0x64439F in MAIN__ at multisander.F90:0
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#8  0x64439F in MAIN__ at multisander.F90:0
-#8  0x64439F in MAIN__ at multisander.F90:0
-#8  0x64439F in MAIN__ at multisander.F90:0
-#8  0x64439F in MAIN__ at multisander.F90:0
-#0  0x2AAAAD6DE287
-#0  0x2AAAAD6DE287
-#1  0x2AAAAD6DE88E
-#0  0x2AAAAD6DE287
-#2  0x2AAAADE6156F
-#1  0x2AAAAD6DE88E
-#2  0x2AAAADE6156F
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#5  0x5E95FF in force_
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#0  0x2AAAAD6DE287
-#1  0x2AAAAD6DE88E
-#2  0x2AAAADE6156F
-#5  0x5E95FF in force_
-#6  0x6A1F9E in runmd_
-#5  0x5E95FF in force_
-#5  0x5E95FF in force_
-#0  0x2AAAAD6DE287
-#1  0x2AAAAD6DE88E
-#1  0x2AAAAD6DE88E
-#7  0x64E7B2 in sander_
-#2  0x2AAAADE6156F
-#2  0x2AAAADE6156F
-#6  0x6A1F9E in runmd_
-#6  0x6A1F9E in runmd_
-#6  0x6A1F9E in runmd_
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#0  0x2AAAAD6DE287
-#1  0x2AAAAD6DE88E
-#8  0x64439F in MAIN__ at multisander.F90:0
-#0  0x2AAAAD6DE287
-#1  0x2AAAAD6DE88E
-#7  0x64E7B2 in sander_
-#0  0x2AAAAD6DE287
-#1  0x2AAAAD6DE88E
-#7  0x64E7B2 in sander_
-#7  0x64E7B2 in sander_
-#2  0x2AAAADE6156F
-#2  0x2AAAADE6156F
-#2  0x2AAAADE6156F
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#0  0x2AAAAD6DE287
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#8  0x64439F in MAIN__ at multisander.F90:0
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#3  0x4B0FAD in __nblist_MOD_grid_ucell
-#0  0x2AAAAD6DE287
-#1  0x2AAAAD6DE88E
-#0  0x2AAAAD6DE287
-#2  0x2AAAADE6156F
-#0  0x2AAAAD6DE287
-#8  0x64439F in MAIN__ at multisander.F90:0
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#1  0x2AAAAD6DE88E
-#8  0x64439F in MAIN__ at multisander.F90:0
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#2  0x2AAAADE6156F
-#1  0x2AAAAD6DE88E
 #2  0x2AAAADE6156F
 #5  0x5E95FF in force_
 #3  0x4B0FAD in __nblist_MOD_grid_ucell
 #0  0x2AAAAD6DE287
+#6  0x6A1F9E in runmd_
+#0  0x2AAAAD6DE287
 #1  0x2AAAAD6DE88E
-#2  0x2AAAADE6156F
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#0  0x2AAAAD6DE287
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#0  0x2AAAAD6DE287
 #5  0x5E95FF in force_
 #1  0x2AAAAD6DE88E
 #2  0x2AAAADE6156F
+#1  0x2AAAAD6DE88E
+#2  0x2AAAADE6156F
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#2  0x2AAAADE6156F
+#6  0x6A1F9E in runmd_
+#7  0x64E7B2 in sander_
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#1  0x2AAAAD6DE88E
+#2  0x2AAAADE6156F
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#0  0x2AAAAD6DE287
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#6  0x6A1F9E in runmd_
+#1  0x2AAAAD6DE88E
+#2  0x2AAAADE6156F
+#0  0x2AAAAD6DE287
+#1  0x2AAAAD6DE88E
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#2  0x2AAAADE6156F
+#6  0x6A1F9E in runmd_
+#5  0x5E95FF in force_
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#8  0x64439F in MAIN__ at multisander.F90:0
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#0  0x2AAAAD6DE287
+#1  0x2AAAAD6DE88E
+#7  0x64E7B2 in sander_
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#0  0x2AAAAD6DE287
+#2  0x2AAAADE6156F
+#5  0x5E95FF in force_
+#1  0x2AAAAD6DE88E
+#7  0x64E7B2 in sander_
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#2  0x2AAAADE6156F
+#7  0x64E7B2 in sander_
+#8  0x64439F in MAIN__ at multisander.F90:0
+#6  0x6A1F9E in runmd_
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#0  0x2AAAAD6DE287
 #5  0x5E95FF in force_
 #5  0x5E95FF in force_
 #3  0x4B0FAD in __nblist_MOD_grid_ucell
+#1  0x2AAAAD6DE88E
+#8  0x64439F in MAIN__ at multisander.F90:0
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#6  0x6A1F9E in runmd_
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#8  0x64439F in MAIN__ at multisander.F90:0
+#5  0x5E95FF in force_
+#7  0x64E7B2 in sander_
+#5  0x5E95FF in force_
+#2  0x2AAAADE6156F
+#7  0x64E7B2 in sander_
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#6  0x6A1F9E in runmd_
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#6  0x6A1F9E in runmd_
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#5  0x5E95FF in force_
+#6  0x6A1F9E in runmd_
+#5  0x5E95FF in force_
+#8  0x64439F in MAIN__ at multisander.F90:0
+#6  0x6A1F9E in runmd_
+#7  0x64E7B2 in sander_
+#7  0x64E7B2 in sander_
+#5  0x5E95FF in force_
+#8  0x64439F in MAIN__ at multisander.F90:0
+#5  0x5E95FF in force_
+#6  0x6A1F9E in runmd_
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#7  0x64E7B2 in sander_
+#6  0x6A1F9E in runmd_
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#7  0x64E7B2 in sander_
+#5  0x5E95FF in force_
+#8  0x64439F in MAIN__ at multisander.F90:0
+#6  0x6A1F9E in runmd_
+#6  0x6A1F9E in runmd_
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#7  0x64E7B2 in sander_
+#0  0x2AAAAD6DE287
+#1  0x2AAAAD6DE88E
+#7  0x64E7B2 in sander_
+#8  0x64439F in MAIN__ at multisander.F90:0
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#2  0x2AAAADE6156F
+#8  0x64439F in MAIN__ at multisander.F90:0
+#6  0x6A1F9E in runmd_
+#8  0x64439F in MAIN__ at multisander.F90:0
+#8  0x64439F in MAIN__ at multisander.F90:0
+#7  0x64E7B2 in sander_
+#8  0x64439F in MAIN__ at multisander.F90:0
+#5  0x5E95FF in force_
+#8  0x64439F in MAIN__ at multisander.F90:0
+#0  0x2AAAAD6DE287
+#0  0x2AAAAD6DE287
+#1  0x2AAAAD6DE88E
+#5  0x5E95FF in force_
+#2  0x2AAAADE6156F
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#7  0x64E7B2 in sander_
+#7  0x64E7B2 in sander_
+#5  0x5E95FF in force_
+#1  0x2AAAAD6DE88E
+#2  0x2AAAADE6156F
 #0  0x2AAAAD6DE287
 #1  0x2AAAAD6DE88E
 #2  0x2AAAADE6156F
 #6  0x6A1F9E in runmd_
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#8  0x64439F in MAIN__ at multisander.F90:0
+#8  0x64439F in MAIN__ at multisander.F90:0
+#6  0x6A1F9E in runmd_
+#6  0x6A1F9E in runmd_
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#5  0x5E95FF in force_
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#7  0x64E7B2 in sander_
+#7  0x64E7B2 in sander_
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#7  0x64E7B2 in sander_
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#8  0x64439F in MAIN__ at multisander.F90:0
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#6  0x6A1F9E in runmd_
+#5  0x5E95FF in force_
+#8  0x64439F in MAIN__ at multisander.F90:0
+#8  0x64439F in MAIN__ at multisander.F90:0
+#5  0x5E95FF in force_
+#5  0x5E95FF in force_
+#6  0x6A1F9E in runmd_
+#6  0x6A1F9E in runmd_
+#7  0x64E7B2 in sander_
 #6  0x6A1F9E in runmd_
 #0  0x2AAAAD6DE287
 #1  0x2AAAAD6DE88E
-#5  0x5E95FF in force_
+#7  0x64E7B2 in sander_
+#2  0x2AAAADE6156F
+#7  0x64E7B2 in sander_
+#7  0x64E7B2 in sander_
+#8  0x64439F in MAIN__ at multisander.F90:0
+#8  0x64439F in MAIN__ at multisander.F90:0
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#8  0x64439F in MAIN__ at multisander.F90:0
+#8  0x64439F in MAIN__ at multisander.F90:0
 #4  0x4B4923 in __nblist_MOD_nonbond_list
+#5  0x5E95FF in force_
+#5  0x5E95FF in force_
+#6  0x6A1F9E in runmd_
+#0  0x2AAAAD6DE287
+#7  0x64E7B2 in sander_
+#0  0x2AAAAD6DE287
+#1  0x2AAAAD6DE88E
+#1  0x2AAAAD6DE88E
+#2  0x2AAAADE6156F
+#2  0x2AAAADE6156F
+#0  0x2AAAAD6DE287
+#8  0x64439F in MAIN__ at multisander.F90:0
+#0  0x2AAAAD6DE287
+#1  0x2AAAAD6DE88E
+#0  0x2AAAAD6DE287
+#1  0x2AAAAD6DE88E
+#0  0x2AAAAD6DE287
+#1  0x2AAAAD6DE88E
 #3  0x4B0FAD in __nblist_MOD_grid_ucell
 #6  0x6A1F9E in runmd_
-#4  0x4B4923 in __nblist_MOD_nonbond_list
+#1  0x2AAAAD6DE88E
+#7  0x64E7B2 in sander_
+#2  0x2AAAADE6156F
+#2  0x2AAAADE6156F
+#8  0x64439F in MAIN__ at multisander.F90:0
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#0  0x2AAAAD6DE287
+#1  0x2AAAAD6DE88E
+#2  0x2AAAADE6156F
+#0  0x2AAAAD6DE287
+#1  0x2AAAAD6DE88E
+#2  0x2AAAADE6156F
+#0  0x2AAAAD6DE287
+#2  0x2AAAADE6156F
+#1  0x2AAAAD6DE88E
+#0  0x2AAAAD6DE287
+#1  0x2AAAAD6DE88E
+#2  0x2AAAADE6156F
+#0  0x2AAAAD6DE287
+#1  0x2AAAAD6DE88E
 #2  0x2AAAADE6156F
 #3  0x4B0FAD in __nblist_MOD_grid_ucell
-#6  0x6A1F9E in runmd_
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#0  0x2AAAAD6DE287
+#1  0x2AAAAD6DE88E
+#2  0x2AAAADE6156F
+#2  0x2AAAADE6156F
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#0  0x2AAAAD6DE287
+#1  0x2AAAAD6DE88E
+#2  #4  0x4B4923 in __nblist_MOD_nonbond_list
+#2  0x2AAAADE6156F
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#5  0x5E95FF in force_
+0x2AAAADE6156F
 #3  0x4B0FAD in __nblist_MOD_grid_ucell
 #3  0x4B0FAD in __nblist_MOD_grid_ucell
-#7  0x64E7B2 in sander_
-#7  0x64E7B2 in sander_
-#5  0x5E95FF in force_
 #3  0x4B0FAD in __nblist_MOD_grid_ucell
-#6  0x6A1F9E in runmd_
-#5  0x5E95FF in force_
-#8  0x64439F in MAIN__ at multisander.F90:0
-#7  0x64E7B2 in sander_
-#8  0x64439F in MAIN__ at multisander.F90:0
-#6  0x6A1F9E in runmd_
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#7  0x64E7B2 in sander_
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#4  0x4B4923 in __nblist_MOD_nonbond_list
-#7  0x64E7B2 in sander_
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
 #4  0x4B4923 in __nblist_MOD_nonbond_list
 #3  0x4B0FAD in __nblist_MOD_grid_ucell
 #4  0x4B4923 in __nblist_MOD_nonbond_list
-#7  0x64E7B2 in sander_
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#5  0x5E95FF in force_
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#4  0x4B4923 in __nblist_MOD_nonbond_list
 #6  0x6A1F9E in runmd_
-#8  0x64439F in MAIN__ at multisander.F90:0
-#8  0x64439F in MAIN__ at multisander.F90:0
-#5  0x5E95FF in force_
-#5  0x5E95FF in force_
-#5  0x5E95FF in force_
-#8  0x64439F in MAIN__ at multisander.F90:0
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#6  0x6A1F9E in runmd_
 #4  0x4B4923 in __nblist_MOD_nonbond_list
 #5  0x5E95FF in force_
-#8  0x64439F in MAIN__ at multisander.F90:0
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#5  0x5E95FF in force_
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#7  0x64E7B2 in sander_
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#3  0x4B0FAD in __nblist_MOD_grid_ucell
+#5  0x5E95FF in force_
+#5  0x5E95FF in force_
 #5  0x5E95FF in force_
 #7  0x64E7B2 in sander_
 #6  0x6A1F9E in runmd_
+#8  0x64439F in MAIN__ at multisander.F90:0
+#5  0x5E95FF in force_
+#5  0x5E95FF in force_
+#6  0x6A1F9E in runmd_
+#5  0x5E95FF in force_
+#6  0x6A1F9E in runmd_
+#5  0x5E95FF in force_
+#4  0x4B4923 in __nblist_MOD_nonbond_list
+#6  0x6A1F9E in runmd_
+#6  0x6A1F9E in runmd_
+#7  0x64E7B2 in sander_
+#8  0x64439F in MAIN__ at multisander.F90:0
+#6  0x6A1F9E in runmd_
+#6  0x6A1F9E in runmd_
+#7  0x64E7B2 in sander_
+#5  0x5E95FF in force_
+#7  0x64E7B2 in sander_
+#6  0x6A1F9E in runmd_
+#7  0x64E7B2 in sander_
+#7  0x64E7B2 in sander_
+#8  0x64439F in MAIN__ at multisander.F90:0
 #6  0x6A1F9E in runmd_
 #8  0x64439F in MAIN__ at multisander.F90:0
 #5  0x5E95FF in force_
-#6  0x6A1F9E in runmd_
-#6  0x6A1F9E in runmd_
-#6  0x6A1F9E in runmd_
-#7  0x64E7B2 in sander_
-#7  0x64E7B2 in sander_
-#6  0x6A1F9E in runmd_
 #7  0x64E7B2 in sander_
 #7  0x64E7B2 in sander_
 #7  0x64E7B2 in sander_
 #8  0x64439F in MAIN__ at multisander.F90:0
+#8  0x64439F in MAIN__ at multisander.F90:0
+#7  0x64E7B2 in sander_
+#6  0x6A1F9E in runmd_
+#8  0x64439F in MAIN__ at multisander.F90:0
+#8  0x64439F in MAIN__ at multisander.F90:0
+#8  0x64439F in MAIN__ at multisander.F90:0
+#6  0x6A1F9E in runmd_
+#8  0x64439F in MAIN__ at multisander.F90:0
 #7  0x64E7B2 in sander_
 #8  0x64439F in MAIN__ at multisander.F90:0
-#8  0x64439F in MAIN__ at multisander.F90:0
-#8  0x64439F in MAIN__ at multisander.F90:0
+#7  0x64E7B2 in sander_
 #8  0x64439F in MAIN__ at multisander.F90:0
 #8  0x64439F in MAIN__ at multisander.F90:0
 --------------------------------------------------------------------------
-mpirun noticed that process rank 6 with PID 0 on node node01 exited on signal 11 (Segmentation fault).
+mpirun noticed that process rank 4 with PID 0 on node node01 exited on signal 11 (Segmentation fault).
 --------------------------------------------------------------------------
-[node01:00703] 46 more processes have sent help message help-opal-runtime.txt / opal_init:warn-fork
-[node01:00703] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+[node01:07134] 47 more processes have sent help message help-opal-runtime.txt / opal_init:warn-fork
+[node01:07134] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
