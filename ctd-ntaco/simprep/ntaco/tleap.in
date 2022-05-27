@@ -1,0 +1,4 @@
+source leaprc.gaff2
+nta = loadmol2 nta.mol2
+saveoff nta nta.lib
+quit
