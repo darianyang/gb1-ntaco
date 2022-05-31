@@ -8,7 +8,7 @@ import numpy as np
 class Create_PCSHF_Input:
 
     def __init__(self, pdb, pcsnpc, magtensor, angle_units="degrees", 
-                 nfe=1, nmpmc="CO", optkon=30, out="pcs.in"):
+                 nfe=1, nmpmc="CO", optkon=30, offset=0, out="pcs.in"):
         """
         Class to create the &pcshf namelist file that is input into amber.
 
@@ -31,6 +31,9 @@ class Create_PCSHF_Input:
             Name of the paramagnetic atom, default 'CO' (Cobalt).
         optkon : int
             Force constant for the PCS constraints.
+        offset : int
+            Residue offset for accomodating alternate resid numbering schemes.
+            Offset is added to each residueid output in pcs file.
         out : filepath str
             Path to and name of the pcshf output file, default 'pcs.in'.
         """
@@ -109,6 +112,8 @@ class Create_PCSHF_Input:
         for num, line in enumerate(self.pcsnpc):
             # match the pcs residue with the pdb residue (col4), then get pdb atom number (col2)
             atom_num = int(self.pdb[np.argwhere(self.pdb[:,4]==line[0]), 1])
+            # correction for alternate resid indexing 
+            atom_num += self.offset
             # proton atom number, observed pcs, relative weight
             pcs += f" iprot({num+1})={atom_num}, obs({num+1})={line[2]}, wt({num+1})={wt},"
             # relative tolerance (ppm), multiplicity of the NMR signal
@@ -155,9 +160,12 @@ def write_ctd_nta_co_d1():
     # for CTD NTA-Co2+ D1 PCS:
     # phi=41.261, theta=95.419, omega =85.478 ; delta-chi,ax=-4.462; delta-chi,rh=-0.908
     magtensor = [41.261, 95.419, 85.478, -4.462, -0.908]
+    # note this will need correction factor since using serial vs sequence resids
+    # this will put restraints only on monomer 1 of the CTD dimer
     pcs = Create_PCSHF_Input("ctd_ntaco_m1_solv.pdb", 
                              "Intra-PCS_HN_CTD.npc", 
-                             magtensor, out="pcs-ctd-ntaco-d1.in")
+                             magtensor, offset=-143,
+                             out="pcs-ctd-ntaco-d1.in")
     pcs.write_file()
 
 if __name__ == "__main__":
