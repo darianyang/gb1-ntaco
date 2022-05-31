@@ -73,6 +73,7 @@ class Create_PCSHF_Input:
         header += f" nprot={len(self.pcsnpc)}" + ",\n"
         # number of paramagnetic centers
         # Amber manual says nme, but actually should be nfe
+        # http://archive.ambermd.org/201603/0443.html
         header += f" nfe={self.nfe}" + ",\n"
         # name of paramagnetic atom
         header += f" nmpmc='{self.nmpmc}'" + ",\n"
@@ -132,9 +133,34 @@ class Create_PCSHF_Input:
         self.out.close()
 
 
-if __name__ == "__main__":
+def write_gb1_nta_co():
     # for GB1 NTA-Co2+:
     # phi=60.42, theta=75.172, omega=107.84 ; delta-chi_ax=-6.342; delta-chi_rh=-1.411
     magtensor = [60.42, 75.172, 107.84, -6.342, -1.411]
-    pcs = Create_PCSHF_Input("gb1-ntaco_solv.pdb", "dHis-NTA_Co-PCS_HN_full.npc", magtensor)
+    pcs = Create_PCSHF_Input("gb1-ntaco_solv.pdb", 
+                             "dHis-NTA_Co-PCS_HN_full.npc", 
+                             magtensor, out="pcs-gb1-ntaco.in")
     pcs.write_file()
+
+def write_gb1_ida_co():
+    # for GB1 IDA-Co2+:
+    # phi=68.351, theta=145.904, omega =15.690 ; delta-chi_ax=3.018; delta-chi_rh=0.639
+    magtensor = [69.351, 145.904, 15.690, 3.018, 0.639]
+    pcs = Create_PCSHF_Input("gb1_idaco_solv.pdb", 
+                             "dHis-IDA_Co-PCS_H_addT55.npc", 
+                             magtensor, out="pcs-gb1-idaco.in")
+    pcs.write_file()
+
+def write_ctd_nta_co_d1():
+    # for CTD NTA-Co2+ D1 PCS:
+    # phi=41.261, theta=95.419, omega =85.478 ; delta-chi,ax=-4.462; delta-chi,rh=-0.908
+    magtensor = [41.261, 95.419, 85.478, -4.462, -0.908]
+    pcs = Create_PCSHF_Input("ctd_ntaco_m1_solv.pdb", 
+                             "Intra-PCS_HN_CTD.npc", 
+                             magtensor, out="pcs-ctd-ntaco-d1.in")
+    pcs.write_file()
+
+if __name__ == "__main__":
+    #write_gb1_nta_co()
+    write_gb1_ida_co()
+    #write_ctd_nta_co_d1()
