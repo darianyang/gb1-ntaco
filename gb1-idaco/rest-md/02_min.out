@@ -1,0 +1,84 @@
+
+          -------------------------------------------------------
+          Amber 20 PMEMD                              2020
+          -------------------------------------------------------
+
+| PMEMD implementation of SANDER, Release 18
+
+|  Compiled date/time: Mon Apr 27 21:19:54 2020
+| Run on 05/31/2022 at 15:41:14
+
+|   Executable path: pmemd.MPI
+| Working directory: /home/dyang/gb1-pcs/gb1-ntaco/adj_rest_min_equil
+|          Hostname: node12
+
+  [-O]verwriting output
+
+File Assignments:
+|   MDIN: 02_min.in                                                             
+|  MDOUT: 02_min.out                                                            
+| INPCRD: gb1_ntaco_solv.inpcrd                                                 
+|   PARM: gb1_ntaco_solv.prmtop                                                 
+| RESTRT: 02_min.rst                                                            
+|   REFC: refc                                                                  
+|  MDVEL: mdvel                                                                 
+|   MDEN: mden                                                                  
+|  MDCRD: mdcrd                                                                 
+| MDINFO: mdinfo                                                                
+|LOGFILE: logfile                                                               
+|  MDFRC: mdfrc                                                                 
+
+
+ Here is the input file:
+
+PCS restrained 10000 step minimization, 500 SD                                 
+&cntrl                                                                         
+  imin      = 1,                                                               
+  irest     = 0,                                                               
+  ntx       = 1,                                                               
+  ntmin     = 1,                                                               
+  maxcyc    = 10000,                                                           
+  ncyc      = 500,                                                             
+  ! turn on nmr restraints                                                     
+  nmropt    = 2,                                                               
+  ! use sum of squares optimization of errors                                  
+  ipnlty    = 2,                                                               
+  ntr       = 0,                                                               
+  ntb       = 1,                                                               
+  ntf       = 1,                                                               
+  ntc       = 1,                                                               
+  cut       = 10.0,                                                            
+  ntpr      = 1,                                                               
+  ntxo      = 2,                                                               
+  ntwr      = 10000,                                                           
+  ioutfm    = 1,                                                               
+  ntwx      = 0,                                                               
+  iwrap     = 1,                                                               
+&end                                                                           
+! This essentially starts the nmr restraints after the first step              
+&wt                                                                            
+  type      = 'REST',                                                          
+  istep1    = 0,                                                               
+  istep2    = 1,                                                               
+  value1    = 0,                                                               
+  value2    = 1.0,                                                             
+&end                                                                           
+&wt                                                                            
+  type      = 'END',                                                           
+&end                                                                           
+PCSHIFT     = ./pcs.in                                                         
+LISTOUT     = POUT                                                             
+
+
+Note: ig = -1. Setting random seed to   753612 based on wallclock time in
+      microseconds and disabling the synchronization of random numbers 
+      between tasks to improve performance.
+| irandom = 1, using AMBER's internal random number generator (default).
+| ERROR:   nmropt must be set to 0 or 1!
+| ERROR:   PMEMD 20 does not support nmropt == 2 (NOESY vol or chem shift restraints).
+|           Please use sander instead.   
+| ERROR:   ipnlty must == 1!
+|          PMEMD 20 does not support this NMR refinement option.
+|           Please use sander instead.   
+
+ Input errors occurred. Terminating execution.
