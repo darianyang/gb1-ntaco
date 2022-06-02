@@ -14,7 +14,7 @@ set -x
 
 # set variables
 export DO_PARALLEL="mpirun -np 8"
-SANDER=pmemd.MPI
+SANDER=sander.MPI
 
 ###################################################
 ###################################################
@@ -24,13 +24,13 @@ PDB="gb1_idaco_solv"
 ###################################################
 ###################################################
 
-# 10000 step minimization (500 steepest descent) with PCS restraints
-printf "\nstart min\n\n" 
-$DO_PARALLEL \
-    $SANDER -O \
-            -i 02_min.in -o 02_min.out \
-            -p ${PDB}.prmtop -c ${PDB}.inpcrd -r 02_min.rst &&
-printf "\ndone min\n\n" 
+## 10000 step minimization (500 steepest descent) with PCS restraints
+#printf "\nstart min\n\n" 
+#$DO_PARALLEL \
+#    $SANDER -O \
+#            -i 02_min.in -o 02_min.out \
+#            -p ${PDB}.prmtop -c ${PDB}.inpcrd -r 02_min.rst &&
+#printf "\ndone min\n\n" 
 
 # 20ps restrained NVT equilibration with Langevin thermostat (298K)
 printf "\nstart restrained system heat in\n\n" 

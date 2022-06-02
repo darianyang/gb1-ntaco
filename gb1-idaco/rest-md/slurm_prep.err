@@ -1,0 +1,9 @@
++ export 'DO_PARALLEL=mpirun -np 8'
++ DO_PARALLEL='mpirun -np 8'
++ SANDER=sander.MPI
++ PDB=gb1_idaco_solv
++ printf '\nstart restrained system heat in\n\n'
++ mpirun -np 8 sander.MPI -O -i 03_eq1.in -o 03_eq1.out -p gb1_idaco_solv.prmtop -c 02_min.rst -r 03_eq1.rst -ref 02_min.rst
++ printf '\ndone restrained system heat in\n\n'
++ printf '\nstart restrained equil\n\n'
++ mpirun -np 8 sander.MPI -O -i 04_eq2.in -o 04_eq2.out -p gb1_idaco_solv.prmtop -c 03_eq1.rst -r 04_eq2.rst -ref 03_eq1.rst

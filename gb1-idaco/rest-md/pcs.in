@@ -8,7 +8,6 @@
  opta1(1)=3.018,
  opta2(1)=0.639,
  optkon=30,
- ! beginning writing of each pcs constraint 
  iprot(1)=59, obs(1)=0.269, wt(1)=1.0, tolpro(1)=1.0, mltpro(1)=1, 
  iprot(2)=81, obs(2)=0.329, wt(2)=1.0, tolpro(2)=1.0, mltpro(2)=1, 
  iprot(3)=100, obs(3)=0.277, wt(3)=1.0, tolpro(3)=1.0, mltpro(3)=1, 
