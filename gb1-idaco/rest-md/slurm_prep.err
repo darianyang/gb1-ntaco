@@ -7,3 +7,7 @@
 + printf '\ndone restrained system heat in\n\n'
 + printf '\nstart restrained equil\n\n'
 + mpirun -np 8 sander.MPI -O -i 04_eq2.in -o 04_eq2.out -p gb1_idaco_solv.prmtop -c 03_eq1.rst -r 04_eq2.rst -ref 03_eq1.rst
++ printf '\ndone restrained equil\n\n'
++ printf '\nstart pcs restrained equil\n\n'
++ mpirun -np 8 sander.MPI -O -i 05_prod.in -o 05_prod.out -p gb1_idaco_solv.prmtop -c 04_eq2.rst -r 05_prod.rst
++ printf '\ndone pcs restrained equil\n\n'

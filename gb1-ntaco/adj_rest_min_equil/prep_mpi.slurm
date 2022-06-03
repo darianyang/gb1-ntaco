@@ -7,7 +7,8 @@
 #SBATCH --output=slurm_prep.out 
 #SBATCH --error=slurm_prep.err 
 
-module load nmr/amber/amber20_CUDA
+#module load nmr/amber/amber20_CUDA
+module load nmr/amber/amber17_CUDA
 
 # echo commands to stdout
 set -x
@@ -15,6 +16,7 @@ set -x
 # set variables
 export DO_PARALLEL="mpirun -np 8"
 SANDER=sander.MPI
+#SANDER=sander
 
 ###################################################
 ###################################################
@@ -32,21 +34,21 @@ PDB="gb1_ntaco_solv"
 #            -p ${PDB}.prmtop -c ${PDB}.inpcrd -r 02_min.rst &&
 #printf "\ndone min\n\n" 
 
-# 20ps restrained NVT equilibration with Langevin thermostat (298K)
-printf "\nstart restrained system heat in\n\n" 
-$DO_PARALLEL \
-    $SANDER -O \
-            -i 03_eq1.in -o 03_eq1.out \
-            -p ${PDB}.prmtop -c 02_min.rst -r 03_eq1.rst -ref 02_min.rst &&
-printf "\ndone restrained system heat in\n\n" 
-
-# 1 ns restrained NPT equilibration Langevin thermostat (298K) MC barostat (1atm)
-printf "\nstart restrained equil\n\n" 
-$DO_PARALLEL \
-    $SANDER  -O \
-            -i 04_eq2.in -o 04_eq2.out \
-            -p ${PDB}.prmtop -c 03_eq1.rst -r 04_eq2.rst -ref 03_eq1.rst &&
-printf "\ndone restrained equil\n\n" 
+## 20ps restrained NVT equilibration with Langevin thermostat (298K)
+#printf "\nstart restrained system heat in\n\n" 
+#$DO_PARALLEL \
+#    $SANDER -O \
+#            -i 03_eq1.in -o 03_eq1.out \
+#            -p ${PDB}.prmtop -c 02_min.rst -r 03_eq1.rst -ref 02_min.rst &&
+#printf "\ndone restrained system heat in\n\n" 
+#
+## 1 ns restrained NPT equilibration Langevin thermostat (298K) MC barostat (1atm)
+#printf "\nstart restrained equil\n\n" 
+#$DO_PARALLEL \
+#    $SANDER  -O \
+#            -i 04_eq2.in -o 04_eq2.out \
+#            -p ${PDB}.prmtop -c 03_eq1.rst -r 04_eq2.rst -ref 03_eq1.rst &&
+#printf "\ndone restrained equil\n\n" 
 
 ## 1 ns unrestrained NPT equilibration Langevin thermostat (298K) MC barostat (1atm)
 #printf "\nstart unrestrained equil\n\n" 
