@@ -1,14 +1,15 @@
 source leaprc.gaff2
 source leaprc.protein.ff15ipq
-source leaprc.fluorine.ff15ipq
+#source leaprc.fluorine.ff15ipq
 source leaprc.water.spceb
 loadamberparams frcmod.ions234lm_1264_spce
 loadoff ntaco/nta.lib
-gb1 = loadpdb gb1-ntaco-leap.pdb
-solvateoct gb1 SPCBOX 12.0
-addions gb1 Na+ 0
-addions gb1 Cl- 15
-addions gb1 Na+ 15
-saveamberparm gb1 gb1.top gb1.crd
-savepdb gb1 gb1_solv.pdb
+ctd = loadpdb 2kod_ntaco_forleap.pdb
+solvateoct ctd SPCBOX 12.0
+addions ctd Na+ 0
+addions ctd Cl- 0
+addions ctd Cl- 56
+addions ctd Na+ 56
+saveamberparm ctd 2kod_ntaco_solv.prmtop 2kod_ntaco_solv.inpcrd
+savepdb ctd 2kod_ntaco_solv.pdb
 quit

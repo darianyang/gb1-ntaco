@@ -1,0 +1,170 @@
+-I: Adding /home/dty7/Apps/amber18/dat/leap/prep to search path.
+-I: Adding /home/dty7/Apps/amber18/dat/leap/lib to search path.
+-I: Adding /home/dty7/Apps/amber18/dat/leap/parm to search path.
+-I: Adding /home/dty7/Apps/amber18/dat/leap/cmd to search path.
+-f: Source tleap.in.
+
+Welcome to LEaP!
+(no leaprc in search path)
+Sourcing: ./tleap.in
+----- Source: /home/dty7/Apps/amber18/dat/leap/cmd/leaprc.gaff2
+----- Source of /home/dty7/Apps/amber18/dat/leap/cmd/leaprc.gaff2 done
+Log file: ./leap.log
+Loading parameters: /home/dty7/Apps/amber18/dat/leap/parm/gaff2.dat
+Reading title:
+AMBER General Force Field for organic molecules (Version 2.11, May 2016)
+----- Source: /home/dty7/Apps/amber18/dat/leap/cmd/leaprc.protein.ff15ipq
+----- Source of /home/dty7/Apps/amber18/dat/leap/cmd/leaprc.protein.ff15ipq done
+Log file: ./leap.log
+Loading parameters: /home/dty7/Apps/amber18/dat/leap/parm/parm15ipq_10.3.dat
+Reading title:
+Parm15 developmental parameter set
+Loading library: /home/dty7/Apps/amber18/dat/leap/lib/amino15ipq_10.0.lib
+Loading library: /home/dty7/Apps/amber18/dat/leap/lib/aminoct15ipq_10.0.lib
+Loading library: /home/dty7/Apps/amber18/dat/leap/lib/aminont15ipq_10.0.lib
+----- Source: /home/dty7/Apps/amber18/dat/leap/cmd/leaprc.water.spceb
+----- Source of /home/dty7/Apps/amber18/dat/leap/cmd/leaprc.water.spceb done
+Loading library: /home/dty7/Apps/amber18/dat/leap/lib/atomic_ions.lib
+Loading library: /home/dty7/Apps/amber18/dat/leap/lib/solvents.lib
+Loading parameters: /home/dty7/Apps/amber18/dat/leap/parm/frcmod.spceb
+Reading force field modification type file (frcmod)
+Reading title:
+SPC/Eb water model; Takemura et al. J Phys Chem B 116 6279-6287 (2012)
+Loading parameters: /home/dty7/Apps/amber18/dat/leap/parm/frcmod.ionsjc_spce
+Reading force field modification type file (frcmod)
+Reading title:
+Monovalent ion parameters for Ewald and SPC/E water from Joung & Cheatham JPCB (2008)
+Loading parameters: /home/dty7/Apps/amber18/dat/leap/parm/frcmod.ions234lm_126_spce
+Reading force field modification type file (frcmod)
+Reading title:
+Li/Merz ion parameters of divalent to tetravalent ions for SPC/E water model (12-6 normal usage set)
+Loading parameters: /home/dty7/Apps/amber18/dat/leap/parm/frcmod.ions234lm_1264_spce
+Reading force field modification type file (frcmod)
+Reading title:
+Li/Merz ion parameters of divalent to tetravalent ions for SPC/E water model (12-6-4 set)
+Loading library: ./ntaco/nta.lib
+Loading PDB file: ./2kod_ntaco_forleap.pdb
+
+/home/dty7/Apps/amber18/bin/teLeap: Warning!
+Name change in pdb file residue 1 ;
+this residue is split into CO and NTA.
+
+/home/dty7/Apps/amber18/bin/teLeap: Note.
+1 residues had naming warnings.
+Thus, there are split residues;
+residue sequence numbers will not correspond to those in the pdb.
+Created a new atom named: HB1 within residue: .R<HID 166>
+Created a new atom named: HB1 within residue: .R<HID 170>
+  total atoms in file: 2780
+  Leap added 2 missing atoms according to residue templates:
+       2 H / lone pairs
+  The file contained 2 atoms not in residue templates
+
+/home/dty7/Apps/amber18/bin/teLeap: Warning!
+Since the number of added atoms equals the number of missing atoms, it is likely
+that some atoms had incorrect names; you may want to use addPdbAtomMap to map
+these names, or change the names in the PDB file.
+
+Scaling up box by a factor of 1.445128 to meet diagonal cut criterion
+  Solute vdw bounding box:              45.504 37.781 71.466
+  Total bounding box for atom centers:  106.149 106.149 106.149
+      (box expansion for 'iso' is  93.9%)
+  Solvent unit box:                     18.774 18.774 18.774
+  Volume: 615092.009 A^3 (oct)
+  Mass > 335232.918 amu,  Density > 0.905 g/cc
+      (type - hence mass - of one or more atoms could not be found)
+  Added 17501 residues.
+
+/home/dty7/Apps/amber18/bin/teLeap: Warning!
+addIons: 1st Ion & target unit have charges of the same sign:
+     unit charge = 0.997998; ion1 charge = 1;
+     can't neutralize.
+Adding 15 counter ions to "ctd" using 1A grid
+Used default radius  1.50 for 2 atoms
+Grid extends from solute vdw + 6.83  to  12.83
+Resolution:      1.00 Angstrom.
+Solvent present: replacing closest with ion
+	 when steric overlaps occur
+Calculating grid charges
+(Replacing solvent molecule)
+Placed Cl- in ctd at (27.19, 17.93, -16.37).
+(Replacing solvent molecule)
+Placed Cl- in ctd at (-2.43, -32.49, -10.78).
+(Replacing solvent molecule)
+Placed Cl- in ctd at (11.09, -8.52, -10.53).
+(Replacing solvent molecule)
+Placed Cl- in ctd at (2.87, 29.13, -9.50).
+(Replacing solvent molecule)
+Placed Cl- in ctd at (-6.25, -2.21, -18.52).
+(Replacing solvent molecule)
+Placed Cl- in ctd at (22.36, 25.17, 0.29).
+(Replacing solvent molecule)
+Placed Cl- in ctd at (-17.42, -38.10, -3.90).
+(Replacing solvent molecule)
+Placed Cl- in ctd at (18.03, -8.39, 4.29).
+(Replacing solvent molecule)
+Placed Cl- in ctd at (25.83, 34.16, -14.81).
+(Replacing solvent molecule)
+Placed Cl- in ctd at (-15.82, -11.36, 19.60).
+(Replacing solvent molecule)
+Placed Cl- in ctd at (-5.66, 23.54, 10.26).
+(Replacing solvent molecule)
+Placed Cl- in ctd at (23.99, 2.43, -17.24).
+(Replacing solvent molecule)
+Placed Cl- in ctd at (-3.30, -33.05, -21.06).
+(Replacing solvent molecule)
+Placed Cl- in ctd at (-6.26, 22.39, -12.89).
+(Replacing solvent molecule)
+Placed Cl- in ctd at (-6.12, -43.97, -0.62).
+
+Done adding ions.
+Adding 15 counter ions to "ctd" using 1A grid
+Used default radius  1.50 for 2 atoms
+Grid extends from solute vdw + 3.05  to  9.77
+Resolution:      1.00 Angstrom.
+Solvent present: replacing closest with ion
+	 when steric overlaps occur
+Calculating grid charges
+(Replacing solvent molecule)
+Placed Na+ in ctd at (5.99, 8.23, 17.57).
+(Replacing solvent molecule)
+Placed Na+ in ctd at (-16.89, 4.59, 2.07).
+(Replacing solvent molecule)
+Placed Na+ in ctd at (9.78, -16.48, 3.39).
+(Replacing solvent molecule)
+Placed Na+ in ctd at (12.28, 17.71, 15.55).
+(Replacing solvent molecule)
+Placed Na+ in ctd at (-1.86, 7.09, -13.34).
+(Replacing solvent molecule)
+Placed Na+ in ctd at (-0.15, -32.24, -15.86).
+(Replacing solvent molecule)
+Placed Na+ in ctd at (-28.26, -7.44, -3.90).
+(Replacing solvent molecule)
+Placed Na+ in ctd at (7.19, 22.27, -22.26).
+(Replacing solvent molecule)
+Placed Na+ in ctd at (-3.91, -22.11, 4.74).
+(Replacing solvent molecule)
+Placed Na+ in ctd at (4.49, 3.06, 20.05).
+(Replacing solvent molecule)
+Placed Na+ in ctd at (-0.83, 28.99, -12.39).
+(Replacing solvent molecule)
+Placed Na+ in ctd at (6.13, -35.33, 8.55).
+(Replacing solvent molecule)
+Placed Na+ in ctd at (24.85, 5.86, -3.64).
+(Replacing solvent molecule)
+Placed Na+ in ctd at (-26.87, -14.47, 7.13).
+(Replacing solvent molecule)
+Placed Na+ in ctd at (-11.75, -46.44, -1.56).
+
+Done adding ions.
+Checking Unit.
+
+/home/dty7/Apps/amber18/bin/teLeap: Warning!
+The unperturbed charge of the unit (0.997998) is not zero.
+FATAL:  Atom .R<HID 166>.A<HB1 18> does not have a type.
+FATAL:  Atom .R<HID 170>.A<HB1 18> does not have a type.
+
+/home/dty7/Apps/amber18/bin/teLeap: Fatal Error!
+Failed to generate parameters
+
+Exiting LEaP: Errors = 1; Warnings = 4; Notes = 1.
