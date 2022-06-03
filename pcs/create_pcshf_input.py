@@ -21,7 +21,7 @@ class Create_PCSHF_Input:
         magtensor : list of 5 floats
             The five parameters of the magnetic anisotropy tensor for the paramagnetic center.
             Amber: optphi(n), opttet(n), optomg(n), opta1(n), opta2(n)
-            General: phi, theta, omega, ∆chi_ax, ∆chi_rh
+            General: phi, theta, omega, delta_chi_ax, delta_chi_rh
         angle_units : str
             Can be 'degrees' (default) or 'radians'. Will convert degrees to radians.
             Radians are used by default in Amber.
@@ -63,6 +63,8 @@ class Create_PCSHF_Input:
         self.nfe = nfe
         self.nmpmc = nmpmc
         self.optkon = optkon
+
+        self.offset = offset
 
         # set up the output file to write
         self.out = open(out, "w+")
@@ -162,13 +164,13 @@ def write_ctd_nta_co_d1():
     magtensor = [41.261, 95.419, 85.478, -4.462, -0.908]
     # note this will need correction factor since using serial vs sequence resids
     # this will put restraints only on monomer 1 of the CTD dimer
-    pcs = Create_PCSHF_Input("ctd_ntaco_m1_solv.pdb", 
+    pcs = Create_PCSHF_Input("2kod_ntaco_solv.pdb", 
                              "Intra-PCS_HN_CTD.npc", 
-                             magtensor, offset=-143,
+                             magtensor, offset=143,
                              out="pcs-ctd-ntaco-d1.in")
     pcs.write_file()
 
 if __name__ == "__main__":
     #write_gb1_nta_co()
-    write_gb1_ida_co()
-    #write_ctd_nta_co_d1()
+    #write_gb1_ida_co()
+    write_ctd_nta_co_d1()
