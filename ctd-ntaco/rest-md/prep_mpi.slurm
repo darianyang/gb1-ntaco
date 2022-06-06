@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=gb1-idaco-pcs-rest_PREP
+#SBATCH --job-name=ctd-ntaco-pcs-rest_PREP
 #SBATCH --ntasks-per-node=8
 #SBATCH --time=48:59:59
 #SBATCH --mail-user=dty7@pitt.edu
@@ -19,12 +19,12 @@ SANDER=sander.MPI
 ###################################################
 ###################################################
 ###################################################
-PDB="gb1_idaco_solv" 
+PDB="2kod_ntaco_solv" 
 ###################################################
 ###################################################
 ###################################################
 
-## 10000 step minimization (500 steepest descent) with PCS restraints
+# 10000 step minimization (500 steepest descent) with PCS restraints
 #printf "\nstart min\n\n" 
 #$DO_PARALLEL \
 #    $SANDER -O \

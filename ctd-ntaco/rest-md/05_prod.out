@@ -1,0 +1,102 @@
+
+          -------------------------------------------------------
+          Amber 20 SANDER                              2020
+          -------------------------------------------------------
+
+| Run on 06/06/2022 at 13:55:16
+
+|   Executable path: sander.MPI
+| Working directory: /home/dyang/gb1-pcs/ctd-ntaco/rest-md
+|          Hostname: node12
+
+  [-O]verwriting output
+
+File Assignments:
+|  MDIN: 05_prod.in                                                            
+| MDOUT: 05_prod.out                                                           
+|INPCRD: 04_eq2.rst                                                            
+|  PARM: 2kod_ntaco_solv.prmtop                                                
+|RESTRT: 05_prod.rst                                                           
+|  REFC: refc                                                                  
+| MDVEL: mdvel                                                                 
+| MDFRC: mdfrc                                                                 
+|  MDEN: mden                                                                  
+| MDCRD: mdcrd                                                                 
+|MDINFO: mdinfo                                                                
+|  MTMD: mtmd                                                                  
+|INPDIP: inpdip                                                                
+|RSTDIP: rstdip                                                                
+|INPTRA: inptraj                                                               
+
+|    REMLOG: rem.log
+|   REMTYPE: rem.type
+|  REMSTRIP: 
+|   SAVEENE: saveene
+|CLUSTERINF: cluster.info
+| RESERVOIR: reserv/frame
+|   REMDDIM: 
+
+
+ Here is the input file:
+
+PCS Restrainted 1 ns NPT production using Langevin thermostat and MC barostat  
+&cntrl                                                                         
+  irest     = 1,                                                               
+  ! no velicities from minimization so start new simulation                    
+  !irest     = 0,                                                              
+  ntx       = 5,                                                               
+  ! set to 1 since no velocities read from minimization                        
+  !ntx       = 1,                                                              
+  ig        = -1,                                                              
+  dt        = 0.002,                                                           
+  nstlim    = 500000,                                                          
+  nscm      = 500,                                                             
+  ! turn on nmr restraints                                                     
+  nmropt    = 2,                                                               
+  ! use sum of squares optimization of errors                                  
+  ipnlty    = 2,                                                               
+  ntr       = 0,                                                               
+  ntb       = 2,                                                               
+  ntp       = 1,                                                               
+  barostat  = 2,                                                               
+  pres0     = 1.0,                                                             
+  mcbarint  = 100,                                                             
+  comp      = 44.6,                                                            
+  taup      = 1.0,                                                             
+  ntt       = 3,                                                               
+  temp0     = 298.0,                                                           
+  gamma_ln  = 1.0,                                                             
+  ntf       = 2,                                                               
+  ntc       = 2,                                                               
+  cut       = 10.0,                                                            
+  ntpr      = 500,                                                             
+  ntxo      = 2,                                                               
+  ntwr      = 500000,                                                          
+  ioutfm    = 1,                                                               
+  ntwx      = 500,                                                             
+  iwrap     = 1,                                                               
+&end                                                                           
+! This essentially starts the nmr restraints after the first step              
+&wt                                                                            
+  type      = "REST",                                                          
+  istep1    = 0,                                                               
+  istep2    = 1,                                                               
+  value1    = 0,                                                               
+  value2    = 1.0,                                                             
+  ! since starting from rest min, use restraints the whole time                
+  !value1    = 1.0,                                                            
+&end                                                                           
+&wt                                                                            
+  type      = "END",                                                           
+&end                                                                           
+PCSHIFT     = pcs.in                                                           
+LISTOUT     = POUT                                                             
+
+--------------------------------------------------------------------------------
+   1.  RESOURCE   USE: 
+--------------------------------------------------------------------------------
+
+| Flags: MPI                                                                    
+ getting new box info from bottom of inpcrd
+
+  Error opening unit   30: File "04_eq2.rst" is missing or unreadable                

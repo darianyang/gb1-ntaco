@@ -1,0 +1,51 @@
++ export 'DO_PARALLEL=mpirun -np 8'
++ DO_PARALLEL='mpirun -np 8'
++ SANDER=sander.MPI
++ PDB=2kod_ntaco_solv
++ printf '\nstart min\n\n'
++ mpirun -np 8 sander.MPI -O -i 02_min.in -o 02_min.out -p 2kod_ntaco_solv.prmtop -c 2kod_ntaco_solv.inpcrd -r 02_min.rst
+At line 57 of file /tmp/amber20_src/AmberTools/src/sander/pcshift.F90 (unit = 37, file = './pcs.in')
+Fortran runtime error: End of file
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[27991,1],0]
+  Exit code:    2
+--------------------------------------------------------------------------
++ printf '\nstart restrained system heat in\n\n'
++ mpirun -np 8 sander.MPI -O -i 03_eq1.in -o 03_eq1.out -p 2kod_ntaco_solv.prmtop -c 02_min.rst -r 03_eq1.rst -ref 02_min.rst
+
+  Error opening unit   30: File "02_min.rst" is missing or unreadable                
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
++ printf '\nstart restrained equil\n\n'
++ mpirun -np 8 sander.MPI -O -i 04_eq2.in -o 04_eq2.out -p 2kod_ntaco_solv.prmtop -c 03_eq1.rst -r 04_eq2.rst -ref 03_eq1.rst
+
+  Error opening unit   30: File "03_eq1.rst" is missing or unreadable                
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
++ printf '\nstart pcs restrained equil\n\n'
++ mpirun -np 8 sander.MPI -O -i 05_prod.in -o 05_prod.out -p 2kod_ntaco_solv.prmtop -c 04_eq2.rst -r 05_prod.rst
+
+  Error opening unit   30: File "04_eq2.rst" is missing or unreadable                
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
