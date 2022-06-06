@@ -33,7 +33,7 @@ class Create_PCSHF_Input:
             Force constant for the PCS constraints.
         offset : int
             Residue offset for accomodating alternate resid numbering schemes.
-            Offset is added to each residueid output in pcs file.
+            Offset is added to each resid in the pcs input npc file.
         out : filepath str
             Path to and name of the pcshf output file, default 'pcs.in'.
         """
@@ -112,10 +112,11 @@ class Create_PCSHF_Input:
         # pdb formatting: 
         # ['ATOM', '839', 'H', 'GLU', '56', '-9.107', '4.313', '3.287', '1.00', '0.00']]
         for num, line in enumerate(self.pcsnpc):
+            # offset is correction for alternate resid indexing 
+            pcsresindex = str(int(line[0]) + self.offset)
             # match the pcs residue with the pdb residue (col4), then get pdb atom number (col2)
-            atom_num = int(self.pdb[np.argwhere(self.pdb[:,4]==line[0]), 1])
-            # correction for alternate resid indexing 
-            atom_num += self.offset
+            atom_num = int(self.pdb[np.argwhere(self.pdb[:,4]==pcsresindex), 1])
+            print(pcsresindex)
             # proton atom number, observed pcs, relative weight
             pcs += f" iprot({num+1})={atom_num}, obs({num+1})={line[2]}, wt({num+1})={wt},"
             # relative tolerance (ppm), multiplicity of the NMR signal
@@ -165,8 +166,8 @@ def write_ctd_nta_co_d1():
     # note this will need correction factor since using serial vs sequence resids
     # this will put restraints only on monomer 1 of the CTD dimer
     pcs = Create_PCSHF_Input("2kod_ntaco_solv.pdb", 
-                             "Intra-PCS_HN_CTD.npc", 
-                             magtensor, offset=143,
+                             "Intra-PCS_H_CTD.npc", 
+                             magtensor, offset=-143,
                              out="pcs-ctd-ntaco-d1.in")
     pcs.write_file()
 
