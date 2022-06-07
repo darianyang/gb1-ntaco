@@ -73,7 +73,7 @@ class Create_PCSHF_Input:
         """
         Builds a string with info about the paramagnetic center(s).
         """
-        header = "&pcshf" + ",\n"
+        header = "&pcshf" + "\n"
         # number of pseudocontact shifts from npc file
         header += f" nprot={len(self.pcsnpc)}" + ",\n"
         # number of paramagnetic centers
