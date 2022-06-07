@@ -1,13 +1,13 @@
 
           -------------------------------------------------------
-          Amber 20 SANDER                              2020
+          Amber 18 SANDER                              2018
           -------------------------------------------------------
 
-| Run on 06/06/2022 at 14:16:13
+| Run on 06/07/2022 at 13:08:44
 
 |   Executable path: sander
-| Working directory: /home/dyang/gb1-pcs/gb1-ntaco/adj_rest_min_equil
-|          Hostname: node12
+| Working directory: /ihome/lchong/dty7/gb1-pcs/gb1-ntaco/adj_rest_min_equil
+|          Hostname: smp-n123
 
   [-O]verwriting output
 
@@ -28,9 +28,9 @@ File Assignments:
 |RSTDIP: rstdip                                                                
 |INPTRA: inptraj                                                               
 
-
+ 
  Here is the input file:
-
+ 
 PCS Restrainted 1 ns NPT production using Langevin thermostat and MC barostat  
 &cntrl                                                                         
   irest     = 1,                                                               
@@ -70,7 +70,7 @@ PCS Restrainted 1 ns NPT production using Langevin thermostat and MC barostat
   ioutfm    = 1,                                                               
   ntwx      = 500,                                                             
   iwrap     = 1,                                                               
-/                                                                              
+&end                                                                           
 ! This essentially starts the nmr restraints after the first step              
 &wt                                                                            
   type      = "REST",                                                          
@@ -80,11 +80,11 @@ PCS Restrainted 1 ns NPT production using Langevin thermostat and MC barostat
   value2    = 1.0,                                                             
   ! since starting from rest min, use restraints the whole time                
   !value1    = 1.0,                                                            
-/                                                                              
+&end                                                                           
 &wt                                                                            
   type      = "END",                                                           
-/                                                                              
-PCSHIFT     = ./pcs.in                                                         
+&end                                                                           
+PCSHIFT     = ./pcs-idaco.in                                                   
 LISTOUT     = POUT                                                             
 
 --------------------------------------------------------------------------------
@@ -107,13 +107,13 @@ LISTOUT     = POUT
 
 
 |     Memory Use     Allocated
-|     Real             1753882
+|     Real             1154482
 |     Hollerith          45463
 |     Integer           620023
 |     Max Pairs        7891776
 |     nblistReal        164412
 |     nblist Int        436097
-|       Total            50116 kbytes
+|       Total            45434 kbytes
 
 | Note: 1-4 EEL scale factors are being read from the topology file.
 
@@ -122,7 +122,7 @@ LISTOUT     = POUT
 | Duplicated    0 dihedrals
 
      BOX TYPE: TRUNCATED OCTAHEDRON
-Note: ig = -1. Setting random seed to   901124 based on wallclock time in microseconds.
+Note: ig = -1. Setting random seed to   495615 based on wallclock time in microseconds.
 
 --------------------------------------------------------------------------------
    2.  CONTROL  DATA  FOR  THE  RUN
@@ -154,7 +154,7 @@ Molecular dynamics:
      t       =   0.00000, dt      =   0.00200, vlimit  =  20.00000
 
 Langevin dynamics temperature regulation:
-     ig      =  901124
+     ig      =  495615
      temp0   = 298.00000, tempi   =   0.00000, gamma_ln=   1.00000
 
 Pressure regulation:
@@ -198,7 +198,7 @@ default_name
 
  RESTRAINTS:
  Requested file redirections:
-  PCSHIFT   = ./pcs.in
+  PCSHIFT   = ./pcs-idaco.in
   LISTOUT   = POUT
                           ** No restraint defined **
 
@@ -222,19 +222,19 @@ default_name
  APPROXIMATING switch and d/dx switch using CUBIC SPLINE INTERPOLATION
  using   5000.0 points per unit in tabled values
  TESTING RELATIVE ERROR over r ranging from 0.0 to cutoff
-| CHECK switch(x): max rel err =   0.2738E-14   at   2.422500
-| CHECK d/dx switch(x): max rel err =   0.8314E-11   at   2.736960
+| CHECK switch(x): max rel err =   0.3316E-14   at   2.351880
+| CHECK d/dx switch(x): max rel err =   0.8066E-11   at   2.747240
  ---------------------------------------------------
 | Local SIZE OF NONBOND LIST =    5004087
 | TOTAL SIZE OF NONBOND LIST =    5004087
- Pseudocontact shifts will be read from file: ./pcs.in
+ Pseudocontact shifts will be read from file: ./pcs-idaco.in
  namelist no reports error 
- Number of Total protons           42
+ Number of Total protons           32
  Number of paramagnetic center            1
  Coord. of paramagnetic center(s) : CO 
-   17.525527366768536       -6.7599514960404719       -12.588040762877768     
+   17.5255273667685       -6.75995149604047       -12.5880407628778     
  TENSOR PARAMETERS
- PHI=  60.420 TETA=  75.172 OMEGA= 107.840
- A1=    -6.342 A2=    -1.411
-  VIOLATIONS      3  RESIDUALS    0.48514
+ PHI=  69.351 TETA= 145.904 OMEGA=  15.690
+ A1=     3.018 A2=     0.639
+  VIOLATIONS      0  RESIDUALS    0.00000
  Invalid stop to time:                     

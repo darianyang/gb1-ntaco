@@ -37,7 +37,7 @@ PCS Restrainted 1 ns NPT production using Langevin thermostat and MC barostat
   ioutfm    = 1,
   ntwx      = 500,
   iwrap     = 1,
-/
+&end
 ! This essentially starts the nmr restraints after the first step
 &wt
   type      = "REST",
@@ -47,9 +47,9 @@ PCS Restrainted 1 ns NPT production using Langevin thermostat and MC barostat
   value2    = 1.0,
   ! since starting from rest min, use restraints the whole time
   !value1    = 1.0,
-/
+&end
 &wt
   type      = "END",
-/
-PCSHIFT     = ./pcs.in
+&end
+PCSHIFT     = ./pcs-idaco.in
 LISTOUT     = POUT
