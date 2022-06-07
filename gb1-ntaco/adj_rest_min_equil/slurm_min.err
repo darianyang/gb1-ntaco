@@ -1,36 +1,6 @@
 + export 'DO_PARALLEL=mpirun -np 8'
 + DO_PARALLEL='mpirun -np 8'
-+ SANDER=sander.MPI
++ SANDER=sander
 + PDB=gb1_ntaco_solv
 + printf '\nstart min\n\n'
-+ mpirun -np 8 sander.MPI -O -i 02_min.in -o 02_min.out -p gb1_ntaco_solv.prmtop -c gb1_ntaco_solv.inpcrd -r 02_min.rst
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by sander.MPI)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by /opt/nmr/amber20/lib/libsff_fortran_mpi.so)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by /opt/nmr/amber20/lib/libarpack.so)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by /opt/nmr/amber20/lib/liblapack.so)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by /opt/nmr/amber20/lib/libblas.so)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by sander.MPI)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by /opt/nmr/amber20/lib/libsff_fortran_mpi.so)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by /opt/nmr/amber20/lib/libarpack.so)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by /opt/nmr/amber20/lib/liblapack.so)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by /opt/nmr/amber20/lib/libblas.so)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by sander.MPI)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by /opt/nmr/amber20/lib/libsff_fortran_mpi.so)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by /opt/nmr/amber20/lib/libarpack.so)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by /opt/nmr/amber20/lib/liblapack.so)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by /opt/nmr/amber20/lib/libblas.so)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by sander.MPI)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by /opt/nmr/amber20/lib/libsff_fortran_mpi.so)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by /opt/nmr/amber20/lib/libarpack.so)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by /opt/nmr/amber20/lib/liblapack.so)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by /opt/nmr/amber20/lib/libblas.so)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by sander.MPI)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by /opt/nmr/amber20/lib/libsff_fortran_mpi.so)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by /opt/nmr/amber20/lib/libarpack.so)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by /opt/nmr/amber20/lib/liblapack.so)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by /opt/nmr/amber20/lib/libblas.so)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by sander.MPI)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by /opt/nmr/amber20/lib/libsff_fortran_mpi.so)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by /opt/nmr/amber20/lib/libarpack.so)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by /opt/nmr/amber20/lib/liblapack.so)
-sander.MPI: /opt/cryoem/Chimera/1.13/lib/libgfortran.so.3: version `GFORTRAN_1.4' not found (required by /opt/nmr/amber20/lib/libblas.so)
++ sander -O -i 02_min.in -o 02_min.out -p gb1_ntaco_solv.prmtop -c gb1_ntaco_solv.inpcrd -r 02_min.rst

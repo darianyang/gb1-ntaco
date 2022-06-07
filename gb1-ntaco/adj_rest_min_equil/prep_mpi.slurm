@@ -1,22 +1,22 @@
 #!/bin/bash
 #SBATCH --job-name=gb1-ntaco-pcs-rest_PREP
-#SBATCH --ntasks-per-node=8
+#SBATCH --ntasks-per-node=1
 #SBATCH --time=48:59:59
 #SBATCH --mail-user=dty7@pitt.edu
 #SBATCH --mail-type=END,FAIL
 #SBATCH --output=slurm_prep.out 
 #SBATCH --error=slurm_prep.err 
 
-#module load nmr/amber/amber20_CUDA
-module load nmr/amber/amber17_CUDA
+module load nmr/amber/amber20_CUDA
+#module load nmr/amber/amber17_CUDA
 
 # echo commands to stdout
 set -x
 
 # set variables
-export DO_PARALLEL="mpirun -np 8"
-SANDER=sander.MPI
-#SANDER=sander
+#export DO_PARALLEL="mpirun -np 8"
+#SANDER=sander.MPI
+SANDER=sander
 
 ###################################################
 ###################################################
@@ -60,7 +60,7 @@ PDB="gb1_ntaco_solv"
 
 # 1 ns pcs restrained NPT equilibration Langevin thermostat (298K) MC barostat (1atm)
 printf "\nstart pcs restrained equil\n\n" 
-$DO_PARALLEL \
+#$DO_PARALLEL \
     $SANDER -O \
             -i 05_prod.in -o 05_prod.out \
             -p ${PDB}.prmtop -c 04_eq2.rst -r 05_prod.rst &&

@@ -1,32 +1,32 @@
 
           -------------------------------------------------------
-          Amber 20 PMEMD                              2020
+          Amber 20 SANDER                              2020
           -------------------------------------------------------
 
-| PMEMD implementation of SANDER, Release 18
+| Run on 06/06/2022 at 14:30:13
 
-|  Compiled date/time: Mon Apr 27 21:19:54 2020
-| Run on 05/31/2022 at 15:41:14
-
-|   Executable path: pmemd.MPI
+|   Executable path: sander
 | Working directory: /home/dyang/gb1-pcs/gb1-ntaco/adj_rest_min_equil
 |          Hostname: node12
 
   [-O]verwriting output
 
 File Assignments:
-|   MDIN: 02_min.in                                                             
-|  MDOUT: 02_min.out                                                            
-| INPCRD: gb1_ntaco_solv.inpcrd                                                 
-|   PARM: gb1_ntaco_solv.prmtop                                                 
-| RESTRT: 02_min.rst                                                            
-|   REFC: refc                                                                  
-|  MDVEL: mdvel                                                                 
-|   MDEN: mden                                                                  
-|  MDCRD: mdcrd                                                                 
-| MDINFO: mdinfo                                                                
-|LOGFILE: logfile                                                               
-|  MDFRC: mdfrc                                                                 
+|  MDIN: 02_min.in                                                             
+| MDOUT: 02_min.out                                                            
+|INPCRD: gb1_ntaco_solv.inpcrd                                                 
+|  PARM: gb1_ntaco_solv.prmtop                                                 
+|RESTRT: 02_min.rst                                                            
+|  REFC: refc                                                                  
+| MDVEL: mdvel                                                                 
+| MDFRC: mdfrc                                                                 
+|  MDEN: mden                                                                  
+| MDCRD: mdcrd                                                                 
+|MDINFO: mdinfo                                                                
+|  MTMD: mtmd                                                                  
+|INPDIP: inpdip                                                                
+|RSTDIP: rstdip                                                                
+|INPTRA: inptraj                                                               
 
 
  Here is the input file:
@@ -69,16 +69,135 @@ PCS restrained 10000 step minimization, 500 SD
 PCSHIFT     = ./pcs.in                                                         
 LISTOUT     = POUT                                                             
 
+--------------------------------------------------------------------------------
+   1.  RESOURCE   USE: 
+--------------------------------------------------------------------------------
 
-Note: ig = -1. Setting random seed to   753612 based on wallclock time in
-      microseconds and disabling the synchronization of random numbers 
-      between tasks to improve performance.
-| irandom = 1, using AMBER's internal random number generator (default).
-| ERROR:   nmropt must be set to 0 or 1!
-| ERROR:   PMEMD 20 does not support nmropt == 2 (NOESY vol or chem shift restraints).
-|           Please use sander instead.   
-| ERROR:   ipnlty must == 1!
-|          PMEMD 20 does not support this NMR refinement option.
-|           Please use sander instead.   
+| Flags:                                                                        
+ getting new box info from bottom of inpcrd
+|  INFO: Old style inpcrd file read
 
- Input errors occurred. Terminating execution.
+| peek_ewald_inpcrd: Box info found
+|Largest sphere to fit in unit cell has radius =    24.197
+| New format PARM file being parsed.
+| Version =    1.000 Date = 05/26/22 Time = 18:10:28
+ NATOM  =   13701 NTYPES =      24 NBONH =   13210 MBONA  =     461
+ NTHETH =     950 MTHETA =     626 NPHIH =    1872 MPHIA  =    2034
+ NHPARM =       0 NPARM  =       0 NNB   =   21859 NRES   =    4358
+ NBONA  =     461 NTHETA =     626 NPHIA =    2034 NUMBND =      79
+ NUMANG =     173 NPTRA  =     338 NATYP =      47 NPHB   =       0
+ IFBOX  =       2 NMXRS  =      24 IFCAP =       0 NEXTRA =       0
+ NCOPY  =       0
+
+
+|     Memory Use     Allocated
+|     Real             2118294
+|     Hollerith          45463
+|     Integer           620023
+|     Max Pairs        7891776
+|     nblistReal        164412
+|     nblist Int        473888
+|       Total            53111 kbytes
+
+| Note: 1-4 EEL scale factors are being read from the topology file.
+
+| Note: 1-4 VDW scale factors are being read from the topology file.
+| Duplicated    0 dihedrals
+| Duplicated    0 dihedrals
+
+     BOX TYPE: TRUNCATED OCTAHEDRON
+
+--------------------------------------------------------------------------------
+   2.  CONTROL  DATA  FOR  THE  RUN
+--------------------------------------------------------------------------------
+
+default_name                                                                    
+
+General flags:
+     imin    =       1, nmropt  =       2
+
+Nature and format of input:
+     ntx     =       1, irest   =       0, ntrx    =       1
+
+Nature and format of output:
+     ntxo    =       2, ntpr    =       1, ntrx    =       1, ntwr    =   10000
+     iwrap   =       1, ntwx    =       0, ntwv    =       0, ntwe    =       0
+     ioutfm  =       1, ntwprt  =       0, idecomp =       0, rbornstat=      0
+
+Potential function:
+     ntf     =       1, ntb     =       1, igb     =       0, nsnb    =      25
+     ipol    =       0, gbsa    =       0, iesp    =       0
+     dielc   =   1.00000, cut     =  10.00000, intdiel =   1.00000
+
+Frozen or restrained atoms:
+     ibelly  =       0, ntr     =       0
+
+Energy minimization:
+     maxcyc  =   10000, ncyc    =     500, ntmin   =       1
+     dx0     =   0.01000, drms    =   0.00010
+
+NMR refinement options:
+     iscale  =       0, noeskp  =       1, ipnlty  =       2, mxsub   =       1
+     scalm   = 100.00000, pencut  =   0.10000, tausw   =   0.10000
+
+Ewald parameters:
+     verbose =       0, ew_type =       0, nbflag  =       1, use_pme =       1
+     vdwmeth =       1, eedmeth =       1, netfrc  =       0
+     Box X =   59.271   Box Y =   59.271   Box Z =   59.271
+     Alpha =  109.471   Beta  =  109.471   Gamma =  109.471
+     NFFT1 =   60       NFFT2 =   60       NFFT3 =   60
+     Cutoff=   10.000   Tol   =0.100E-04
+     Ewald Coefficient =  0.27511
+     Interpolation order =    4
+
+--------------------------------------------------------------------------------
+   3.  ATOMIC COORDINATES AND VELOCITIES
+--------------------------------------------------------------------------------
+
+default_name                                                                    
+ begin time read from input coords =     0.000 ps
+
+
+
+           Begin reading energy term weight changes/NMR restraints
+ WEIGHT CHANGES:
+ REST          0      1    0.000000    1.000000      0      0
+
+ RESTRAINTS:
+ Requested file redirections:
+  PCSHIFT   = ./pcs.in
+  LISTOUT   = POUT
+                          ** No restraint defined **
+
+                  Done reading weight changes/NMR restraints
+
+
+ Number of triangulated 3-point waters found:     4264
+
+     Sum of charges from parm topology file =  -0.00200670
+     Forcing neutrality...
+
+--------------------------------------------------------------------------------
+   4.  RESULTS
+--------------------------------------------------------------------------------
+
+ ---------------------------------------------------
+ APPROXIMATING switch and d/dx switch using CUBIC SPLINE INTERPOLATION
+ using   5000.0 points per unit in tabled values
+ TESTING RELATIVE ERROR over r ranging from 0.0 to cutoff
+| CHECK switch(x): max rel err =   0.2738E-14   at   2.422500
+| CHECK d/dx switch(x): max rel err =   0.8314E-11   at   2.736960
+ ---------------------------------------------------
+| Local SIZE OF NONBOND LIST =    4234503
+| TOTAL SIZE OF NONBOND LIST =    4234503
+ Pseudocontact shifts will be read from file: ./pcs.in
+ namelist no reports error 
+ Number of Total protons           42
+ Number of paramagnetic center            1
+ Coord. of paramagnetic center(s) : CO 
+   37.068311500000000        22.652147700000000        34.606969100000001     
+ TENSOR PARAMETERS
+ PHI=  60.420 TETA=  75.172 OMEGA= 107.840
+ A1=    -6.342 A2=    -1.411
+  VIOLATIONS      3  RESIDUALS    0.48799
+ Invalid stop to time:                     
