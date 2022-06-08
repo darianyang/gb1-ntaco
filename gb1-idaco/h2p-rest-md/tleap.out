@@ -1,0 +1,208 @@
+-I: Adding /Users/darian/anaconda3/envs/md/dat/leap/prep to search path.
+-I: Adding /Users/darian/anaconda3/envs/md/dat/leap/lib to search path.
+-I: Adding /Users/darian/anaconda3/envs/md/dat/leap/parm to search path.
+-I: Adding /Users/darian/anaconda3/envs/md/dat/leap/cmd to search path.
+-f: Source tleap.in.
+
+Welcome to LEaP!
+(no leaprc in search path)
+Sourcing: ./tleap.in
+----- Source: /Users/darian/anaconda3/envs/md/dat/leap/cmd/leaprc.gaff2
+----- Source of /Users/darian/anaconda3/envs/md/dat/leap/cmd/leaprc.gaff2 done
+Log file: ./leap.log
+Loading parameters: /Users/darian/anaconda3/envs/md/dat/leap/parm/gaff2.dat
+Reading title:
+AMBER General Force Field for organic molecules (Version 2.11, May 2016)
+----- Source: /Users/darian/anaconda3/envs/md/dat/leap/cmd/leaprc.protein.ff15ipq
+----- Source of /Users/darian/anaconda3/envs/md/dat/leap/cmd/leaprc.protein.ff15ipq done
+Log file: ./leap.log
+Loading parameters: /Users/darian/anaconda3/envs/md/dat/leap/parm/parm15ipq_10.3.dat
+Reading title:
+Parm15 developmental parameter set
+Loading library: /Users/darian/anaconda3/envs/md/dat/leap/lib/amino15ipq_10.0.lib
+Loading library: /Users/darian/anaconda3/envs/md/dat/leap/lib/aminoct15ipq_10.0.lib
+Loading library: /Users/darian/anaconda3/envs/md/dat/leap/lib/aminont15ipq_10.0.lib
+----- Source: /Users/darian/anaconda3/envs/md/dat/leap/cmd/leaprc.fluorine.ff15ipq
+----- Source of /Users/darian/anaconda3/envs/md/dat/leap/cmd/leaprc.fluorine.ff15ipq done
+Log file: ./leap.log
+Loading parameters: /Users/darian/anaconda3/envs/md/dat/leap/parm/frcmod.ff15ipq-19F
+Reading force field modification type file (frcmod)
+Reading title:
+Set of parameters for fluorinated, aromatic amino acids for use with the ff15ipq force field
+Loading library: /Users/darian/anaconda3/envs/md/dat/leap/lib/ff15ipq-19F.lib
+----- Source: /Users/darian/anaconda3/envs/md/dat/leap/cmd/leaprc.water.spceb
+----- Source of /Users/darian/anaconda3/envs/md/dat/leap/cmd/leaprc.water.spceb done
+Loading library: /Users/darian/anaconda3/envs/md/dat/leap/lib/atomic_ions.lib
+Loading library: /Users/darian/anaconda3/envs/md/dat/leap/lib/solvents.lib
+Loading parameters: /Users/darian/anaconda3/envs/md/dat/leap/parm/frcmod.spceb
+Reading force field modification type file (frcmod)
+Reading title:
+SPC/Eb water model; Takemura et al. J Phys Chem B 116 6279-6287 (2012)
+Loading parameters: /Users/darian/anaconda3/envs/md/dat/leap/parm/frcmod.ionsjc_spce
+Reading force field modification type file (frcmod)
+Reading title:
+Monovalent ion parameters for Ewald and SPC/E water from Joung & Cheatham JPCB (2008)
+Loading parameters: /Users/darian/anaconda3/envs/md/dat/leap/parm/frcmod.ions234lm_126_spce
+Reading force field modification type file (frcmod)
+Reading title:
+Li/Merz ion parameters of divalent to tetravalent ions for SPC/E water model (12-6 normal usage set)
+Loading parameters: /Users/darian/anaconda3/envs/md/dat/leap/parm/frcmod.ions234lm_1264_spce
+Reading force field modification type file (frcmod)
+Reading title:
+Li/Merz ion parameters of divalent to tetravalent ions for SPC/E water model (12-6-4 set)
+Loading parameters: ../simprep/idaco/ida.frcmod
+Reading force field modification type file (frcmod)
+Reading title:
+Remark line goes here
+Loading library: ../simprep/idaco/ida.lib
+Loading PDB file: ./gb1-idaco-leap.pdb
+
+/Users/darian/anaconda3/envs/md/bin/teLeap: Warning!
+Name change in pdb file residue 1 ;
+this residue is split into CO and IDA.
+
+/Users/darian/anaconda3/envs/md/bin/teLeap: Note.
+1 residues had naming warnings.
+Thus, there are split residues;
+residue sequence numbers will not correspond to those in the pdb.
+  Added missing heavy atom: .R<CGLU 56>.A<OXT 16>
+  total atoms in file: 867
+  Leap added 1 missing atom according to residue templates:
+       1 Heavy
+Scaling up box by a factor of 1.192493 to meet diagonal cut criterion
+  Solute vdw bounding box:              32.156 38.911 24.736
+  Total bounding box for atom centers:  67.531 67.531 67.531
+      (box expansion for 'iso' is  40.6%)
+  Solvent unit box:                     18.774 18.774 18.774
+  Volume: 160927.079 A^3 (oct)
+  Total mass 84182.866 amu,  Density 0.869 g/cc
+  Added 4315 residues.
+5 Na+ ions required to neutralize.
+Adding 5 counter ions to "gb1" using 1A grid
+Grid extends from solute vdw + 1.21  to  7.21
+Resolution:      1.00 Angstrom.
+Solvent present: replacing closest with ion
+	 when steric overlaps occur
+Calculating grid charges
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (7.46, -1.92, 9.63).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (-11.42, -1.66, 7.86).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (-17.57, -1.15, -1.18).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (-10.31, 1.52, 10.72).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (17.55, 5.54, -7.60).
+
+Done adding ions.
+Adding 15 counter ions to "gb1" using 1A grid
+Grid extends from solute vdw + 6.83  to  12.83
+Resolution:      1.00 Angstrom.
+Solvent present: replacing closest with ion
+	 when steric overlaps occur
+Calculating grid charges
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (-18.33, -0.17, 10.95).
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (-18.04, 13.88, 5.28).
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (22.98, 11.34, -8.42).
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (-25.55, -1.04, -3.29).
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (14.00, 0.39, -18.37).
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (0.42, -15.63, 4.91).
+(No solvent overlap)
+Placed Cl- in gb1 at (29.60, 1.86, -9.78).
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (-11.00, 4.88, 17.62).
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (-0.05, 14.07, -15.93).
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (15.50, -2.36, 18.87).
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (-5.22, -4.75, -29.72).
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (-10.05, 25.49, 0.22).
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (22.05, -18.44, -10.61).
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (-10.48, -15.87, 2.67).
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (-25.08, 11.31, 16.27).
+
+Done adding ions.
+Adding 15 counter ions to "gb1" using 1A grid
+Grid extends from solute vdw + 3.05  to  9.77
+Resolution:      1.00 Angstrom.
+Solvent present: replacing closest with ion
+	 when steric overlaps occur
+Calculating grid charges
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (-7.20, -16.78, 5.28).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (-2.32, 13.81, -10.85).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (25.32, 6.22, -7.99).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (-16.42, 2.78, 16.61).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (-5.93, -10.08, -4.65).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (-23.28, 14.35, 10.70).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (13.42, 5.40, -14.14).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (1.54, 2.70, 15.48).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (-2.07, -3.22, -24.26).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (17.98, -16.27, -10.61).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (5.62, -12.41, 10.10).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (-13.16, 21.48, 2.42).
+(No solvent overlap)
+Placed Na+ in gb1 at (-31.31, -1.20, -3.49).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (18.84, -0.72, 18.27).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (-10.89, -1.26, -15.93).
+
+Done adding ions.
+Checking Unit.
+Building topology.
+Building atom parameters.
+Building bond parameters.
+Building angle parameters.
+Building proper torsion parameters.
+Building improper torsion parameters.
+ total 175 improper torsions applied
+Building H-Bond parameters.
+Incorporating Non-Bonded adjustments.
+Not Marking per-residue atom chain types.
+Marking per-residue atom chain types.
+  (Residues lacking connect0/connect1 - 
+   these don't have chain types marked:
+
+	res	total affected
+
+	CGLU	1
+	IDA	1
+	NMET	1
+	WAT	4282
+  )
+ (no restraints)
+Writing pdb file: gb1_idaco_solv.pdb
+   printing CRYST1 record to PDB file with box info
+
+/Users/darian/anaconda3/envs/md/bin/teLeap: Warning!
+ Converting N-terminal residue name to PDB format: NMET -> MET
+
+/Users/darian/anaconda3/envs/md/bin/teLeap: Warning!
+ Converting C-terminal residue name to PDB format: CGLU -> GLU
+	Quit
+
+Exiting LEaP: Errors = 0; Warnings = 3; Notes = 1.
