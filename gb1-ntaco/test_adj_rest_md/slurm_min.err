@@ -1,6 +1,7 @@
 + export 'DO_PARALLEL=mpirun -np 8'
 + DO_PARALLEL='mpirun -np 8'
-+ SANDER=sander
++ SANDER=sander.MPI
 + PDB=gb1_ntaco_solv
 + printf '\nstart min\n\n'
-+ sander -O -i 02_min.in -o 02_min.out -p gb1_ntaco_solv.prmtop -c gb1_ntaco_solv.inpcrd -r 02_min.rst
++ mpirun -np 8 sander.MPI -O -i 02_min.in -o 02_min.out -p gb1_ntaco_solv.prmtop -c gb1_ntaco_solv.inpcrd -r 02_min.rst
++ printf '\ndone min\n\n'

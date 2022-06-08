@@ -33,5 +33,5 @@ PCS restrained 10000 step minimization, 500 SD
 &wt
   type      = 'END',
 &end
-PCSHIFT     = ./pcs.in
+PCSHIFT     = ./pcs-ntaco.in
 LISTOUT     = POUT

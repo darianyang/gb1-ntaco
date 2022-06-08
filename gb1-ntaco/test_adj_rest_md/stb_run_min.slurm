@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=pcs_rest_gb1-ntaco_min
-#SBATCH --ntasks-per-node=1
+#SBATCH --ntasks-per-node=8
 #SBATCH --time=23:59:59
 #SBATCH --mail-user=dty7@pitt.edu
 #SBATCH --mail-type=END,FAIL
@@ -14,8 +14,8 @@ set -x
 
 # set variables
 export DO_PARALLEL="mpirun -np 8"
-#SANDER=sander.MPI
-SANDER=sander
+SANDER=sander.MPI
+#SANDER=sander
 
 ###################################################
 ###################################################
@@ -27,7 +27,7 @@ PDB="gb1_ntaco_solv"
 
 # 10000 step minimization (500 steepest descent)
 printf "\nstart min\n\n" 
-#$DO_PARALLEL \
+$DO_PARALLEL \
     $SANDER -O \
             -i 02_min.in -o 02_min.out \
             -p ${PDB}.prmtop -c ${PDB}.inpcrd -r 02_min.rst &&
