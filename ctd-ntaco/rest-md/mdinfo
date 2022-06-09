@@ -1,10 +1,23 @@
 
-
-   NSTEP       ENERGY          RMS            GMAX         NAME    NUMBER
-  10000      -2.7921E+05     8.4658E-02     8.4649E+00     H2      21037
-
- BOND    =    24532.5133  ANGLE   =      586.3681  DIHED      =    -1555.5854
- VDWAALS =    63982.4730  EEL     =  -378329.1985  HBOND      =        0.0000
- 1-4 VDW =      573.6977  1-4 EEL =    10997.4573  RESTRAINT  =        0.0000
+ NSTEP =   500000   TIME(PS) =    2020.000  TEMP(K) =   298.99  PRESS =    29.2
+ Etot   =   -190509.2873  EKtot   =     33161.9604  EPtot      =   -223671.2478
+ BOND   =       593.6570  ANGLE   =      1650.6952  DIHED      =     -1401.2817
+ 1-4 NB =       631.0823  1-4 EEL =     10989.9800  VDWAALS    =     39695.3911
+ EELEC  =   -275830.7719  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ EKCMT  =     15532.1797  VIRIAL  =     15191.5557  VOLUME     =    541023.1794
+                                                    Density    =         1.0329
+ Ewald error estimate:   0.9399E-04
  NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
 ===============================================================================
+
+| Final Performance Info:
+| -----------------------------------------------------
+| Average timings for last     500 steps:
+|     Elapsed(s) =      58.60 Per Step(ms) =     117.21
+|         ns/day =       1.47   seconds/ns =   58604.85
+|
+| Average timings for all steps:
+|     Elapsed(s) =   57773.58 Per Step(ms) =     115.55
+|         ns/day =       1.50   seconds/ns =   57773.58
+| -----------------------------------------------------
+

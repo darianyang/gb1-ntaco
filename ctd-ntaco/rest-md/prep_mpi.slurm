@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=ctd-ntaco-pcs-rest_PREP
-#SBATCH --ntasks-per-node=8
+#SBATCH --ntasks-per-node=16
 #SBATCH --time=48:59:59
 #SBATCH --mail-user=dty7@pitt.edu
 #SBATCH --mail-type=END,FAIL
@@ -13,8 +13,9 @@ module load nmr/amber/amber20_CUDA
 set -x
 
 # set variables
-export DO_PARALLEL="mpirun -np 8"
-SANDER=sander.MPI
+export DO_PARALLEL="mpirun -np 16"
+#SANDER=sander.MPI
+SANDER=pmemd.MPI
 
 ###################################################
 ###################################################
@@ -32,13 +33,13 @@ PDB="2kod_ntaco_solv"
 #            -p ${PDB}.prmtop -c ${PDB}.inpcrd -r 02_min.rst &&
 #printf "\ndone min\n\n" 
 
-# 20ps restrained NVT equilibration with Langevin thermostat (298K)
-printf "\nstart restrained system heat in\n\n" 
-$DO_PARALLEL \
-    $SANDER -O \
-            -i 03_eq1.in -o 03_eq1.out \
-            -p ${PDB}.prmtop -c 02_min.rst -r 03_eq1.rst -ref 02_min.rst &&
-printf "\ndone restrained system heat in\n\n" 
+## 20ps restrained NVT equilibration with Langevin thermostat (298K)
+#printf "\nstart restrained system heat in\n\n" 
+#$DO_PARALLEL \
+#    $SANDER -O \
+#            -i 03_eq1.in -o 03_eq1.out \
+#            -p ${PDB}.prmtop -c 02_min.rst -r 03_eq1.rst -ref 02_min.rst &&
+#printf "\ndone restrained system heat in\n\n" 
 
 # 1 ns restrained NPT equilibration Langevin thermostat (298K) MC barostat (1atm)
 printf "\nstart restrained equil\n\n" 
@@ -56,10 +57,10 @@ printf "\ndone restrained equil\n\n"
 #            -p ${PDB}.prmtop -c 04_eq2.rst -r 05_eq3.rst &&
 #printf "\ndone unrestrained equil\n\n"
 
-# 1 ns pcs restrained NPT equilibration Langevin thermostat (298K) MC barostat (1atm)
-printf "\nstart pcs restrained equil\n\n" 
-$DO_PARALLEL \
-    $SANDER -O \
-            -i 05_prod.in -o 05_prod.out \
-            -p ${PDB}.prmtop -c 04_eq2.rst -r 05_prod.rst &&
-printf "\ndone pcs restrained equil\n\n"
+## 1 ns pcs restrained NPT equilibration Langevin thermostat (298K) MC barostat (1atm)
+#printf "\nstart pcs restrained equil\n\n" 
+#$DO_PARALLEL \
+#    $SANDER -O \
+#            -i 05_prod.in -o 05_prod.out \
+#            -p ${PDB}.prmtop -c 04_eq2.rst -r 05_prod.rst &&
+#printf "\ndone pcs restrained equil\n\n"
