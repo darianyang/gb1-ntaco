@@ -2,6 +2,37 @@
 + DO_PARALLEL='mpirun -np 16'
 + SANDER=sander.MPI
 + PDB=gb1_ntaco_solv
-+ printf '\nstart pcs restrained equil\n\n'
-+ mpirun -np 16 sander.MPI -O -i 05_prod.in -o 05_prod.out -p gb1_ntaco_solv.prmtop -c 04_eq2.rst -r 05_prod.rst
-+ printf '\ndone pcs restrained equil\n\n'
++ printf '\nstart pcs restrained md\n\n'
++ mpirun -np 16 sander.MPI -O -i 06_prod.in -o 06_prod.out -p gb1_ntaco_solv.prmtop -c 05_prod.rst -r 06_prod.rst
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+--------------------------------------------------------------------------
+A process has executed an operation involving a call to the
+"fork()" system call to create a child process.  Open MPI is currently
+operating in a condition that could result in memory corruption or
+other system errors; your job may hang, crash, or produce silent
+data corruption.  The use of fork() (or system() or other calls that
+create child processes) is strongly discouraged.
+
+The process that invoked fork was:
+
+  Local host:          [[60313,1],9] (PID 24356)
+
+If you are *absolutely sure* that your application will successfully
+and correctly survive a call to fork(), you may disable this warning
+by setting the mpi_warn_on_fork MCA parameter to 0.
+--------------------------------------------------------------------------
+#0  0x2AAAAD6DE287
+#1  0x2AAAAD6DE88E
+#2  0x2AAAADE6156F
+#3  0x6DD869 in nb_adjust_
+#4  0x6DF755 in ewald_force_
+#5  0x5EDD10 in force_
+#6  0x6A1F9E in runmd_
+#7  0x64E7B2 in sander_
+#8  0x64439F in MAIN__ at multisander.F90:0
+--------------------------------------------------------------------------
+mpirun noticed that process rank 9 with PID 24356 on node node05 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------

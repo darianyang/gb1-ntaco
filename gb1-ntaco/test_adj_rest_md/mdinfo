@@ -1,25 +1,28 @@
 
- NSTEP =   500000   TIME(PS) =    2020.000  TEMP(K) =   299.81  PRESS =   -34.8
- Etot   =    -48257.8941  EKtot   =      8309.1588  EPtot      =    -56567.0529
- BOND   =       192.6254  ANGLE   =       496.6199  DIHED      =      -253.2015
- 1-4 NB =       216.0001  1-4 EEL =      4707.4291  VDWAALS    =      9644.2674
- EELEC  =    -71585.4418  EHBOND  =         0.0000  RESTRAINT  =        14.6484
- EAMBER (non-restraint)  =    -56581.7013
- EKCMT  =      3916.6721  VIRIAL  =      4017.5571  VOLUME     =    134395.4595
-                                                    Density    =         1.0420
- Ewald error estimate:   0.8014E-04
+ NSTEP =   506500   TIME(PS) =    3033.000  TEMP(K) =   322.22  PRESS =    61.2
+ Etot   =    -46910.2717  EKtot   =      8930.0500  EPtot      =    -55840.3217
+ BOND   =       167.0058  ANGLE   =       489.2584  DIHED      =      -245.3012
+ 1-4 NB =       208.1053  1-4 EEL =      4739.4421  VDWAALS    =      9373.8840
+ EELEC  =    -70587.2004  EHBOND  =         0.0000  RESTRAINT  =        14.4843
+ EAMBER (non-restraint)  =    -55854.8060
+ EKCMT  =      4188.8855  VIRIAL  =      4010.1239  VOLUME     =    135338.8299
+                                                    Density    =         1.0348
+ Ewald error estimate:   0.1385E-04
  NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
-               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.648
+               : Noesy=    0.000   Shift =     0.000   Pcshift =    14.484
 ===============================================================================
-
-| Final Performance Info:
-| -----------------------------------------------------
+ ------------------------------------------------------------------------------
+| Current Timing Info
+| -------------------
+| Total steps:   5000000 | Completed:    506500 ( 10.1%) | Remaining:   4493500
+|
 | Average timings for last     500 steps:
-|     Elapsed(s) =      14.93 Per Step(ms) =      29.86
-|         ns/day =       5.79   seconds/ns =   14927.93
+|     Elapsed(s) =      14.94 Per Step(ms) =      29.88
+|         ns/day =       5.78   seconds/ns =   14939.60
 |
 | Average timings for all steps:
-|     Elapsed(s) =   14934.30 Per Step(ms) =      29.87
-|         ns/day =       5.79   seconds/ns =   14934.30
-| -----------------------------------------------------
-
+|     Elapsed(s) =   15091.18 Per Step(ms) =      29.80
+|         ns/day =       5.80   seconds/ns =   14897.51
+|
+| Estimated time remaining:      37.2 hours.
+ ------------------------------------------------------------------------------
