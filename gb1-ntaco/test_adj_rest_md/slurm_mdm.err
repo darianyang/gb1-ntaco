@@ -1,0 +1,16 @@
++ export 'DO_PARALLEL=mpirun -np 16'
++ DO_PARALLEL='mpirun -np 16'
++ SANDER=sander.MPI
++ PDB=gb1_ntaco_solv
++ for PROD in '{14..15}'
+++ printf %02d 13
++ PREV=13
++ printf '\nstart 14 prod pcs restrained md\n\n'
++ mpirun -np 16 sander.MPI -O -i 14_prod.in -o 14_prod.out -p gb1_ntaco_solv.prmtop -c 13_prod.rst -r 14_prod.rst
++ printf '\ndone 14 prod pcs restrained md\n\n'
++ for PROD in '{14..15}'
+++ printf %02d 14
++ PREV=14
++ printf '\nstart 15 prod pcs restrained md\n\n'
++ mpirun -np 16 sander.MPI -O -i 15_prod.in -o 15_prod.out -p gb1_ntaco_solv.prmtop -c 14_prod.rst -r 15_prod.rst
++ printf '\ndone 15 prod pcs restrained md\n\n'
