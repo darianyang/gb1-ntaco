@@ -1,0 +1,7 @@
++ export 'DO_PARALLEL=mpirun -np 16'
++ DO_PARALLEL='mpirun -np 16'
++ SANDER=sander.MPI
++ PDB=gb1_idaco_solv
++ printf '\nstart pcs restrained md\n\n'
++ mpirun -np 16 sander.MPI -O -i 06_prod.in -o 06_prod.out -p gb1_idaco_solv.prmtop -c 05_prod.rst -r 06_prod.rst
++ printf '\ndone pcs restrained md\n\n'
