@@ -1,3 +1,4 @@
+source leaprc.gaff2
 source leaprc.protein.ff15ipq
 source leaprc.fluorine.ff15ipq
 source leaprc.water.spceb
