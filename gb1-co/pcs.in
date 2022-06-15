@@ -53,4 +53,4 @@
  iprot(42)=809, obs(42)=0.072, wt(42)=1.0, tolpro(42)=1.0, mltpro(42)=1, 
  iprot(43)=825, obs(43)=-0.007, wt(43)=1.0, tolpro(43)=1.0, mltpro(43)=1, 
  iprot(44)=839, obs(44)=0.02, wt(44)=1.0, tolpro(44)=1.0, mltpro(44)=1, 
-&end
+/
