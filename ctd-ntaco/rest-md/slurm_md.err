@@ -2,6 +2,6 @@
 + DO_PARALLEL='mpirun -np 16'
 + SANDER=sander.MPI
 + PDB=2kod_ntaco_solv
-+ printf '\nstart pcs restrained equil\n\n'
-+ mpirun -np 16 sander.MPI -O -i 05_prod.in -o 05_prod.out -p 2kod_ntaco_solv.prmtop -c 04_eq2.rst -r 05_prod.rst
-+ printf '\ndone pcs restrained equil\n\n'
++ printf '\nstart pcs restrained md\n\n'
++ mpirun -np 16 sander.MPI -O -i 06_prod.in -o 06_prod.out -p 2kod_ntaco_solv.prmtop -c 05_prod.rst -r 06_prod.rst
+slurmstepd: error: *** JOB 250119 ON node07 CANCELLED AT 2022-06-15T11:13:39 DUE TO TIME LIMIT ***
