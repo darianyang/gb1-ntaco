@@ -15,7 +15,7 @@ set -x
 
 # set variables
 export DO_PARALLEL="mpirun -np 8"
-SANDER=sander.MPI
+SANDER=pmemd.MPI
 #SANDER=sander
 
 ###################################################
