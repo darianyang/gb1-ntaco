@@ -1,0 +1,29 @@
+-I: Adding /opt/nmr/amber20/dat/leap/prep to search path.
+-I: Adding /opt/nmr/amber20/dat/leap/lib to search path.
+-I: Adding /opt/nmr/amber20/dat/leap/parm to search path.
+-I: Adding /opt/nmr/amber20/dat/leap/cmd to search path.
+-f: Source tleap.in.
+
+Welcome to LEaP!
+(no leaprc in search path)
+Sourcing: ./tleap.in
+----- Source: /opt/nmr/amber20/dat/leap/cmd/leaprc.gaff2
+----- Source of /opt/nmr/amber20/dat/leap/cmd/leaprc.gaff2 done
+Log file: ./leap.log
+Loading parameters: /opt/nmr/amber20/dat/leap/parm/gaff2.dat
+Reading title:
+AMBER General Force Field for organic molecules (Version 2.11, May 2016)
+----- Source: /opt/nmr/amber20/dat/leap/cmd/leaprc.protein.ff15ipq
+----- Source of /opt/nmr/amber20/dat/leap/cmd/leaprc.protein.ff15ipq done
+Log file: ./leap.log
+Loading parameters: /opt/nmr/amber20/dat/leap/parm/parm15ipq_10.3.dat
+Reading title:
+Parm15 developmental parameter set
+Loading library: /opt/nmr/amber20/dat/leap/lib/amino15ipq_10.0.lib
+Loading library: /opt/nmr/amber20/dat/leap/lib/aminoct15ipq_10.0.lib
+Loading library: /opt/nmr/amber20/dat/leap/lib/aminont15ipq_10.0.lib
+
+/opt/nmr/amber20/bin/teLeap: Fatal Error!
+Could not open file leaprc.fluorine.ff15ipq: not found
+
+Exiting LEaP: Errors = 1; Warnings = 0; Notes = 0.
