@@ -1,0 +1,942 @@
+
+Static FFT Slab Distribution:
+
+  FFT slabs assigned to    8 tasks
+  Maximum of   12 xy slabs per task
+  Maximum of   12 zx slabs per task
+  Count of FFT xy slabs assigned to each task:
+      11  11  11  11  11  11  12  12
+  Count of FFT xz slabs assigned to each task:
+      12  12  11  11  11  11  11  11
+
+Atom Distribution No.     2 at run step    2905:
+
+  Count of atoms assigned to each task:
+         6865     7007     6527     7091     7108     6998     6975     6492
+
+Atom Distribution No.     3 at run step    5793:
+
+  Count of atoms assigned to each task:
+         6787     6915     6474     7127     7120     7066     7014     6560
+
+Atom Distribution No.     4 at run step    8682:
+
+  Count of atoms assigned to each task:
+         6760     6974     6421     7150     7071     7085     7032     6570
+
+Atom Distribution No.     5 at run step   11581:
+
+  Count of atoms assigned to each task:
+         6837     6885     6451     7096     7131     7053     7077     6533
+
+Atom Distribution No.     6 at run step   14467:
+
+  Count of atoms assigned to each task:
+         6861     6894     6454     7057     7178     7074     7052     6493
+
+Atom Distribution No.     7 at run step   17365:
+
+  Count of atoms assigned to each task:
+         6835     6888     6428     7093     7141     7104     7051     6523
+
+Atom Distribution No.     8 at run step   20284:
+
+  Count of atoms assigned to each task:
+         6863     6821     6509     7047     7201     7057     7122     6443
+
+Atom Distribution No.     9 at run step   23173:
+
+  Count of atoms assigned to each task:
+         6891     6785     6577     6991     7201     6991     7170     6457
+
+Atom Distribution No.    10 at run step   26008:
+
+  Count of atoms assigned to each task:
+         6783     6929     6397     7155     7107     7135     7047     6510
+
+Atom Distribution No.    11 at run step   28907:
+
+  Count of atoms assigned to each task:
+         6910     6848     6518     7005     7185     6993     7129     6475
+
+Atom Distribution No.    12 at run step   31758:
+
+  Count of atoms assigned to each task:
+         6762     6925     6351     7143     7047     7179     7022     6634
+
+Atom Distribution No.    13 at run step   34657:
+
+  Count of atoms assigned to each task:
+         6859     6807     6499     7063     7188     7015     7132     6500
+
+Atom Distribution No.    14 at run step   37543:
+
+  Count of atoms assigned to each task:
+         6866     6837     6496     7045     7149     7034     7118     6518
+
+Atom Distribution No.    15 at run step   40416:
+
+  Count of atoms assigned to each task:
+         6772     6960     6402     7126     7078     7101     7033     6591
+
+Atom Distribution No.    16 at run step   43294:
+
+  Count of atoms assigned to each task:
+         6825     6910     6407     7089     7120     7110     7013     6589
+
+Atom Distribution No.    17 at run step   46168:
+
+  Count of atoms assigned to each task:
+         6858     6885     6492     7041     7170     7035     7090     6492
+
+Atom Distribution No.    18 at run step   49077:
+
+  Count of atoms assigned to each task:
+         6902     6814     6495     7037     7189     7054     7098     6474
+
+Atom Distribution No.    19 at run step   51960:
+
+  Count of atoms assigned to each task:
+         6753     6948     6398     7159     7070     7150     6993     6592
+
+Atom Distribution No.    20 at run step   54852:
+
+  Count of atoms assigned to each task:
+         6897     6784     6538     7019     7179     6974     7208     6464
+
+Atom Distribution No.    21 at run step   57747:
+
+  Count of atoms assigned to each task:
+         6858     6912     6484     7030     7168     6997     7097     6517
+
+Atom Distribution No.    22 at run step   60623:
+
+  Count of atoms assigned to each task:
+         6792     6979     6453     7086     7069     7125     7000     6559
+
+Atom Distribution No.    23 at run step   63522:
+
+  Count of atoms assigned to each task:
+         6810     6914     6454     7071     7120     7107     7011     6576
+
+Atom Distribution No.    24 at run step   66399:
+
+  Count of atoms assigned to each task:
+         6897     6804     6552     6995     7228     7030     7108     6449
+
+Atom Distribution No.    25 at run step   69234:
+
+  Count of atoms assigned to each task:
+         6875     6823     6538     7050     7217     7028     7064     6468
+
+Atom Distribution No.    26 at run step   72092:
+
+  Count of atoms assigned to each task:
+         6820     6912     6537     7082     7177     7087     6980     6468
+
+Atom Distribution No.    27 at run step   74955:
+
+  Count of atoms assigned to each task:
+         6875     6843     6546     7036     7123     7016     7115     6509
+
+Atom Distribution No.    28 at run step   77880:
+
+  Count of atoms assigned to each task:
+         6852     6852     6548     7074     7169     7034     7066     6468
+
+Atom Distribution No.    29 at run step   80757:
+
+  Count of atoms assigned to each task:
+         6726     6992     6413     7197     7089     7132     6905     6609
+
+Atom Distribution No.    30 at run step   83652:
+
+  Count of atoms assigned to each task:
+         6872     6925     6541     7005     7154     7021     7064     6481
+
+Atom Distribution No.    31 at run step   86540:
+
+  Count of atoms assigned to each task:
+         6762     6956     6412     7129     7045     7179     6977     6603
+
+Atom Distribution No.    32 at run step   89444:
+
+  Count of atoms assigned to each task:
+         6711     6973     6398     7207     7028     7172     6943     6631
+
+Atom Distribution No.    33 at run step   92309:
+
+  Count of atoms assigned to each task:
+         6729     6960     6421     7180     7048     7150     6955     6620
+
+Atom Distribution No.    34 at run step   95179:
+
+  Count of atoms assigned to each task:
+         6739     6929     6439     7186     7106     7160     6945     6559
+
+Atom Distribution No.    35 at run step   98018:
+
+  Count of atoms assigned to each task:
+         6862     6849     6550     7052     7194     7028     7078     6450
+
+Atom Distribution No.    36 at run step  100885:
+
+  Count of atoms assigned to each task:
+         6730     6961     6463     7169     7061     7139     6966     6574
+
+Atom Distribution No.    37 at run step  103822:
+
+  Count of atoms assigned to each task:
+         6763     6924     6467     7138     7128     7147     6985     6511
+
+Atom Distribution No.    38 at run step  106666:
+
+  Count of atoms assigned to each task:
+         6782     6965     6421     7165     7132     7136     6907     6555
+
+Atom Distribution No.    39 at run step  109540:
+
+  Count of atoms assigned to each task:
+         6834     6912     6471     7082     7147     7105     6958     6554
+
+Atom Distribution No.    40 at run step  112432:
+
+  Count of atoms assigned to each task:
+         6767     6962     6453     7107     7121     7130     6957     6566
+
+Atom Distribution No.    41 at run step  115315:
+
+  Count of atoms assigned to each task:
+         6677     6961     6433     7179     7105     7175     6918     6615
+
+Atom Distribution No.    42 at run step  118167:
+
+  Count of atoms assigned to each task:
+         6722     6952     6451     7136     7085     7172     6944     6601
+
+Atom Distribution No.    43 at run step  121066:
+
+  Count of atoms assigned to each task:
+         6813     6925     6474     7125     7127     7067     6991     6541
+
+Atom Distribution No.    44 at run step  123961:
+
+  Count of atoms assigned to each task:
+         6907     6833     6574     7024     7238     7001     7073     6413
+
+Atom Distribution No.    45 at run step  126865:
+
+  Count of atoms assigned to each task:
+         6687     6987     6400     7190     7042     7192     6484     7081
+
+Atom Distribution No.    46 at run step  129739:
+
+  Count of atoms assigned to each task:
+         6736     6951     6427     7125     7111     7155     6490     7068
+
+Atom Distribution No.    47 at run step  132592:
+
+  Count of atoms assigned to each task:
+         6837     6872     6528     7129     7148     7052     6525     6972
+
+Atom Distribution No.    48 at run step  135499:
+
+  Count of atoms assigned to each task:
+         6802     6928     6481     7168     7136     7066     6496     6986
+
+Atom Distribution No.    49 at run step  138393:
+
+  Count of atoms assigned to each task:
+         6749     6957     6441     7212     7077     7099     6970     6558
+
+Atom Distribution No.    50 at run step  141285:
+
+  Count of atoms assigned to each task:
+         6781     6936     6460     7167     7086     7083     6994     6556
+
+Atom Distribution No.    51 at run step  144176:
+
+  Count of atoms assigned to each task:
+         6729     6961     6447     7160     7107     7099     6952     6608
+
+Atom Distribution No.    52 at run step  147058:
+
+  Count of atoms assigned to each task:
+         6731     6957     6422     7160     7068     7153     6947     6625
+
+Atom Distribution No.    53 at run step  149942:
+
+  Count of atoms assigned to each task:
+         6794     6959     6480     7184     7071     7098     6934     6543
+
+Atom Distribution No.    54 at run step  152804:
+
+  Count of atoms assigned to each task:
+         6775     6946     6467     7172     7098     7109     6963     6533
+
+Atom Distribution No.    55 at run step  155650:
+
+  Count of atoms assigned to each task:
+         6842     6920     6547     7093     7147     7000     7009     6505
+
+Atom Distribution No.    56 at run step  158549:
+
+  Count of atoms assigned to each task:
+         6812     6888     6521     7110     7073     7080     7049     6530
+
+Atom Distribution No.    57 at run step  161427:
+
+  Count of atoms assigned to each task:
+         6688     7020     6465     7207     7016     7148     6460     7059
+
+Atom Distribution No.    58 at run step  164320:
+
+  Count of atoms assigned to each task:
+         6713     7038     6458     7130     7047     7174     6498     7005
+
+Atom Distribution No.    59 at run step  167182:
+
+  Count of atoms assigned to each task:
+         6766     7006     6474     7159     7064     7101     6974     6519
+
+Atom Distribution No.    60 at run step  170068:
+
+  Count of atoms assigned to each task:
+         6761     6909     6478     7116     7132     7120     7035     6512
+
+Atom Distribution No.    61 at run step  172946:
+
+  Count of atoms assigned to each task:
+         6854     6924     6457     7103     7149     7060     6538     6978
+
+Atom Distribution No.    62 at run step  175836:
+
+  Count of atoms assigned to each task:
+         6855     6975     6496     7090     7143     7025     6567     6912
+
+Atom Distribution No.    63 at run step  178715:
+
+  Count of atoms assigned to each task:
+         6754     6983     6433     7147     7056     7101     7013     6576
+
+Atom Distribution No.    64 at run step  181616:
+
+  Count of atoms assigned to each task:
+         6745     7023     6411     7135     7094     7135     6953     6567
+
+Atom Distribution No.    65 at run step  184496:
+
+  Count of atoms assigned to each task:
+         6741     6998     6431     7138     7100     7149     6957     6549
+
+Atom Distribution No.    66 at run step  187395:
+
+  Count of atoms assigned to each task:
+         6773     6891     6462     7124     7163     7044     7074     6532
+
+Atom Distribution No.    67 at run step  190283:
+
+  Count of atoms assigned to each task:
+         6886     6861     6570     7020     7235     6991     7076     6424
+
+Atom Distribution No.    68 at run step  193151:
+
+  Count of atoms assigned to each task:
+         6801     6861     6477     7093     7214     7049     7062     6506
+
+Atom Distribution No.    69 at run step  196044:
+
+  Count of atoms assigned to each task:
+         6821     6920     6440     7135     7186     7027     7006     6528
+
+Atom Distribution No.    70 at run step  198924:
+
+  Count of atoms assigned to each task:
+         6866     6830     6506     7065     7212     6985     7119     6480
+
+Atom Distribution No.    71 at run step  201832:
+
+  Count of atoms assigned to each task:
+         6707     7013     6373     7225     7054     7150     6935     6606
+
+Atom Distribution No.    72 at run step  204728:
+
+  Count of atoms assigned to each task:
+         6712     7048     6388     7200     7035     7154     6941     6585
+
+Atom Distribution No.    73 at run step  207620:
+
+  Count of atoms assigned to each task:
+         6823     6956     6443     7118     7065     7084     7018     6556
+
+Atom Distribution No.    74 at run step  210484:
+
+  Count of atoms assigned to each task:
+         6881     6854     6497     7039     7199     7034     7090     6469
+
+Atom Distribution No.    75 at run step  213358:
+
+  Count of atoms assigned to each task:
+         6868     6913     6481     7075     7131     7038     7067     6490
+
+Atom Distribution No.    76 at run step  216241:
+
+  Count of atoms assigned to each task:
+         6910     6896     6545     7030     7200     6967     7072     6443
+
+Atom Distribution No.    77 at run step  219127:
+
+  Count of atoms assigned to each task:
+         6894     6902     6527     7080     7209     6980     7043     6428
+
+Atom Distribution No.    78 at run step  222045:
+
+  Count of atoms assigned to each task:
+         6826     6983     6420     7054     7095     7102     7046     6537
+
+Atom Distribution No.    79 at run step  224920:
+
+  Count of atoms assigned to each task:
+         6921     6868     6511     7055     7153     6994     7108     6453
+
+Atom Distribution No.    80 at run step  227780:
+
+  Count of atoms assigned to each task:
+         6699     6994     6366     7265     7033     7135     6974     6597
+
+Atom Distribution No.    81 at run step  230647:
+
+  Count of atoms assigned to each task:
+         6819     6922     6420     7109     7131     7077     7033     6552
+
+Atom Distribution No.    82 at run step  233512:
+
+  Count of atoms assigned to each task:
+         6881     6850     6486     7009     7188     7043     7109     6497
+
+Atom Distribution No.    83 at run step  236410:
+
+  Count of atoms assigned to each task:
+         6846     6925     6543     7040     7146     7019     7080     6464
+
+Atom Distribution No.    84 at run step  239313:
+
+  Count of atoms assigned to each task:
+         6725     6966     6402     7126     7086     7166     6994     6598
+
+Atom Distribution No.    85 at run step  242210:
+
+  Count of atoms assigned to each task:
+         6765     6940     6447     7184     7076     7078     6985     6588
+
+Atom Distribution No.    86 at run step  245092:
+
+  Count of atoms assigned to each task:
+         6741     6968     6390     7154     7076     7155     7003     6576
+
+Atom Distribution No.    87 at run step  247987:
+
+  Count of atoms assigned to each task:
+         6803     6991     6429     7102     7145     7080     7012     6501
+
+Atom Distribution No.    88 at run step  250890:
+
+  Count of atoms assigned to each task:
+         6748     7002     6390     7163     7095     7152     6951     6562
+
+Atom Distribution No.    89 at run step  253770:
+
+  Count of atoms assigned to each task:
+         6787     6920     6447     7052     7169     7089     7071     6528
+
+Atom Distribution No.    90 at run step  256664:
+
+  Count of atoms assigned to each task:
+         6893     6856     6527     6998     7202     7030     7104     6453
+
+Atom Distribution No.    91 at run step  259546:
+
+  Count of atoms assigned to each task:
+         6871     6831     6533     7056     7251     7006     7055     6460
+
+Atom Distribution No.    92 at run step  262417:
+
+  Count of atoms assigned to each task:
+         6874     6891     6530     7027     7195     6996     7067     6483
+
+Atom Distribution No.    93 at run step  265309:
+
+  Count of atoms assigned to each task:
+         6920     6905     6507     6992     7163     7004     7107     6465
+
+Atom Distribution No.    94 at run step  268164:
+
+  Count of atoms assigned to each task:
+         6875     6892     6509     7003     7196     7035     7094     6459
+
+Atom Distribution No.    95 at run step  271038:
+
+  Count of atoms assigned to each task:
+         6818     6878     6526     7053     7198     7011     7083     6496
+
+Atom Distribution No.    96 at run step  273923:
+
+  Count of atoms assigned to each task:
+         6876     6871     6505     7017     7213     7007     7091     6483
+
+Atom Distribution No.    97 at run step  276770:
+
+  Count of atoms assigned to each task:
+         6861     6890     6493     7001     7219     7055     7105     6439
+
+Atom Distribution No.    98 at run step  279663:
+
+  Count of atoms assigned to each task:
+         6852     6881     6516     7046     7180     7022     7099     6467
+
+Atom Distribution No.    99 at run step  282551:
+
+  Count of atoms assigned to each task:
+         6860     6889     6508     7055     7173     7032     7055     6491
+
+Atom Distribution No.   100 at run step  285404:
+
+  Count of atoms assigned to each task:
+         6751     7016     6414     7157     7103     7124     6929     6569
+
+Atom Distribution No.   101 at run step  288278:
+
+  Count of atoms assigned to each task:
+         6894     6912     6526     7026     7207     6990     7043     6465
+
+Atom Distribution No.   102 at run step  291158:
+
+  Count of atoms assigned to each task:
+         6875     6927     6524     6996     7186     7012     7068     6475
+
+Atom Distribution No.   103 at run step  294040:
+
+  Count of atoms assigned to each task:
+         6815     6893     6461     7069     7185     7081     7086     6473
+
+Atom Distribution No.   104 at run step  296887:
+
+  Count of atoms assigned to each task:
+         6851     6879     6534     7023     7174     7027     7107     6468
+
+Atom Distribution No.   105 at run step  299755:
+
+  Count of atoms assigned to each task:
+         6868     6897     6529     7029     7159     7016     7105     6460
+
+Atom Distribution No.   106 at run step  302658:
+
+  Count of atoms assigned to each task:
+         6713     7018     6424     7198     7065     7153     6898     6594
+
+Atom Distribution No.   107 at run step  305570:
+
+  Count of atoms assigned to each task:
+         6853     6918     6470     7042     7204     7023     7078     6475
+
+Atom Distribution No.   108 at run step  308455:
+
+  Count of atoms assigned to each task:
+         6805     6898     6464     7081     7215     7075     7068     6457
+
+Atom Distribution No.   109 at run step  311312:
+
+  Count of atoms assigned to each task:
+         6739     7011     6399     7167     7082     7134     6958     6573
+
+Atom Distribution No.   110 at run step  314183:
+
+  Count of atoms assigned to each task:
+         6859     6914     6487     7000     7153     7053     7098     6499
+
+Atom Distribution No.   111 at run step  317075:
+
+  Count of atoms assigned to each task:
+         6714     6998     6348     7173     7086     7145     6983     6616
+
+Atom Distribution No.   112 at run step  319955:
+
+  Count of atoms assigned to each task:
+         6865     6890     6494     7013     7207     6996     7116     6482
+
+Atom Distribution No.   113 at run step  322849:
+
+  Count of atoms assigned to each task:
+         6732     6984     6331     7189     7037     7151     6977     6662
+
+Atom Distribution No.   114 at run step  325731:
+
+  Count of atoms assigned to each task:
+         6744     7024     6362     7142     7085     7163     6928     6615
+
+Atom Distribution No.   115 at run step  328592:
+
+  Count of atoms assigned to each task:
+         6797     6954     6419     7088     7108     7095     7040     6562
+
+Atom Distribution No.   116 at run step  331454:
+
+  Count of atoms assigned to each task:
+         6890     6887     6526     7028     7144     7009     7070     6509
+
+Atom Distribution No.   117 at run step  334339:
+
+  Count of atoms assigned to each task:
+         6872     6862     6467     7033     7256     7062     7046     6465
+
+Atom Distribution No.   118 at run step  337218:
+
+  Count of atoms assigned to each task:
+         6846     6948     6459     7063     7169     7062     7049     6467
+
+Atom Distribution No.   119 at run step  340141:
+
+  Count of atoms assigned to each task:
+         6855     6938     6461     7037     7182     7052     7068     6470
+
+Atom Distribution No.   120 at run step  343020:
+
+  Count of atoms assigned to each task:
+         6817     6953     6460     7096     7152     7031     7033     6521
+
+Atom Distribution No.   121 at run step  345948:
+
+  Count of atoms assigned to each task:
+         6738     7015     6372     7216     7081     7168     6907     6566
+
+Atom Distribution No.   122 at run step  348825:
+
+  Count of atoms assigned to each task:
+         6738     7006     6395     7164     7056     7143     6965     6596
+
+Atom Distribution No.   123 at run step  351696:
+
+  Count of atoms assigned to each task:
+         6744     7007     6349     7152     7065     7158     6978     6610
+
+Atom Distribution No.   124 at run step  354546:
+
+  Count of atoms assigned to each task:
+         6729     7002     6391     7137     7076     7157     6958     6613
+
+Atom Distribution No.   125 at run step  357447:
+
+  Count of atoms assigned to each task:
+         6849     6905     6482     7050     7164     7047     7065     6501
+
+Atom Distribution No.   126 at run step  360306:
+
+  Count of atoms assigned to each task:
+         6860     6879     6504     7037     7203     7031     7078     6471
+
+Atom Distribution No.   127 at run step  363195:
+
+  Count of atoms assigned to each task:
+         6745     6986     6373     7115     7080     7156     6990     6618
+
+Atom Distribution No.   128 at run step  366071:
+
+  Count of atoms assigned to each task:
+         6408     6866     6474     7014     7214     7063     7083     6941
+
+Atom Distribution No.   129 at run step  368972:
+
+  Count of atoms assigned to each task:
+         6439     6878     6509     7005     7157     7016     7117     6942
+
+Atom Distribution No.   130 at run step  371843:
+
+  Count of atoms assigned to each task:
+         6453     6848     6539     6983     7241     6998     7123     6878
+
+Atom Distribution No.   131 at run step  374712:
+
+  Count of atoms assigned to each task:
+         6400     6880     6468     7018     7210     7031     7100     6956
+
+Atom Distribution No.   132 at run step  377608:
+
+  Count of atoms assigned to each task:
+         6403     6806     6513     6975     7267     7020     7155     6924
+
+Atom Distribution No.   133 at run step  380517:
+
+  Count of atoms assigned to each task:
+         6467     6840     6541     6988     7223     6991     7134     6879
+
+Atom Distribution No.   134 at run step  383401:
+
+  Count of atoms assigned to each task:
+         6233     7017     6362     7148     7037     7223     6933     7110
+
+Atom Distribution No.   135 at run step  386253:
+
+  Count of atoms assigned to each task:
+         6347     6914     6464     7065     7096     7077     7051     7049
+
+Atom Distribution No.   136 at run step  389121:
+
+  Count of atoms assigned to each task:
+         6415     6830     6504     6982     7178     7043     7128     6983
+
+Atom Distribution No.   137 at run step  392004:
+
+  Count of atoms assigned to each task:
+         6418     6864     6539     7000     7218     7006     7119     6899
+
+Atom Distribution No.   138 at run step  394858:
+
+  Count of atoms assigned to each task:
+         6424     6868     6522     7001     7218     6992     7107     6931
+
+Atom Distribution No.   139 at run step  397749:
+
+  Count of atoms assigned to each task:
+         6267     7000     6308     7191     7043     7169     6981     7104
+
+Atom Distribution No.   140 at run step  400633:
+
+  Count of atoms assigned to each task:
+         6248     7013     6321     7185     7070     7208     6915     7103
+
+Atom Distribution No.   141 at run step  403516:
+
+  Count of atoms assigned to each task:
+         6243     7032     6360     7187     7065     7148     6958     7070
+
+Atom Distribution No.   142 at run step  406407:
+
+  Count of atoms assigned to each task:
+         6285     6985     6338     7134     7094     7123     6986     7118
+
+Atom Distribution No.   143 at run step  409313:
+
+  Count of atoms assigned to each task:
+         6390     6903     6450     7048     7155     7089     7070     6958
+
+Atom Distribution No.   144 at run step  412188:
+
+  Count of atoms assigned to each task:
+         6371     6915     6471     7067     7198     7022     7049     6970
+
+Atom Distribution No.   145 at run step  415072:
+
+  Count of atoms assigned to each task:
+         6393     6902     6496     7049     7216     7011     7054     6942
+
+Atom Distribution No.   146 at run step  417971:
+
+  Count of atoms assigned to each task:
+         6332     6901     6412     7127     7100     7133     7015     7043
+
+Atom Distribution No.   147 at run step  420883:
+
+  Count of atoms assigned to each task:
+         6383     6875     6453     7067     7144     7061     7094     6986
+
+Atom Distribution No.   148 at run step  423754:
+
+  Count of atoms assigned to each task:
+         6432     6864     6508     7027     7225     6990     7111     6906
+
+Atom Distribution No.   149 at run step  426599:
+
+  Count of atoms assigned to each task:
+         6363     6967     6443     7044     7107     7115     7031     6993
+
+Atom Distribution No.   150 at run step  429485:
+
+  Count of atoms assigned to each task:
+         6434     6872     6535     6989     7233     7007     7105     6888
+
+Atom Distribution No.   151 at run step  432383:
+
+  Count of atoms assigned to each task:
+         6389     6963     6456     7067     7162     7049     7030     6947
+
+Atom Distribution No.   152 at run step  435268:
+
+  Count of atoms assigned to each task:
+         6275     7009     6342     7177     7034     7178     6919     7129
+
+Atom Distribution No.   153 at run step  438144:
+
+  Count of atoms assigned to each task:
+         6399     6865     6473     7081     7157     7057     7026     7005
+
+Atom Distribution No.   154 at run step  441008:
+
+  Count of atoms assigned to each task:
+         6258     7024     6364     7176     7063     7172     6954     7052
+
+Atom Distribution No.   155 at run step  443855:
+
+  Count of atoms assigned to each task:
+         6422     6842     6545     7055     7225     6973     7087     6914
+
+Atom Distribution No.   156 at run step  446720:
+
+  Count of atoms assigned to each task:
+         6290     6989     6338     7180     7044     7158     6961     7103
+
+Atom Distribution No.   157 at run step  449625:
+
+  Count of atoms assigned to each task:
+         6454     6863     6501     7006     7171     7019     7133     6916
+
+Atom Distribution No.   158 at run step  452554:
+
+  Count of atoms assigned to each task:
+         6358     6903     6416     7088     7158     7075     7054     7011
+
+Atom Distribution No.   159 at run step  455421:
+
+  Count of atoms assigned to each task:
+         6395     6866     6512     7048     7183     7002     7096     6961
+
+Atom Distribution No.   160 at run step  458287:
+
+  Count of atoms assigned to each task:
+         6440     6891     6488     7005     7203     6978     7098     6960
+
+Atom Distribution No.   161 at run step  461215:
+
+  Count of atoms assigned to each task:
+         6309     6979     6479     7109     7105     7132     6992     6958
+
+Atom Distribution No.   162 at run step  464106:
+
+  Count of atoms assigned to each task:
+         6397     6891     6496     7007     7203     7028     7095     6946
+
+Atom Distribution No.   163 at run step  466972:
+
+  Count of atoms assigned to each task:
+         6400     6895     6454     7076     7175     7016     7059     6988
+
+Atom Distribution No.   164 at run step  469877:
+
+  Count of atoms assigned to each task:
+         6309     6956     6379     7160     7104     7093     6979     7083
+
+Atom Distribution No.   165 at run step  472758:
+
+  Count of atoms assigned to each task:
+         6407     6889     6528     7033     7169     7032     7048     6957
+
+Atom Distribution No.   166 at run step  475648:
+
+  Count of atoms assigned to each task:
+         6345     6929     6449     7099     7112     7098     7042     6989
+
+Atom Distribution No.   167 at run step  478549:
+
+  Count of atoms assigned to each task:
+         6327     6921     6439     7139     7155     7094     7030     6958
+
+Atom Distribution No.   168 at run step  481401:
+
+  Count of atoms assigned to each task:
+         6401     6900     6475     7082     7181     7015     7056     6953
+
+Atom Distribution No.   169 at run step  484261:
+
+  Count of atoms assigned to each task:
+         6391     6882     6499     7063     7226     7014     7070     6918
+
+Atom Distribution No.   170 at run step  487152:
+
+  Count of atoms assigned to each task:
+         6292     7001     6371     7148     7119     7131     6984     7017
+
+Atom Distribution No.   171 at run step  490013:
+
+  Count of atoms assigned to each task:
+         6330     6905     6441     7131     7149     7074     7018     7015
+
+Atom Distribution No.   172 at run step  492925:
+
+  Count of atoms assigned to each task:
+         6797     6959     6469     7099     7136     7088     7029     6486
+
+Atom Distribution No.   173 at run step  495792:
+
+  Count of atoms assigned to each task:
+         6251     6934     6401     7160     7109     7138     7034     7036
+
+Atom Distribution No.   174 at run step  498665:
+
+  Count of atoms assigned to each task:
+         6379     6883     6461     7046     7183     7022     7120     6969
+
+Atom Distribution No.   175 at run step  501557:
+
+  Count of atoms assigned to each task:
+         6807     6910     6468     7056     7172     7071     7101     6478
+
+Atom Distribution No.   176 at run step  504459:
+
+  Count of atoms assigned to each task:
+         6259     7008     6408     7178     7050     7115     6993     7052
+
+Major Routine Parallel Profiling - NonSetup CPU Seconds:
+
+           D                                                              
+           a                                                              
+           t                                                              
+           a                              D                               
+           D         N                    i                               
+           i         o                    h                               
+           s         n             A      e      S      R      O         T
+   T       t         B      B      n      d      h      u      t         o
+   a       r         o      o      g      r      a      n      h         t
+   s       i         n      n      l      a      k      M      e         a
+   k       b         d      d      e      l      e      D      r         l
+------------------------------------------------------------------------------
+   0   681.8   22917.1    2.6   30.1  167.8  135.2 1128.3   21.3   25084.3
+   1   586.7   23199.4    0.3    0.9    2.0  140.5 1136.6   18.7   25085.1
+   2   790.4   22294.2    8.4  111.8  627.9  124.0 1103.3   24.3   25084.4
+   3   505.9   23248.4    0.2    0.1    0.1  142.7 1169.0   18.7   25085.2
+   4   518.0   23239.3    0.2    0.1    0.2  141.7 1165.9   18.6   25083.9
+   5   529.0   23226.9    0.2    0.2    0.1  142.1 1166.6   18.6   25083.8
+   6   581.9   23159.7    0.6    5.1   28.7  139.4 1150.6   18.7   25084.7
+   7   660.0   22601.5    5.9   75.7  427.2  131.8 1156.1   25.8   25084.1
+------------------------------------------------------------------------------
+ avg   606.7   22985.8    2.3   28.0  156.8  137.2 1147.1   20.6   25084.5
+         0.0
+ min   505.9   22294.2    0.2    0.1    0.1  124.0 1103.3   18.6   25083.8
+         0.0
+ max   790.4   23248.4    8.4  111.8  627.9  142.7 1169.0   25.8   25085.2
+         0.0
+ std    91.7     335.0    3.0   40.2  226.2    6.1   21.5    2.7       0.5
+         0.0
+------------------------------------------------------------------------------
+
+PME NonBond Parallel Profiling - NonSetup CPU Seconds:
+
+                     D                           
+           P         i         R                 
+           a         r         e      L          
+           i         e         c      o          
+           r         c         i      a         T
+   T       l         t         p      d         o
+   a       i         F         F      B         t
+   s       s         r         r      a         a
+   k       t         c         c      l         l
+-------------------------------------------------
+   0  2724.5   15775.9    4415.6    0.8   22916.8
+   1  2798.7   16047.5    4351.9    1.1   23199.2
+   2  2648.9   15150.5    4493.3    1.1   22293.8
+   3  2848.6   16119.7    4278.9    1.0   23248.2
+   4  2846.3   16059.7    4332.0    1.0   23239.0
+   5  2822.0   16068.7    4334.9    1.1   23226.6
+   6  2803.4   15897.0    4457.9    1.1   23159.4
+   7  2710.9   15329.3    4560.2    0.9   22601.2
+-------------------------------------------------
+ avg  2775.4   15806.0    4403.1    1.0   22985.5
+-------------------------------------------------
