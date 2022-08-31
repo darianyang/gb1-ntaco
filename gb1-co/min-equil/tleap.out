@@ -1,0 +1,189 @@
+-I: Adding /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/prep to search path.
+-I: Adding /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/lib to search path.
+-I: Adding /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/parm to search path.
+-I: Adding /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/cmd to search path.
+-f: Source tleap.in.
+
+Welcome to LEaP!
+(no leaprc in search path)
+Sourcing: ./tleap.in
+----- Source: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/cmd/leaprc.gaff2
+----- Source of /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/cmd/leaprc.gaff2 done
+Log file: ./leap.log
+Loading parameters: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/parm/gaff2.dat
+Reading title:
+AMBER General Force Field for organic molecules (Version 2.11, May 2016)
+----- Source: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/cmd/leaprc.protein.ff15ipq
+----- Source of /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/cmd/leaprc.protein.ff15ipq done
+Log file: ./leap.log
+Loading parameters: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/parm/parm15ipq_10.3.dat
+Reading title:
+Parm15 developmental parameter set
+Loading library: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/lib/amino15ipq_10.0.lib
+Loading library: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/lib/aminoct15ipq_10.0.lib
+Loading library: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/lib/aminont15ipq_10.0.lib
+----- Source: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/cmd/leaprc.fluorine.ff15ipq
+----- Source of /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/cmd/leaprc.fluorine.ff15ipq done
+Log file: ./leap.log
+Loading parameters: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/parm/frcmod.ff15ipq-19F
+Reading force field modification type file (frcmod)
+Reading title:
+Set of parameters for fluorinated, aromatic amino acids for use with the ff15ipq force field
+Loading library: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/lib/ff15ipq-19F.lib
+----- Source: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/cmd/leaprc.water.spceb
+----- Source of /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/cmd/leaprc.water.spceb done
+Loading library: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/lib/atomic_ions.lib
+Loading library: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/lib/solvents.lib
+Loading parameters: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/parm/frcmod.spceb
+Reading force field modification type file (frcmod)
+Reading title:
+SPC/Eb water model; Takemura et al. J Phys Chem B 116 6279-6287 (2012)
+Loading parameters: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/parm/frcmod.ionsjc_spce
+Reading force field modification type file (frcmod)
+Reading title:
+Monovalent ion parameters for Ewald and SPC/E water from Joung & Cheatham JPCB (2008)
+Loading parameters: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/parm/frcmod.ions234lm_126_spce
+Reading force field modification type file (frcmod)
+Reading title:
+Li/Merz ion parameters of divalent to tetravalent ions for SPC/E water model (12-6 normal usage set)
+Loading parameters: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/parm/frcmod.ions234lm_1264_spce
+Reading force field modification type file (frcmod)
+Reading title:
+Li/Merz ion parameters of divalent to tetravalent ions for SPC/E water model (12-6-4 set)
+Loading PDB file: ./gb1-co-leap.pdb
+  Added missing heavy atom: .R<CGLU 56>.A<OXT 16>
+  total atoms in file: 853
+  Leap added 1 missing atom according to residue templates:
+       1 Heavy
+Scaling up box by a factor of 1.206483 to meet diagonal cut criterion
+  Solute vdw bounding box:              27.962 38.863 24.219
+  Total bounding box for atom centers:  67.819 67.819 67.819
+      (box expansion for 'iso' is  52.0%)
+  Solvent unit box:                     18.774 18.774 18.774
+  Volume: 162962.661 A^3 (oct)
+  Total mass 86087.584 amu,  Density 0.877 g/cc
+  Added 4428 residues.
+3 Na+ ions required to neutralize.
+Adding 3 counter ions to "gb1" using 1A grid
+Grid extends from solute vdw + 1.21  to  7.21
+Resolution:      1.00 Angstrom.
+Solvent present: replacing closest with ion
+	 when steric overlaps occur
+Calculating grid charges
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (-16.23, -5.74, -3.03).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (-11.03, -1.13, 10.81).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (3.95, -1.32, 16.08).
+
+Done adding ions.
+Adding 15 counter ions to "gb1" using 1A grid
+Grid extends from solute vdw + 6.83  to  12.83
+Resolution:      1.00 Angstrom.
+Solvent present: replacing closest with ion
+	 when steric overlaps occur
+Calculating grid charges
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (8.33, -13.60, 13.47).
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (-16.29, 14.46, 8.20).
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (16.62, -6.82, 6.35).
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (-21.86, -10.35, -3.32).
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (-17.43, 1.26, 14.94).
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (15.61, -2.28, -17.74).
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (4.70, -4.26, 25.02).
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (-0.90, -16.75, 7.41).
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (4.06, 15.26, -14.57).
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (-10.19, 25.62, 0.41).
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (-5.36, -4.62, -29.53).
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (25.63, -16.65, -10.47).
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (-25.36, -0.27, -8.87).
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (-5.94, 15.62, 23.08).
+(Replacing solvent molecule)
+Placed Cl- in gb1 at (27.13, 9.59, -3.03).
+
+Done adding ions.
+Adding 15 counter ions to "gb1" using 1A grid
+Grid extends from solute vdw + 3.05  to  9.77
+Resolution:      1.00 Angstrom.
+Solvent present: replacing closest with ion
+	 when steric overlaps occur
+Calculating grid charges
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (-15.72, 1.02, 4.41).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (18.89, 3.36, -6.88).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (3.21, -15.37, 11.14).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (-0.62, 13.57, -6.67).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (-24.19, -4.74, -5.47).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (-6.32, 13.10, 19.06).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (-6.62, 0.67, -17.06).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (21.19, -13.97, -8.45).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (-11.49, 24.51, 5.90).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (9.10, -8.51, 24.17).
+(No solvent overlap)
+Placed Na+ in gb1 at (-2.13, -8.51, -32.30).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (26.86, 10.46, 2.71).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (-2.00, -11.91, -4.55).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (8.33, 18.25, -18.74).
+(Replacing solvent molecule)
+Placed Na+ in gb1 at (-16.26, 1.37, 19.46).
+
+Done adding ions.
+Checking Unit.
+Building topology.
+Building atom parameters.
+Building bond parameters.
+Building angle parameters.
+Building proper torsion parameters.
+Building improper torsion parameters.
+ total 173 improper torsions applied
+Building H-Bond parameters.
+Incorporating Non-Bonded adjustments.
+Not Marking per-residue atom chain types.
+Marking per-residue atom chain types.
+  (Residues lacking connect0/connect1 - 
+   these don't have chain types marked:
+
+	res	total affected
+
+	CGLU	1
+	NMET	1
+	WAT	4396
+  )
+ (no restraints)
+Writing pdb file: gb1_co_solv.pdb
+   printing CRYST1 record to PDB file with box info
+
+/ihome/lchong/dty7/Apps/anaconda3/envs/md/bin/teLeap: Warning!
+ Converting N-terminal residue name to PDB format: NMET -> MET
+
+/ihome/lchong/dty7/Apps/anaconda3/envs/md/bin/teLeap: Warning!
+ Converting C-terminal residue name to PDB format: CGLU -> GLU
+	Quit
+
+Exiting LEaP: Errors = 0; Warnings = 2; Notes = 0.

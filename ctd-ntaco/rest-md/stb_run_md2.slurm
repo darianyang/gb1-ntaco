@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=pcs_rest_2kod-ntaco_md_10ns
 #SBATCH --ntasks-per-node=16
-#SBATCH --time=23:59:59
+#SBATCH --time=143:59:59
 #SBATCH --mail-user=dty7@pitt.edu
 #SBATCH --mail-type=END,FAIL
 #SBATCH --output=slurm_md.out 

@@ -116,7 +116,6 @@ class Create_PCSHF_Input:
             pcsresindex = str(int(line[0]) + self.offset)
             # match the pcs residue with the pdb residue (col4), then get pdb atom number (col2)
             atom_num = int(self.pdb[np.argwhere(self.pdb[:,4]==pcsresindex), 1])
-            print(pcsresindex)
             # proton atom number, observed pcs, relative weight
             pcs += f" iprot({num+1})={atom_num}, obs({num+1})={line[2]}, wt({num+1})={wt},"
             # relative tolerance (ppm), multiplicity of the NMR signal
@@ -143,7 +142,7 @@ class Create_PCSHF_Input:
 
 def write_gb1_nta_co():
     # for GB1 NTA-Co2+:
-    # phi=60.42, theta=75.172, omega=107.84 ; delta-chi_ax=-6.342; delta-chi_rh=-1.411
+    # phi, theta, omega ; delta-chi_ax; delta-chi_rh
     magtensor = [60.42, 75.172, 107.84, -6.342, -1.411]
     pcs = Create_PCSHF_Input("gb1-ntaco_solv.pdb", 
                              "dHis-NTA_Co-PCS_HN_full.npc", 
@@ -152,16 +151,25 @@ def write_gb1_nta_co():
 
 def write_gb1_ida_co():
     # for GB1 IDA-Co2+:
-    # phi=68.351, theta=145.904, omega =15.690 ; delta-chi_ax=3.018; delta-chi_rh=0.639
+    # phi, theta, omega ; delta-chi_ax; delta-chi_rh
     magtensor = [69.351, 145.904, 15.690, 3.018, 0.639]
     pcs = Create_PCSHF_Input("gb1_idaco_solv.pdb", 
                              "dHis-IDA_Co-PCS_H_addT55.npc", 
                              magtensor, out="pcs-gb1-idaco.in")
     pcs.write_file()
 
+def write_gb1_co():
+    # for GB1 Co2+:
+    # phi, theta, omega ; delta-chi_ax; delta-chi_rh
+    magtensor = [155.633, 68.481, 123.947, -3.263, -0.012]
+    pcs = Create_PCSHF_Input("gb1_co_solv.pdb", 
+                             "dHis-gb1-co_H.npc", 
+                             magtensor, out="pcs-gb1-co.in")
+    pcs.write_file()
+
 def write_ctd_nta_co_d1():
     # for CTD NTA-Co2+ D1 PCS:
-    # phi=41.261, theta=95.419, omega =85.478 ; delta-chi,ax=-4.462; delta-chi,rh=-0.908
+    # phi, theta, omega ; delta-chi_ax; delta-chi_rh
     magtensor = [41.261, 95.419, 85.478, -4.462, -0.908]
     # note this will need correction factor since using serial vs sequence resids
     # this will put restraints only on monomer 1 of the CTD dimer
@@ -174,4 +182,5 @@ def write_ctd_nta_co_d1():
 if __name__ == "__main__":
     #write_gb1_nta_co()
     #write_gb1_ida_co()
-    write_ctd_nta_co_d1()
+    write_gb1_co()
+    #write_ctd_nta_co_d1()
