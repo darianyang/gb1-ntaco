@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=dihis_nta_opt_orca
+#SBATCH --job-name=dihis_nta_prot_opt_orca
 #SBATCH --ntasks-per-node=1
 #SBATCH --time=23:59:59
 #SBATCH --cluster=invest
