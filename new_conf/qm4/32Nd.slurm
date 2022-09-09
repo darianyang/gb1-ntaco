@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=32Nd-dihis_nta_prot_opt_orca
+#SBATCH --job-name=32Nd-dihis_nta_opt_orca_qm4
 #SBATCH --ntasks-per-node=1
 #SBATCH --time=23:59:59
 #SBATCH --cluster=invest
@@ -7,8 +7,8 @@
 #SBATCH --mem=32g
 #SBATCH --mail-user=dty7@pitt.edu
 #SBATCH --mail-type=END,FAIL
-#SBATCH --output=slurm.out 
-#SBATCH --error=slurm.err 
+#SBATCH --output=32Nd/slurm.out 
+#SBATCH --error=32Nd/slurm.err 
 
 module load gcc/4.8.5 openmpi/4.1.1
 module load orca/5.0.0
@@ -36,9 +36,7 @@ end
 Constraints
 {C 0 C}
 {C 1 C}
-{C 2 C}
-{C 10 C}
-{C 11 C}
+{C 13 C}
 end
 end
  * xyzfile 0 1 ../32Nd-28Ne-nta-co-min.xyz

@@ -37,8 +37,8 @@ Constraints
 {C 0 C}
 {C 1 C}
 {C 2 C}
-{C 10 C}
-{C 11 C}
+{C 13 C}
+{C 14 C}
 end
 end
  * xyzfile 0 1 ../32Nd-28Ne-nta-co-min.xyz
