@@ -18,3 +18,6 @@ qm3: Now I will try it again with HIS CA/CB and Co restrained
 qm4: This time I am using constraints only on CA and Co
     * Ideally I would use a soft constraint on CB but this isn't possible in ORCA (I think)
     * So now the same tautomers but with only CA and Co constrainted energy min then QM opt
+
+10Oct2022:
+    * Setup for qm2 and qm3 of Ne Ne, this will be useful to compare to same conditions with Zn-NTA 
