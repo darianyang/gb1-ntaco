@@ -10,12 +10,13 @@ end
 # triple zeta basis on Co
 %basis newgto Co "def2-TZVP" end end
 # constrain CA and CB atoms of diHis (determined by backbone helix)
+# and constrain Co in PCS defined position
 %geom
 Constraints
-{C 0 C} 
-{C 1 C} 
-{C 12 C} 
+{C 1 C}
+{C 2 C}
 {C 13 C}
+{C 14 C}
 end
 end
- * xyzfile 0 1 dihis_nta_min_prot.xyz 
+ * xyzfile -1 2 ../32Ne-28Nd-nta-co-min.xyz

@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=32Nd-dihis_nta_prot_opt_orca_qm
+#SBATCH --job-name=32Nd-dihis_nta_Zn_opt
 #SBATCH --ntasks-per-node=1
 #SBATCH --time=23:59:59
 #SBATCH --cluster=invest
@@ -7,8 +7,8 @@
 #SBATCH --mem=32g
 #SBATCH --mail-user=dty7@pitt.edu
 #SBATCH --mail-type=END,FAIL
-#SBATCH --output=slurm.out 
-#SBATCH --error=slurm.err 
+#SBATCH --output=32Nd/slurm.out 
+#SBATCH --error=32Nd/slurm.err 
 
 module load gcc/4.8.5 openmpi/4.1.1
 module load orca/5.0.0
@@ -28,19 +28,18 @@ cat << EOF > opt.inp
 smd true
 SMDsolvent "DMF"
 end
-# triple zeta basis on Co
-%basis newgto Co "def2-TZVP" end end
+# triple zeta basis on Zn
+%basis newgto Zn "def2-TZVP" end end
 # constrain CA and CB atoms of diHis (determined by backbone helix)
-# and constrain Co in PCS defined position
 %geom
 Constraints
+{C 0 C}
 {C 1 C}
-{C 2 C}
+{C 12 C}
 {C 13 C}
-{C 14 C}
 end
 end
- * xyzfile 0 1 ../32Nd-28Ne-nta-co-min.xyz
+ * xyzfile -1 1 ../32Nd-28Ne-nta-zn.xyz
 EOF
 
 orca opt.inp > opt.out 
