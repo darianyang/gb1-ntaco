@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=32Ne-dihis_nta_Co_opt_qm2
 #SBATCH --ntasks-per-node=1
-#SBATCH --time=23:59:59
+#SBATCH --time=71:59:59
 #SBATCH --cluster=invest
 #SBATCH --partition=lchong
 #SBATCH --mem=32g

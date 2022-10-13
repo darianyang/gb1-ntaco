@@ -35,8 +35,8 @@ end
 Constraints
 {C 0 C}
 {C 1 C}
+{C 11 C}
 {C 12 C}
-{C 13 C}
 end
 end
  * xyzfile -1 1 ../32Ne-28Ne-nta-zn.xyz
