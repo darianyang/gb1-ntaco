@@ -1,0 +1,22 @@
+! RI BP86 def2-SVP def2/J D3BJ TIGHTSCF Opt
+! CPCM
+# memory
+%maxcore 32000
+# smd solvation model
+%cpcm
+smd true
+SMDsolvent "DMF"
+end
+# triple zeta basis on Co
+%basis newgto Co "def2-TZVP" end end
+# constrain CA and CB atoms of diHis (determined by backbone helix)
+# and constrain Co in PCS defined position
+%geom
+Constraints
+{C 0 C}
+{C 1 C}
+{C 12 C}
+{C 13 C}
+end
+end
+ * xyzfile -1 2 ../32Ne-28Nd-nta-co-min.xyz

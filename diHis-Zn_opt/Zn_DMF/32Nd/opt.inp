@@ -1,0 +1,21 @@
+! RI BP86 def2-SVP def2/J D3BJ TIGHTSCF Opt
+! CPCM
+# memory
+%maxcore 32000
+# smd solvation model
+%cpcm
+smd true
+SMDsolvent "DMF"
+end
+# triple zeta basis on Zn
+%basis newgto Zn "def2-TZVP" end end
+# constrain CA and CB atoms of diHis (determined by backbone helix)
+%geom
+Constraints
+{C 0 C}
+{C 1 C}
+{C 12 C}
+{C 13 C}
+end
+end
+ * xyzfile -1 1 ../32Nd-28Ne-nta-zn.xyz
