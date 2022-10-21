@@ -2,8 +2,8 @@
 #SBATCH --job-name=32Nd-dihis_nta_Co_opt_qm3
 #SBATCH --ntasks-per-node=1
 #SBATCH --time=23:59:59
-#SBATCH --cluster=invest
-#SBATCH --partition=lchong
+#SBATCH --cluster=smp
+#SBATCH --partition=smp
 #SBATCH --mem=32g
 #SBATCH --mail-user=dty7@pitt.edu
 #SBATCH --mail-type=END,FAIL
@@ -26,7 +26,7 @@ cat << EOF > opt.inp
 # smd solvation model
 %cpcm
 smd true
-SMDsolvent "DMF"
+SMDsolvent "water"
 end
 # triple zeta basis on Co
 %basis newgto Co "def2-TZVP" end end
