@@ -26,7 +26,7 @@ cat << EOF > opt.inp
 # smd solvation model
 %cpcm
 smd true
-SMDsolvent "DMF"
+SMDsolvent "water"
 end
 # triple zeta basis on Co
 %basis newgto Co "def2-TZVP" end end
